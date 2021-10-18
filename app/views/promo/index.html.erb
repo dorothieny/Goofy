@@ -1,13 +1,13 @@
 <header class='header_promo'>
-    <button class='button_promo'> 
+    <button class='button_promo'>
         <%= link_to "Goofy", promo_path %>
     </button>
 
    <div>
         <%= link_to "О нас", about_path %>
         <%= link_to "Посты", about_path %>
-        
-        <button class='button_join'> 
+
+        <button class='button_join'>
             <span>
             ::
             </span>
@@ -29,23 +29,23 @@
         Все для&nbspтого, чтоб ты уверенно пошел и&nbspначал кататься
     </h3>
 
-    <button> 
-        <span>
-            ::
-        </span> 
-            Начать 
+    <!-- <button>
         <span>
             ::
         </span>
-    </button>
+            Начать
+        <span>
+            ::
+        </span>
+    </button> -->
 </div>
 
 
 
 <div class='second_screen'>
     <div class='flex_part'>
-        <h1> 
-            Медиа-сервис для начинающих скейтеров 
+        <h1>
+            Медиа-сервис для начинающих скейтеров
         </h1>
 
         <p>
@@ -60,7 +60,7 @@
 
     <div class='features'>
 
-    <% features = [ ['Трюки', '#005AFF', 'blue'], ['Ивенты', '#FF0028', 'red'], ['Споты','#FFCB00', 'yellow'], ['Комьюнити', '#D78CED', 'purple'] ]%> 
+    <% features = [ ['Трюки', '#005AFF', 'blue'], ['Ивенты', '#FF0028', 'red'], ['Споты','#FFCB00', 'yellow'], ['Комьюнити', '#D78CED', 'purple'] ]%>
     <% features.each do |feature| %>
         <%= render 'features', feature: feature %>
         <% end %>
@@ -69,17 +69,17 @@
 </div>
 
 <div class='third_screen'>
-        <h1> 
+        <h1>
             Вместе с Goofy
         </h1>
 
-        <% sths = [ 
-            ['учите базовые трюки и развивайте навыки для сложных', 'right' ], 
+        <% sths = [
+            ['учите базовые трюки и развивайте навыки для сложных', 'right' ],
             ['ищите новые места для катания в скейт-парках и по всему городу', 'left'],
-            ['узнавайте о сходках и скейтерских ивентах в своем городе','right'], 
+            ['узнавайте о сходках и скейтерских ивентах в своем городе','right'],
             ['найдите новых друзей или команду для катания', 'left'],
             ['почувствуйте себя частью скейтерского комьюнити', 'right'],
-            ['не бойтесь того, что только начинаете – мы сделаем ваш путь проще', 'left'] ]%> 
+            ['не бойтесь того, что только начинаете – мы сделаем ваш путь проще', 'left'] ]%>
                 <% sths.each do |sth| %>
                 <%= render 'together', sth: sth %>
                 <% end %>
@@ -93,11 +93,11 @@
 
     <div class='left'>
 
-        <% counters = [ 
-        [1, 'создайте профиль на goofyskate.com - так вы всегда сможете сохранять любимые споты и писать комментарии', '0' ], 
+        <% counters = [
+        [1, 'создайте профиль на goofyskate.com - так вы всегда сможете сохранять любимые споты и писать комментарии', '0' ],
         [2, 'отметьте трюки, которые уже научились делать, если вы несовсем новичок ', '0px' ],
-        [3,'смотрите, какие ивенты проходят прямо сейчас поблизости', '0px'], 
-        [4, 'выбирайте компанию и ивенты по своему уровню катания',  '0px'] ]%> 
+        [3,'смотрите, какие ивенты проходят прямо сейчас поблизости', '0px'],
+        [4, 'выбирайте компанию и ивенты по своему уровню катания',  '0px'] ]%>
             <% counters.each do |counter| %>
             <%= render 'counter', counter: counter %>
             <% end %>
@@ -114,9 +114,9 @@
             Оставь свой мэйл, чтобы мы сразу написали тебе про&nbspобновления
         </h3>
         <div class='block'>
-            <input  type='text' placeholder='E-mail'> 
+            <input  type='text' placeholder='E-mail'>
         </div>
-        
+
 </div>
 
 
@@ -124,8 +124,8 @@
    <div>
         <%= link_to "О нас", about_path %>
         <%= link_to "Посты", about_path %>
-        
-        <button class='button_join'> 
+
+        <button class='button_join'>
             <span>
             ::
             </span>
@@ -136,8 +136,7 @@
         </button>
    </div>
 
-   <button class='button_promo'> 
+   <button class='button_promo'>
     <%= link_to "Goofy", promo_path %>
    </button>
 </footer>
-
