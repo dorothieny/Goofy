@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Irrationalist';
+    src: url('/assets/Irrationalist.ttf');
+ }
+@font-face{
+    font-family: 'FormularMedium';
+    src: url('/assets/FormularMedium.ttf');
+}
+
+@font-face{
+    font-family: 'FormularLight';
+    src: url('/assets/FormularLight.ttf');
+}
+
+@font-face{
+    font-family: 'CSMT';
+    src: url('/assets/typoghraphy.ttf');
+}
+
+
+
+ $text: 'FormularLight';
+ $title: 'FormularMedium';
+ $heading: 'Irrationalist';
+ $dots: 'CSMT';
+
+ $red: #FF0028;
+ $yellow: #FFCB00;
+ $blue: #005AFF;
+ $black: #222222;
+ $purple: #D78CED;
+ $white: #FFFFFF;
+
+ @mixin button($b: 3px, $s: solid,$bc: $yellow, $r: 340px, $w: 220px, $c: transparent){
+     border-width: $b;
+     border-style: $s;
+     border-color: $bc;
+     border-radius: $r;
+     width: $w;
+     background-color: $c;
+     box-sizing: border-box;
+ }
+
+ @mixin font($s: 24px, $l: 102.8%) {
+         font-size: $s; 
+         line-height: $l;
+        }

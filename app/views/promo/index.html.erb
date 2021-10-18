@@ -1,0 +1,143 @@
+<header class='header_promo'>
+    <button class='button_promo'> 
+        <%= link_to "Goofy", promo_path %>
+    </button>
+
+   <div>
+        <%= link_to "О нас", about_path %>
+        <%= link_to "Посты", about_path %>
+        
+        <button class='button_join'> 
+            <span>
+            ::
+            </span>
+                Вступить
+            <span>
+            ::
+                </span>
+        </button>
+   </div>
+</header>
+
+<div class='first_screen'>
+    <div class='plashka'>
+    </div>
+    <h1>
+        Твой старт в&nbspскейтинге
+    </h1>
+    <h3>
+        Все для&nbspтого, чтоб ты уверенно пошел и&nbspначал кататься
+    </h3>
+
+    <button> 
+        <span>
+            ::
+        </span> 
+            Начать 
+        <span>
+            ::
+        </span>
+    </button>
+</div>
+
+
+
+<div class='second_screen'>
+    <div class='flex_part'>
+        <h1> 
+            Медиа-сервис для начинающих скейтеров 
+        </h1>
+
+        <p>
+            Ты только подумал о&nbspтом, как рассекаешь улицы на&nbspсвоей деревянной доске: молодые  бросают восторженные взягляды тебе вслед, бабули машут кулаками
+           <br>
+           <br>
+            Тогда GOOFY создан для&nbspтебя
+        </p>
+    </div>
+
+    <div class='print'></div>
+
+    <div class='features'>
+
+    <% features = [ ['Трюки', '#005AFF', 'blue'], ['Ивенты', '#FF0028', 'red'], ['Споты','#FFCB00', 'yellow'], ['Комьюнити', '#D78CED', 'purple'] ]%> 
+    <% features.each do |feature| %>
+        <%= render 'features', feature: feature %>
+        <% end %>
+    </div>
+
+</div>
+
+<div class='third_screen'>
+        <h1> 
+            Вместе с Goofy
+        </h1>
+
+        <% sths = [ 
+            ['учите базовые трюки и развивайте навыки для сложных', 'right' ], 
+            ['ищите новые места для катания в скейт-парках и по всему городу', 'left'],
+            ['узнавайте о сходках и скейтерских ивентах в своем городе','right'], 
+            ['найдите новых друзей или команду для катания', 'left'],
+            ['почувствуйте себя частью скейтерского комьюнити', 'right'],
+            ['не бойтесь того, что только начинаете – мы сделаем ваш путь проще', 'left'] ]%> 
+                <% sths.each do |sth| %>
+                <%= render 'together', sth: sth %>
+                <% end %>
+
+</div>
+
+<div class='fouth_screen'>
+
+    <div class='right'>
+    </div>
+
+    <div class='left'>
+
+        <% counters = [ 
+        [1, 'создайте профиль на goofyskate.com - так вы всегда сможете сохранять любимые споты и писать комментарии', '0' ], 
+        [2, 'отметьте трюки, которые уже научились делать, если вы несовсем новичок ', '0px' ],
+        [3,'смотрите, какие ивенты проходят прямо сейчас поблизости', '0px'], 
+        [4, 'выбирайте компанию и ивенты по своему уровню катания',  '0px'] ]%> 
+            <% counters.each do |counter| %>
+            <%= render 'counter', counter: counter %>
+            <% end %>
+    </div>
+
+</div>
+
+<div class='fifth_screen'>
+        <h1>
+            Присоединяйся
+        </h1>
+
+        <h3>
+            Оставь свой мэйл, чтобы мы сразу написали тебе про&nbspобновления
+        </h3>
+        <div class='block'>
+            <input  type='text' placeholder='E-mail'> 
+        </div>
+        
+</div>
+
+
+<footer class='header_promo'>
+   <div>
+        <%= link_to "О нас", about_path %>
+        <%= link_to "Посты", about_path %>
+        
+        <button class='button_join'> 
+            <span>
+            ::
+            </span>
+                Вступить
+            <span>
+            ::
+                </span>
+        </button>
+   </div>
+
+   <button class='button_promo'> 
+    <%= link_to "Goofy", promo_path %>
+   </button>
+</footer>
+
