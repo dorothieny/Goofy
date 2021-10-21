@@ -25,7 +25,7 @@
         transition: all .3s ease-in-out;
         a{
             @include font(36px, 36px);
-        }    
+        }
     }
      .button_promo:hover{
         a{
@@ -43,6 +43,7 @@
         color: $white;
         @include font(30px, 33px);
         transition: all .3s ease-in-out;
+
         span{
             font-family: $dots;
             font-size: 30px;
@@ -116,14 +117,14 @@
         }
     }
     button:hover{
-        
+
             background-color: $yellow;
             color: $red;
             transition: all .3s ease-in-out;
-        
+
     }
-    
-   
+
+
 }
 
 .second_screen{
@@ -135,7 +136,7 @@
         padding: 0px 50px;
         box-sizing: content-box;
         margin-bottom: 100px;
-        
+
         h1{
             font-family: $heading;
             @include font(100px, 70px);
@@ -244,7 +245,7 @@
         margin-left: 5%;
     }
 
-   .left{  
+   .left{
        margin-top: 20px;
        position: relative;
 
@@ -264,7 +265,7 @@
                 font-family: $text;
                 @include font(24px, 29px);
                 color:$black;
-                
+
             }
     }
    }
@@ -283,7 +284,7 @@
         @include font(30px, 32px);
         color:$black;
         max-width: 550px;
-        margin: 0 auto; 
+        margin: 0 auto;
         margin-top: 40px;
         margin-bottom:50px;
         text-align: center;
@@ -301,10 +302,10 @@
             display: block;
             border: none;
             height: 144px;
-            border-radius: 340px; 
+            border-radius: 340px;
             font-family: $heading;
             @include font(60px, 60px);
-            color: $white; 
+            color: $white;
             padding-left: 86px;
         }
         input::placeholder{
