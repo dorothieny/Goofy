@@ -48,10 +48,18 @@
             font-family: $dots;
             font-size: 30px;
         }
+        a{
+            margin: 0 !important;
+        }
     }
     .button_join:hover{
         background-color: $yellow;
         color: $black;
+        a{
+            color: $black !important;
+            opacity: 1;
+            transition: all .3s ease-in-out;
+        }
         transition: all .3s ease-in-out;
     }
 
@@ -61,6 +69,9 @@
         color: $white;
         text-decoration: none;
         margin-right: 120px;
+        &:hover{
+            opacity: .7;
+        }
     }
 }
 .first_screen{
@@ -115,9 +126,17 @@
             font-family: $dots;
             font-size: 30px;
         }
+        a{
+            color: $white;
+            margin: 0;
+            text-decoration: none;
+        }
     }
     button:hover{
-
+        a{
+            color: $red;
+            transition: all .3s ease-in-out;
+        }
             background-color: $yellow;
             color: $red;
             transition: all .3s ease-in-out;
