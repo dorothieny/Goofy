@@ -1,3 +1,119 @@
-// Place all the styles related to the About controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'values';
+
+.about1 {
+  background-color: $red;
+  height: 620px;
+  padding: 91px 50px 141px;
+  box-sizing: border-box;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: right;
+  position: relative;
+}
+.yellow_skate {
+  background-color: $yellow;
+  border-radius: 340px;
+  width: 1070px;
+  height: 324px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+.yellow_skate h1 {
+  font-family: $heading;
+  @include font(240px, 311px);
+  color: $red;
+  position: relative;
+  width: 1070px;
+  z-index: 1;
+  text-align: center;
+}
+.blue_skate {
+  background-color: $blue;
+  border-top-left-radius: 340px;
+  border-bottom-left-radius: 340px;
+  width: 370px;
+  height: 324px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.about1 h3 {
+  font-family: $title;
+  @include font(30px, 32px);
+  width: 808px;
+  margin: 300px 100px 53px;
+  color: $white;
+  position: relative;
+  z-index: 1;
+}
+.concept1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 50px;
+  box-sizing: content-box;
+  margin-top: 75px;
+}
+.concept1 h2 {
+  font-family: $heading;
+  @include font(100px, 88px);
+  width: 433px;
+  color: $blue;
+}
+.concept1 p {
+  font-family: $text;
+  @include font(24px, 25px);
+  width: 544px;
+  color: $black;
+}
+.concept2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 50px;
+  box-sizing: content-box;
+  margin-top: 123px;
+}
+.concept2 h2 {
+  font-family: $heading;
+  @include font(100px, 88px);
+  width: 433px;
+  color: $blue;
+}
+.concept2 p {
+  font-family: $text;
+  @include font(24px, 25px);
+  width: 544px;
+  color: $black;
+}
+.print {
+    height: 461px;
+    width: 100%;
+    background-image: url(/assets/print_features.svg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    margin-top: 115px;
+    margin-bottom: 140px;
+}
+.about3 {
+  background-color: $black;
+  height: 1476px;
+  box-sizing: border-box;
+  background-image: url(/assets/cusdev_feature.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: left;
+  position: relative;
+}
+
+.about3 h2 {
+  font-family: $heading;
+  @include font(200px, 117px);
+  width: 933px;
+  color: $yellow;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 176px;
+}
