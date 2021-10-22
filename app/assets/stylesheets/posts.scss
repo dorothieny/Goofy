@@ -201,7 +201,6 @@
 .post_pic {
   display: flex;
   flex-direction: row;
-  width: 100%;
   margin: 100px 50px 100px 50px;
   box-sizing: border-box;
   background: $black;
@@ -212,7 +211,7 @@
   @include font(30px, 45px);
   margin-left: 124px;
   width: 547px;
-  padding: 40px 0px 70px;
+  padding: 40px 20px 70px;
 }
 .post_edit {
     margin-top: 30px;
