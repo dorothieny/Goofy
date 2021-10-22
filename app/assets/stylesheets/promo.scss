@@ -314,7 +314,7 @@
         background-repeat: no-repeat;
         background-position: bottom;
         height: 843px;
-        input {
+        #subscriber_email {
             background-color: $red;
             width: 80%;
             margin: 0 auto;
@@ -329,6 +329,19 @@
         }
         input::placeholder{
             color: $white;
+        }
+        input:nth-last-of-type(1){
+            background-color: $yellow;
+            width: 20%;
+            margin: 20px auto;
+            display: block;
+            border: none;
+            height: 73px;
+            border-radius: 340px;
+            font-family: $heading;
+            @include font(60px, 60px);
+            color: $red;
+            text-align: center;;
         }
     }
 }
