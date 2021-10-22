@@ -18,7 +18,8 @@
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 0;
+  z-index: 1;
+  padding-left: 70px;
   span{
     @include font(240px, 311px);
     font-family: $dots;
@@ -26,6 +27,7 @@
   }
 }
 .yellow_skate h1 {
+  display: inline;
   font-family: $heading;
   @include font(240px, 311px);
   color: $red;
@@ -33,16 +35,18 @@
   width: 1070px;
   z-index: 1;
   text-align: center;
+;
 }
 .blue_skate {
   background-color: $blue;
   border-top-left-radius: 340px;
   border-bottom-left-radius: 340px;
-  width: 370px;
+  width: 285px;
   height: 324px;
   position: absolute;
   top: 0;
   right: 0;
+  z-index:0;
 }
 .about1 h3 {
   font-family: $title;
