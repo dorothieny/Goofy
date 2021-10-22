@@ -25,9 +25,21 @@
       <button class="<%= post.level%>"><%= post.level %></button>
      </div>
      <p><%= post.description %></p>
-     <button><%= link_to 'Show', post %></button>
-     <button><%= link_to 'Edit', edit_post_path(post) %></button>
-     <button><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+     <div class="flex-align">
+        <button class="show_btn">
+          <span>
+            ::
+          </span>
+            <%= link_to 'Открыть', post %>
+          <span>
+            ::
+          </span>
+        </button>
+        <div class="button_actions">
+            <%= link_to 'Изменить', edit_post_path(post) %>
+            <%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+     </div>
    </div>
     <% end %>
 

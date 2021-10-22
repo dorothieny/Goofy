@@ -22,13 +22,12 @@
         }
         button {
             @include button(4px, solid, $red, 340px, auto);
-            height: 36px;
             font-family: $heading;
-            padding: 0 10px;
+            padding: 0 15px;
             transition: all .3s ease-in-out;
             color: $red;
             a{
-                @include font(24px, 30px);
+                @include font(30px, 35px);
                 text-decoration: none;
                 color: $red
             }
@@ -62,10 +61,9 @@
         height: 485px;
         .plashka {
             background-color: $black;
-            padding: 36px 14px 0px 41px;
+            padding: 36px 14px 60px 41px;
             box-sizing: border-box;
             position: relative;
-            height: 167px;
         }
         h2{
             @include font(36px, 40px);
@@ -76,22 +74,103 @@
         h3 {
             color: $white;
             @include font(24px, 30px);
-            color: $white;
             font-family: $text;
             margin-top: 15px; 
         }
-        button{
-            position: absolute;
-            right: 22px;
-            bottom: 24px;
+        p {
+            font-family: $text;
+            @include font(24px, 30px);
+            color: $black;
+            padding: 31px 0px 0px 41px;
         }
         .легко {
-            @include button(4px, solid, transparent, 340px, 105px, $red);
+            @include button(4px, solid, transparent, 340px, auto, $green);
             @include font(30px, 35px);
             font-family: $heading;
             padding: 0 10px;
             transition: all .3s ease-in-out;
             color: $white;
+            position: absolute;
+            right: 22px;
+            bottom: 24px;
+        }
+
+        .средне {
+            @include button(4px, solid, transparent, 340px, auto, $yellow);
+            @include font(30px, 35px);
+            font-family: $heading;
+            padding: 0 10px;
+            transition: all .3s ease-in-out;
+            color: $white;
+            position: absolute;
+            right: 22px;
+            bottom: 24px;
+        }
+        .сложно {
+            @include button(4px, solid, transparent, 340px, auto, $red);
+            @include font(30px, 35px);
+            font-family: $heading;
+            padding: 0 10px;
+            transition: all .3s ease-in-out;
+            color: $white;
+            position: absolute;
+            right: 22px;
+            bottom: 24px;
+        }
+        .flex-align {
+            margin-top: auto;
+            margin-left: 41px;
+            margin-bottom: 40px;
+            .show_btn {
+                display: block;
+                @include button(4px, solid, $black, 340px, auto);
+                font-family: $heading;
+                padding: 0 15px;
+                transition: all .3s ease-in-out;
+                color: $black;
+                a{
+                    @include font(30px, 35px);
+                    text-decoration: none;
+                    color: $black
+                }
+                span{
+                    font-family: $dots;
+                    font-size: 30px;
+                }
+                &:hover{
+                    a{
+                        color: $white;
+                        transition: all .3s ease-in-out;
+                    }
+                        background-color: $black;
+                        color: $white;
+                        transition: all .3s ease-in-out;
+            
+                }
+            }
+            .button_actions {
+                margin-top: 30px;
+                font-family: $text;
+                @include font(20px, 26px);
+                a:first-of-type {
+                    color: $black;
+                    text-decoration: none;
+                    opacity: .5;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+                a:last-of-type {
+
+                    color: $red;
+                    text-decoration: none;
+                    opacity: .5;
+                    &:hover {
+                    opacity: 1;
+                }
+                }   
+            }
+              
         }
     }
 }
