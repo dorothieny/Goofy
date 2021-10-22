@@ -1,34 +1,38 @@
 <%= render "header" %>
+<div class="posts_page">
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<div class="flex-title_button">
+  <h1 class="posts_title">Трюки</h1>
+    <button>
+      <span>
+        ::
+      </span>
+        <%= link_to 'Добавить трюк', new_post_path %>
+      <span>
+      ::
+      </span>
+    </button>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Time</th>
-      <th>Level</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <div class="posts_container_grid">
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.time%></td>
-        <td><%= post.level %></td>
-        <td><%= post.description %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+ <% @posts.each do |post| %>
+   <div class="post_card">
+     <div class="plashka">
+      <h2><%= post.title %></h2>
+      <h3><%= post.time%></h3>
+      <button class="<%= post.level%>"><%= post.level %></button>
+     </div>
+     <p><%= post.description %></p>
+     <button><%= link_to 'Show', post %></button>
+     <button><%= link_to 'Edit', edit_post_path(post) %></button>
+     <button><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+   </div>
     <% end %>
-  </tbody>
-</table>
+
+  </div>
+
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
+</div>
