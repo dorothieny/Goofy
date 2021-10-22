@@ -369,3 +369,22 @@
   color: $black;
   height: 80px;
 }
+.submit_btn_post {
+    input{
+    @include button(4px, solid, $black, 340px, auto);
+    font-family: $heading;
+    padding: 0 15px;
+    transition: all .3s ease-in-out;
+    color: $black;
+    @include font(36px, 40px);
+    span{
+        font-family: $dots;
+        font-size: 24px;
+    }
+    &:hover{
+            color: $white;
+            transition: all .3s ease-in-out;
+            background-color: $black;
+    }
+}
+}
