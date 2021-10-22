@@ -43,11 +43,11 @@
                     background-color: $red;
                     color: $white;
                     transition: all .3s ease-in-out;
-        
+
             }
         }
     }
-    
+
     .posts_container_grid{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -69,13 +69,13 @@
             @include font(36px, 40px);
             letter-spacing: 0.05em;
             color: $white;
-            font-family: $title;   
+            font-family: $title;
         }
         h3 {
             color: $white;
             @include font(24px, 30px);
             font-family: $text;
-            margin-top: 15px; 
+            margin-top: 15px;
         }
         p {
             font-family: $text;
@@ -145,7 +145,7 @@
                         background-color: $black;
                         color: $white;
                         transition: all .3s ease-in-out;
-            
+
                 }
             }
             .button_actions {
@@ -168,9 +168,203 @@
                     &:hover {
                     opacity: 1;
                 }
-                }   
+                }
             }
-              
+
         }
     }
+}
+.post_info {
+  margin: 120px 0 0px 50px;
+}
+.post_title {
+  font-family: $title;
+  @include font(50px, 51px);
+  color: $black;
+  margin-bottom: 67px;
+}
+.post_scales {
+  font-family: $title;
+  @include font(30px, 31px);
+  color: $black;
+  width: 1000px;
+}
+.post_time, .post_level, .post_description {
+  margin-bottom: 30px;
+}
+.post_mini {
+  color: $black;
+  font-family: $text;
+  @include font(30px, 31px);
+  margin: -60px 0px 30px 300px;
+}
+.post_pic {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.post_content {
+  color: $black;
+  font-family: $text;
+  @include font(30px, 45px);
+  margin-left: 133px;
+  width: 547px;
+}
+.comment_section {
+  margin: 100px 0 50px 50px;
+}
+.comment_section p {
+  color: $black;
+  font-family: $text;
+  @include font(20px, 21px);
+  margin-bottom: 25px;
+}
+.comment_section a {
+  text-decoration: none;
+  color: $red;
+  font-family: $text;
+  @include font(20px, 21px);
+  margin-bottom: 40px;
+}
+.edit {
+  display: flex;
+  justify-content: space-between;
+  width: 207px;
+  margin-bottom: 34px;
+}
+.post_edit a {
+  text-decoration: none;
+  color: $black;
+  opacity: .5;
+  font-family: $text;
+  @include font(20px, 21px);
+}
+.post_edit a:hover {
+  opacity: 1;
+}
+.post_delete a {
+  text-decoration: none;
+  color: $red;
+  font-family: $text;
+  @include font(20px, 21px);
+}
+.comment_title {
+  color: $black;
+  font-family: $title;
+  @include font(30px, 31px);
+  margin-bottom: 34px;
+}
+.add_comment {
+  color: $black;
+  font-family:  $text;
+  @include font(20px, 21px);
+  margin-bottom: 85px;
+  opacity: .5
+}
+.comment_section input {
+  font-family: $text;
+  @include font(20px, 21px);
+  color: $black;
+}
+.field label {
+  color: $black;
+  font-family:  $text;
+  @include font(24px, 27px);
+}
+#comment_commenter {
+  width: 433px;
+  margin-top: 25px;
+}
+#comment_body {
+  width: 433px;
+  height: 123px;
+  margin-top: 25px;
+}
+.field {
+  margin-bottom: 40px;
+}
+.actions input {
+  @include button(4px, solid, $black, 340px, 318px, transparent);
+  height: 51px;
+  font-family: $text;
+  padding: 0 10px;
+  color: $black;
+  transition: all .3s ease-in-out;
+  @include font(24px, 25px);
+}
+.actions input:hover{
+   color: $white;
+   background-color: $black;
+   transition: all .3s ease-in-out;
+}
+.editable {
+  margin: 100px 0 50px 50px;
+}
+.editable h1 {
+  font-family: $title;
+  @include font(50px, 51px);
+  color: $black;
+  margin-bottom: 67px;
+}
+ .editable .field{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-top: 25px;
+}
+.editable label {
+  font-family: $title;
+  @include font(20px, 21px);
+  color: $black;
+  opacity: .5;
+  margin-bottom: 20px;
+  margin-right: 30px;
+}
+.editable input {
+  font-family: $text;
+  @include font(20px, 21px);
+  color: $black;
+}
+.editable textarea {
+  font-family: $text;
+  @include font(20px, 21px);
+  color: $black;
+  height: 80px;
+}
+.add_trick {
+  margin: 100px 0 50px 50px;
+}
+.add_trick h1 {
+  font-family: $title;
+  @include font(50px, 51px);
+  color: $black;
+  margin-bottom: 67px;
+  margin-top: 20px;
+}
+.add_trick .field{
+ display: flex;
+ flex-direction: column;
+ width: 500px;
+ margin-top: 25px;
+}
+.add_trick label {
+ font-family: "FormularMedium";
+ font-size: 20px;
+ line-height: 21px;
+ color: #222222;
+ opacity: .5;
+ margin-bottom: 20px;
+}
+.add_trick input {
+  font-family: $text;
+  @include font(20px, 21px);
+  color: $black;
+}
+.add_trick textarea {
+  font-family: $text;
+  @include font(20px, 21px);
+  color: $black;
+  height: 80px;
 }

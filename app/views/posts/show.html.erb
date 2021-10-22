@@ -1,37 +1,67 @@
+<%= render "header" %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="post_info">
 
-<p>
-	<strong>Time:</strong>
-	<%= @post.time %>
-</p>
+  <div class="edit">
+    <div class="post_edit">
+      <%= link_to 'Изменить', edit_post_path(@post) %>
+    </div>
+    <div class="post_delete">
+      <%= link_to 'Удалить', posts_path %>
+    </div>
+  </div>
 
-<p>
-	<strong>Level:</strong>
-	<%= @post.level %>
-</p>
+  <p class="post_title">
+    <strong></strong>
+    <%= @post.title %>
+  </p>
 
-<p>
-	<strong>Description:</strong>
-	<%= @post.description %>
-</p>
+<div class="post_scales">
+  <p class="post_time">
+    <strong>Время</strong>
+  </p>
+  <div class="post_mini">
+    <%= @post.time %>
+  </div>
 
-<%= image_tag(@post.image.url, alt: 'Image') if @post.image? %>
+  <p class="post_level">
+    <strong>Сложность</strong>
+  </p>
+  <div class="post_mini">
+    <%= @post.level %>
+  </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+  <p class="post_description">
+    <strong>Описание</strong>
+  </p>
+  <div class="post_mini">
+    <%= @post.description %>
+  </div>
 
-<h2>Comments</h2>
-<%= render @post.comments %>
+</div>
 
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</div>
+
+<div class="post_pic">
+
+  <%= image_tag(@post.image.url, alt: 'Image') if @post.image? %>
+
+  <p class="post_content">
+    <strong></strong>
+    <%= @post.content %>
+  </p>
+
+</div>
+
+<div class="comment_section">
+
+  <h2 class="comment_title">Комментарии</h2>
+  <%= render @post.comments %>
+
+  <h2 class="add_comment">Тут будут комментарии</h2>
+  <%= render "comments/form" %>
+
+</div>
