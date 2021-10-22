@@ -1,13 +1,16 @@
+<div class="comment_container">
+	<span>
+		<%= comment.commenter %>
+	</span>	
+
+	<div>
+		<%= comment.body %>
+	</div>
+
+
 <p>
-	<p>Имя</p>
-	<%= comment.commenter %>
-</p>
-<p>
-	<p>Текст:</p>
-	<%= comment.body %>
-</p>
-<p>
-	<%= link_to 'Destroy Comment', [comment.post, comment],
+	<%= link_to 'Удалить комментарий', [comment.post, comment],
 								:confirm => 'Are you sure?',
 								:method => :delete %>
 </p>
+</div>
