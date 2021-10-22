@@ -30,6 +30,7 @@
  $black: #222222;
  $purple: #D78CED;
  $white: #FFFFFF;
+ $green: #3CB54B;
 
  @mixin button($b: 3px, $s: solid,$bc: $yellow, $r: 340px, $w: 220px, $c: transparent){
      border-width: $b;
