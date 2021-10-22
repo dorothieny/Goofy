@@ -9,6 +9,7 @@ posts = [
     level: "легко",
     description: "Чтобы хорошо покататься надо сначала научиться уверенно стоять",
 	content: "Встаньте прямо. Затем встаньте правой ногой на доску. Занесите вторую ногу на доску. Попрубуйте держать центр тяжести там же где центр доски. Попрубуйте держать центр тяжести там же где центр доски",
+    image: File.open(Rails.root.join('public', 'images', 'fall.jpg'))
     },
 {
 	title: "Олли",
@@ -16,6 +17,7 @@ posts = [
     level: "средне",
     description: "Первый серьезный трюк",
 	content: "Пока нет...",
+    image: File.open(Rails.root.join('public', 'images', 'ollie.jpg'))
 },
 {
     title: "Кик-флип",
@@ -23,6 +25,7 @@ posts = [
     level: "средне",
     description: "Кик – тут главное пинок! Не жалей своей доски",
 	content: "Пока нет...",
+    image: File.open(Rails.root.join('public', 'images', 'flip.jpg'))
 }
 ]
 
