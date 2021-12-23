@@ -9,143 +9,100 @@
     .flex-title_button {
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: flex-end;
-        margin: 93px 0px 75px;
+        margin: 123px 0px 44px;
         .posts_title {
             font-family: $heading;
-            @include font(140px, 70px);
+            @include font(48px, 48px);
             color: $black;
             position: relative;
             width: 400px !important;
             z-index: 1;
         }
-        button {
-            @include button(4px, solid, $red, 340px, auto);
-            font-family: $heading;
-            padding: 0 15px;
-            transition: all .3s ease-in-out;
-            color: $red;
-            a{
-                @include font(30px, 35px);
-                text-decoration: none;
-                color: $red
-            }
-            span{
-                font-family: $dots;
-                font-size: 24px;
-            }
-            &:hover{
-                a{
-                    color: $white;
-                    transition: all .3s ease-in-out;
-                }
-                    background-color: $red;
-                    color: $white;
-                    transition: all .3s ease-in-out;
-
-            }
+        .add_smth {
+          border: none;
+          background: transparent;
+          a{
+            font-size: 36px;
+            color: $black;
+          }
         }
     }
 
     .posts_container_grid{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 20px 20px;
     }
     .post_card {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         border: 4px solid #222222;
-        max-width: 433px;
-        height: 485px;
-        .plashka {
-            background-color: $black;
-            padding: 36px 14px 60px 41px;
-            box-sizing: border-box;
-            position: relative;
-        }
+        width: 100%;
+        border-radius: 20px;
+        background-color: $black;
+        padding: 36px 14px 35px 41px;
+        box-sizing: border-box;
         h2{
-            @include font(36px, 40px);
-            letter-spacing: 0.05em;
+            @include font(18px, 18px);
             color: $white;
             font-family: $title;
         }
         h3 {
             color: $white;
-            @include font(24px, 30px);
+            @include font(18px, 18px);
             font-family: $text;
-            margin-top: 15px;
         }
         p {
             font-family: $text;
-            @include font(24px, 30px);
-            color: $black;
-            padding: 31px 0px 0px 41px;
+            @include font(18px, 25px);
+            color: $white;
         }
         .легко {
             @include button(4px, solid, transparent, 340px, auto, $green);
-            @include font(30px, 35px);
+            @include font(18px, 18px);
             font-family: $heading;
             padding: 0 10px;
             transition: all .3s ease-in-out;
             color: $white;
-            position: absolute;
-            right: 22px;
-            bottom: 24px;
+            width: 200px;
         }
 
         .средне {
             @include button(4px, solid, transparent, 340px, auto, $yellow);
-            @include font(30px, 35px);
+            @include font(18px, 18px);
             font-family: $heading;
             padding: 0 10px;
             transition: all .3s ease-in-out;
             color: $white;
-            position: absolute;
-            right: 22px;
-            bottom: 24px;
+            width: 200px;
         }
         .сложно {
             @include button(4px, solid, transparent, 340px, auto, $red);
-            @include font(30px, 35px);
+            @include font(18px, 18px);
             font-family: $heading;
             padding: 0 10px;
             transition: all .3s ease-in-out;
             color: $white;
-            position: absolute;
-            right: 22px;
-            bottom: 24px;
+            width: 200px;
         }
         .flex-align {
             margin-top: auto;
-            margin-left: 41px;
-            margin-bottom: 40px;
             .show_btn {
                 display: block;
-                @include button(4px, solid, $black, 340px, auto);
                 font-family: $heading;
                 padding: 0 15px;
                 transition: all .3s ease-in-out;
-                color: $black;
+                color: $white;
+                border:none;
+                background: transparent;
                 a{
-                    @include font(30px, 35px);
+                    @include font(18px, 18px);
                     text-decoration: none;
-                    color: $black
-                }
-                span{
-                    font-family: $dots;
-                    font-size: 30px;
-                }
-                &:hover{
-                    a{
-                        color: $white;
-                        transition: all .3s ease-in-out;
-                    }
-                        background-color: $black;
-                        color: $white;
-                        transition: all .3s ease-in-out;
-
+                    color: $white;
+                    font-family: $heading;
                 }
             }
             .button_actions {
@@ -153,7 +110,7 @@
                 font-family: $text;
                 @include font(20px, 26px);
                 a:first-of-type {
-                    color: $black;
+                    color: $white;
                     text-decoration: none;
                     opacity: .5;
                     &:hover {
@@ -179,7 +136,7 @@
 }
 .post_title {
   font-family: $heading;
-  @include font(100px, 70px);
+  @include font(48px, 48px);
   color: $black;
   margin-bottom: 67px;
 }
@@ -389,11 +346,7 @@
     padding: 0 15px;
     transition: all .3s ease-in-out;
     color: $black;
-    @include font(36px, 40px);
-    span{
-        font-family: $dots;
-        font-size: 24px;
-    }
+    @include font(18px, 18px);
     &:hover{
             color: $white;
             transition: all .3s ease-in-out;

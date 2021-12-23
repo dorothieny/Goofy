@@ -32,7 +32,7 @@
 </div>
 
   <div class="field">
-      <%= form.label :category_id %>
+      <%= form.label :Категория %>
       <%= form.select :category_id, Category.pluck(:name, :id) %>
   </div>
 
@@ -48,6 +48,6 @@
 
 
   <div class="actions submit_btn_post">
-    <%= form.submit ": : Создать трюк : :" %>
+    <%= form.submit "Создать" %>
   </div>
 <% end %>

@@ -17,11 +17,29 @@
     src: url('/assets/typoghraphy.ttf');
 }
 
+@font-face{
+    font-family: 'PragmaticaLight';
+    src: url('/assets/Pragmatica-Light.ttf');
+}
 
+@font-face{
+    font-family: 'PragmaticaExtendedLightOblique';
+    src: url('/assets/PragmaticaExtended-LightOblique.ttf');
+}
 
- $text: 'FormularLight';
- $title: 'FormularMedium';
- $heading: 'Irrationalist';
+@font-face{
+    font-family: 'PragmaticaExtendedBoldOblique';
+    src: url('/assets/PragmaticaExtended-BoldOblique.ttf');
+}
+
+@font-face{
+    font-family: 'PragmaticaExtendedBold';
+    src: url('/assets/PragmaticaExtended-Bold.ttf');
+}
+
+ $text: 'PragmaticaLight';
+ $title: 'PragmaticaExtendedBold';
+ $heading: 'PragmaticaExtendedBold';
  $dots: 'CSMT';
 
  $red: #FF0028;

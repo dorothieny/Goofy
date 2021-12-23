@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import 'values';
+ body{
+   background: #F8F5F1;
+   a {
+     text-decoration: none;
+   }
+   .notice {
+     position: fixed;
+     bottom: 0;
+     right: 0;
+     font-family: $text;
+     background: $black;
+     color: $white;
+     border-radius: 50px;
+     z-index: 99999;
+     padding: 20px;
+   }
+ }
+  .left_widget {
+    display: flex;
+    position: fixed;
+    flex-direction:column;
+    justify-content: space-between;
+    z-index:3;
+    left:0;
+    height: 100vh;
+    font-family: 'PragmaticaExtendedBold';
+    padding: 69px 36px 40px 34px;
+    box-sizing: border-box;
+    /* background: #F8F5F1; */
+  }
+  .left_menue {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height:80%;
+    a {
+      border: 4px solid #222222;
+      padding: 13px;
+      margin-top: 25px;
+      font-size: 24px;
+      text-decoration: none;
+      line-height:24px;
+      background: transparent;
+      color: #222222;
+      border-radius: 50px;
+      text-align: center; 
+      &:hover {
+        background: #222222;
+        color: #F8F5F1;
+      }
+  }
+}
+.bottom_log {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    color: #222222;
+    opacity: 1;
+    text-decoration: none;
+    &:hover {
+      opacity: .5;
+    }
+  }
+  .exit {
+    font-size: 24px;
+    line-height:24px;
+    margin-top: 16px;
+  }
+}
+    .logo_goofy {
+      font-family: 'PragmaticaExtendedBoldOblique';
+      height: 100px;      
+      a {
+        border: none;
+        font-size:55px;
+        text-decoration: none;
+        color: #222222;
+      }
+      &:hover{
+        background: transparent;
+        color: #222222;
+      }
+    }
+  .content_box {
+    margin-left: 350px;
+    padding-top:69px;
+  }
