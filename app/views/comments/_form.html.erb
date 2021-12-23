@@ -1,7 +1,6 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
 	<div class="field">
-		<%= f.label :Имя %><br />
-		<%= f.text_field :commenter %>
+    <%= current_user.email %>
 	</div>
 	<div class="field">
 		<%= f.label :Текст %><br />

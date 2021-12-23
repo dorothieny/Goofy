@@ -7,12 +7,16 @@
 <%= link_to 'Назад к постам', posts_path %>
 </span>
   <div class="edit">
-    <div class="post_edit">
-      <%= link_to 'Изменить', edit_post_path(@post) %>
-    </div>
+  <% if user_signed_in? %>
+      <div class="post_edit">
+        <%= link_to 'Изменить', edit_post_path(@post) %> 
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
     <div class="post_delete">
       <%= link_to 'Удалить', posts_path %>
     </div>
+    <% end %>
   </div>
 
   <p class="post_title">
@@ -35,6 +39,13 @@
     <%= @post.level %>
   </div>
 
+  <p class="post_level">
+    <strong>Категория</strong>
+  </p>
+  <div class="post_mini">
+    <%= @post.category.name %>
+  </div>
+
   <p class="post_description">
     <strong>Описание</strong>
   </p>
@@ -51,10 +62,30 @@
 
   <p class="post_content">
     <strong></strong>
-    <%= @post.content %>
+    <%= @post.content.html_safe %>
   </p>
 
 </div>
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+<% if user_signed_in? %>
+
+  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like %>
+      <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+    <% else %>
+      <%= button_to 'Like', post_likes_path(@post), method: :post %>
+  <% end %>
+
+  <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
+    <% if pre_favorite %>
+        <%= button_to 'Remove from Favorite', post_favorite_path(@post, pre_favorite), method: :delete %>
+    <% else %>
+        <%= button_to 'Add to Favorite', post_favorites_path(@post), method: :post %>
+  <% end %>
+
+
+<% end %>
 
 
 <div class="comment_section">
@@ -67,7 +98,9 @@
   <h2 class="add_comment">Тут будут комментарии</h2>
   
 
-
-  <%= render "comments/form" %>
-
+  <% if user_signed_in? %>
+    <%= render "comments/form" %>
+  <% else %>
+    <p> Please <link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
+  <% end %>
 </div>

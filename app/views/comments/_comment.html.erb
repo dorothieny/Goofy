@@ -1,16 +1,18 @@
 <div class="comment_container">
 	<span>
-		<%= comment.commenter %>
+		<%= User.find(comment.user_id).email %>
 	</span>	
 
 	<div>
 		<%= comment.body %>
 	</div>
 
-
-<p>
+<% if user_signed_in? && current_user.id == comment.user_id  %>
+	<p>
 	<%= link_to 'Удалить комментарий', [comment.post, comment],
 								:confirm => 'Are you sure?',
 								:method => :delete %>
-</p>
+	</p>
+<% end %>
+
 </div>

@@ -1,6 +1,10 @@
 <%= render "header" %>
 <div class="posts_page">
 
+<h2>All Categories</h2>
+<% Category.all.each do |cat| %>
+	<%= link_to cat.name, posts_path(category: cat.name) %> <br>
+<% end %>
 
 <div class="flex-title_button">
   <h1 class="posts_title">Трюки</h1>
@@ -9,6 +13,15 @@
         ::
       </span>
         <%= link_to 'Добавить трюк', new_post_path %>
+      <span>
+      ::
+      </span>
+    </button>
+    <button>
+      <span>
+        ::
+      </span>
+        <%= link_to 'Добавить категорию', new_category_path %>
       <span>
       ::
       </span>
@@ -22,6 +35,7 @@
      <div class="plashka">
       <h2><%= post.title %></h2>
       <h3><%= post.time%></h3>
+      <h3><%= post.category.name%></h3>
       <button class="<%= post.level%>"><%= post.level %></button>
      </div>
      <p><%= post.description %></p>
@@ -35,10 +49,18 @@
             ::
           </span>
         </button>
+        <button>
+	          <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+        </button>
+        <button>
+        <%= post.comments.count %> <%= (post.comments.count) == 1 ? 'Comment' : 'Commentes'%>
+        </button>
+        <% if user_signed_in? %>
         <div class="button_actions">
             <%= link_to 'Изменить', edit_post_path(post) %>
             <%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
+        <% end %>
      </div>
    </div>
     <% end %>

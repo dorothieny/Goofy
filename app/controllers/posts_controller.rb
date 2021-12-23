@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
-  http_basic_authenticate_with :name => "admin", :password => "10points", :except => [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    if params.has_key?(:category)
+      @category = Category.find_by_name(params[:category])
+      @posts = Post.where(category: @category)
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1 or /posts/1.json
@@ -22,7 +27,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @post.save
@@ -65,6 +70,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit( :title, :time, :level, :description, :image, :content)
+      params.require(:post).permit( :title, :time, :level, :description, :image, :content, :category_id)
     end
 end
