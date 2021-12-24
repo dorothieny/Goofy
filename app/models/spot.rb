@@ -4,4 +4,5 @@ class Spot < ApplicationRecord
     has_many :spot_comments, :dependent => :destroy
     mount_uploader :image, ImageUploader
     belongs_to :user
+    belongs_to :type
 end

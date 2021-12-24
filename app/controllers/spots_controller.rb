@@ -4,7 +4,12 @@ class SpotsController < ApplicationController
 
   # GET /spots or /spots.json
   def index
-    @spots = Spot.all
+    if params.has_key?(:type)
+      @type = Type.find_by_name(params[:type])
+      @spots = Spot.where(type: @type)
+    else
+      @spots = Spot.all
+    end
   end
 
   # GET /spots/1 or /spots/1.json
@@ -64,6 +69,6 @@ class SpotsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def spot_params
-      params.require(:spot).permit(:name, :description, :location, :image)
+      params.require(:spot).permit(:name, :description, :location, :image, :type_id)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_24_032722) do
+ActiveRecord::Schema.define(version: 2021_12_24_101822) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2021_12_24_032722) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -131,11 +133,21 @@ ActiveRecord::Schema.define(version: 2021_12_24_032722) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
+    t.integer "type_id", null: false
+    t.index ["type_id"], name: "index_spots_on_type_id"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
   create_table "subscribers", force: :cascade do |t|
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "display_in_navbar", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -158,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_12_24_032722) do
   add_foreign_key "comments", "users"
   add_foreign_key "eventcomments", "events"
   add_foreign_key "eventcomments", "users"
+  add_foreign_key "events", "categories"
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
@@ -169,5 +182,6 @@ ActiveRecord::Schema.define(version: 2021_12_24_032722) do
   add_foreign_key "posts", "users"
   add_foreign_key "spot_comments", "spots"
   add_foreign_key "spot_comments", "users"
+  add_foreign_key "spots", "types"
   add_foreign_key "spots", "users"
 end

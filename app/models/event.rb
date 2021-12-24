@@ -4,4 +4,5 @@ class Event < ApplicationRecord
     has_many :eventcomments, :dependent => :destroy
     has_many :goes, dependent: :destroy
     belongs_to :user
+    belongs_to :category
 end

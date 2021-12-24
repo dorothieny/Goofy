@@ -1,4 +1,4 @@
-<h1>Подборки</h1>
+<h1>Подборки по уровню</h1>
    
 <% if user_signed_in? && current_user.isadmin == true %>
 <%= link_to '+', new_category_path %>
@@ -13,11 +13,14 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody> 
     <% @categories.each do |category| %>
       <tr>
         <td>
+        Для трюков
         <%= link_to category.name, posts_path(category: category.name)%>
+        Для ивентов
+        <%= link_to category.name, events_path(category: category.name)%>
         </td>
         <td><%= category.description %></td>
         <% if user_signed_in? && current_user.isadmin == true %>

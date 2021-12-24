@@ -39,6 +39,10 @@
       </div>
 
       <div class="menue_item">  
+        <%= link_to 'Типы спотов', types_path %>
+      </div>
+
+      <div class="menue_item">  
         <%= link_to 'Подборки', categories_path %>
       </div>
         <% Category.all.each do |cat| %>

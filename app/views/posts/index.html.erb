@@ -1,5 +1,10 @@
 <div class="posts_page">
 
+<h2>All Categories</h2>
+<% Category.all.each do |cat| %>
+	<%= link_to cat.name, posts_path(category: cat.name) %> <br>
+<% end %>
+
 <div class="flex-title_button">
   <h1 class="posts_title">
     Посты

@@ -19,6 +19,12 @@
   <strong>Level:</strong>
   <%= @event.level %>
 </p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @event.category.name %>
+</p>
+
 <p><%= @event.goes.count %> <%= (@event.goes.count) == 1 ? 'Пойдет' : 'Пойдут'%></p>
 
 <% if user_signed_in? %>

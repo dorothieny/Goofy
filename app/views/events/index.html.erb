@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Events</h1>
+<h2>All Categories</h2>
+<% Category.all.each do |cat| %>
+	<%= link_to cat.name, events_path(category: cat.name) %> <br>
+<% end %>
 
 <table>
   <thead>
@@ -20,6 +24,7 @@
         <td><%= event.location %></td>
         <td><%= event.date %></td>
         <td><%= event.level %></td>
+        <td><%= event.category.name %></td>
         <td>
 	        <%= event.goes.count %> <%= (event.goes.count) == 1 ? 'Пойдет' : 'Пойдут'%>
         </td>
