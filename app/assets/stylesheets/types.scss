@@ -40,3 +40,38 @@
         }
     }
 }
+.one_type_page {
+    .type_title {
+        margin: 123px 0px 20px;
+        a {
+            color: $black;
+            opacity: .7;
+            font-size: 18px;
+            font-family: $text;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    h1 {
+        font-size: 48px;
+        color: $black;
+        font-family: $heading;
+    }
+    h2 {
+        font-size: 24px;
+        color: $black;
+        font-family: $heading;
+        margin-bottom: 40px;
+    }
+    p {
+        font-family: $text;
+        color: $black;
+        font-size: 18px;
+        border: 4px solid $black;
+        border-radius: 20px;
+        box-sizing: border-box;
+        padding: 20px;
+        width: 60%;
+    }
+}

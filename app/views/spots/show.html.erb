@@ -1,27 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="posts_page">
 
-<p>
-  <strong>Name:</strong>
+<div class="new_post_title">
+<%= link_to 'Назад к спотам', spots_path %>
+<h1>
   <%= @spot.name %>
-</p>
+</h1>
+</div>
 
+<div class="new_post_page">
+<div class="block_post">
+<h3>
+  Место
+</h3>
 <p>
-  <strong>Description:</strong>
-  <%= @spot.description %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @spot.type.name %>
-</p>
-
-<p>
-  <strong>Location:</strong>
   <%= @spot.location %>
 </p>
+</div>
 
+<div class="block_post">
+<h3>
+  Тип спота
+</h3>
+<p>
+  <%= @spot.type.name %>
+</p>
+</div>
 
+<div class="block_post">
+<h3>
+  Описание
+</h3>
+<p>
+  <%= @spot.description %> 
+</p>
+</div>
+
+<div class="block_post">
 <%= image_tag(@spot.image.url, alt: 'Image') if @spot.image? %>
+</div>
 
 <% if user_signed_in? %>
 
@@ -31,21 +47,22 @@
   <% else %>
     <%= button_to 'Add to Saved', spot_saveds_path(@spot), method: :post %>
 <% end %>
-
 <% end %>
 
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <% end %>
+</div>
 
-<%= link_to 'Back', spots_path %>
-
-<h2>Comments</h2>
+<div class="comment_post_block">
+<h2>Комментарии</h2>
 <%= render @spot.spot_comments %>
 
-<h2>Add a comment:</h2>
 <% if user_signed_in? %>
+<h2>Добавить коммент:</h2>
   <%= render "spot_comments/form" %>
   <% else %>
   <p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
 <% end %>
+</div>
+</div>

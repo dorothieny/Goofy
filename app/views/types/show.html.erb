@@ -1,12 +1,17 @@
-<p id="notice"><%= notice %></p>
+
+<div class="one_type_page">
+
+<div class="type_title">
+  <%= link_to 'Назад к типам', types_path %>
+<h1>
+  <%= @type.name %> спот
+</h1>
+</div>
+<h2>
+  Что это значит
+</h2>
 
 <p>
-  <strong>Name:</strong>
-  <%= @type.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
   <%= @type.description %>
 </p>
 
@@ -15,4 +20,5 @@
 <%= link_to 'Edit', edit_type_path(@type) %> 
 </button>
 <% end %>
-<%= link_to 'Back', types_path %>
+
+</div>

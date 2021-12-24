@@ -1,29 +1,43 @@
-<p>
-  <strong>Name:</strong>
+<div class="posts_page">
+<div class="new_post_title">
+<%= link_to 'Назад к ивентам', events_path %>
+<h1>
   <%= @event.name %>
-</p>
+</h1>
+</div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
+<div class="new_post_page">
+<div class="block_post">
+  <h3>
+    Место
+  </h3>
+  <p>
+    <%= @event.location %>
+  </p>
+</div>
 
+<div class="block_post">
+<h3>
+  Дата
+</h3>
 <p>
-  <strong>Date:</strong>
   <%= @event.date %>
 </p>
+  
+</div>
 
+<div class="block_post">
+<h3>
+  Уровень
+</h3>
 <p>
-  <strong>Level:</strong>
-  <%= @event.level %>
-</p>
-
-<p>
-  <strong>Category:</strong>
   <%= @event.category.name %>
 </p>
+</div>
 
-<p><%= @event.goes.count %> <%= (@event.goes.count) == 1 ? 'Пойдет' : 'Пойдут'%></p>
+<button>
+  <%= @event.goes.count %> <%= (@event.goes.count) == 1 ? 'Пойдет' : 'Пойдут'%>
+</button>
 
 <% if user_signed_in? %>
 <% pre_go = @event.goes.find { |go| go.user_id == current_user.id} %>
@@ -35,18 +49,20 @@
 <% end %>
 
 
-<% if user_signed_in? %>
-<%= link_to 'Edit', edit_event_path(@event) %> 
+<% if user_signed_in? && current_user.id == event.user_id %>
+  <%= link_to 'Edit', edit_event_path(@event) %> 
 <% end %>
+</div>
 
-<%= link_to 'Back', events_path %>
-
-<h2>Comments</h2>
+<div class="comment_post_block">
+<h2>Комментарии</h2>
 <%= render @event.eventcomments %>
 
 <% if user_signed_in? %>
-  <h2>Add a comment:</h2>
+  <h2>Добавить коммент:</h2>
     <%= render "eventcomments/form" %>
   <% else %>
   <p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
 <% end %>
+</div>
+</div>

@@ -1,20 +1,23 @@
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<div class="one_type_page">
+
+<div class="type_title">
+<%= link_to 'Назад к категориям', categories_path %>
+<h1>
+  <%= @category.name %> уровень
+</h1>
+</div>
+<h2>
+  Что это значит
+</h2>
 
 <p>
-  <strong>Description:</strong>
   <%= @category.description %>
 </p>
 
-<p>
-  <strong>Display in navbar:</strong>
-  <%= @category.display_in_navbar %>
-</p>
 <% if user_signed_in? && current_user.isadmin == true %>
 <button>
-  <%= link_to 'Edit', edit_category_path(@category) %> 
+  <%= link_to 'Изменить', edit_category_path(@category) %> 
 </button>
 <% end %>
-<%= link_to 'Back', categories_path %>
+
+</div>
