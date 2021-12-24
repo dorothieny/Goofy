@@ -21,11 +21,13 @@
 </p>
 <p><%= @event.goes.count %> <%= (@event.goes.count) == 1 ? 'Пойдет' : 'Пойдут'%></p>
 
+<% if user_signed_in? %>
 <% pre_go = @event.goes.find { |go| go.user_id == current_user.id} %>
 <% if pre_go %>
   <%= button_to 'Не пойду', event_go_path(@event, pre_go), method: :delete %>
 <% else %>
   <%= button_to 'Пойду', event_goes_path(@event), method: :post %>
+<% end %>
 <% end %>
 
 

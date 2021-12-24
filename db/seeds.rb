@@ -1,5 +1,6 @@
 Post.destroy_all
-
+Event.destroy_all
+Spot.destroy_all
 puts "Destroyed everything you touch"
 
 # posts = [
