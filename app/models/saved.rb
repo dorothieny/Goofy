@@ -1,0 +1,5 @@
+class Saved < ApplicationRecord
+  belongs_to :spot
+  belongs_to :user
+  has_many :saveds, dependent: :destroy
+end

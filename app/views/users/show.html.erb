@@ -10,6 +10,11 @@ In favorites <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'Po
   <br><%= link_to post.title, post %>
 <% end %>
 
+Saved <%= @user.saveds.count %> <%= (@user.saveds.count) == 1 ? 'Spot' : 'Spots'%>
+<% @spots.each do |spot| %>
+  <br><%= link_to spot.name, spot %>
+<% end %>
+
 <% if user_signed_in? && @user.id == current_user.id %>
 	<p><%= link_to 'Edit profile', edit_user_registration_path %></p>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_24_101822) do
+ActiveRecord::Schema.define(version: 2021_12_24_103715) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -114,6 +114,15 @@ ActiveRecord::Schema.define(version: 2021_12_24_101822) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "saveds", force: :cascade do |t|
+    t.integer "spot_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spot_id"], name: "index_saveds_on_spot_id"
+    t.index ["user_id"], name: "index_saveds_on_user_id"
+  end
+
   create_table "spot_comments", force: :cascade do |t|
     t.string "commenter"
     t.text "body"
@@ -180,6 +189,8 @@ ActiveRecord::Schema.define(version: 2021_12_24_101822) do
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "saveds", "spots"
+  add_foreign_key "saveds", "users"
   add_foreign_key "spot_comments", "spots"
   add_foreign_key "spot_comments", "users"
   add_foreign_key "spots", "types"

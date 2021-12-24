@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :spots do
     resources :spot_comments
+    resources :saveds
   end
 
   resources :events do 

@@ -23,6 +23,14 @@
 
 <%= image_tag(@spot.image.url, alt: 'Image') if @spot.image? %>
 
+
+<% pre_saved = @spot.saveds.find { |saved| saved.user_id == current_user.id} %>
+<% if pre_saved %>
+    <%= button_to 'Remove from Saved', spot_saved_path(@spot, pre_saved), method: :delete %>
+<% else %>
+    <%= button_to 'Add to Saved', spot_saveds_path(@spot), method: :post %>
+<% end %>
+
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <% end %>
@@ -35,5 +43,6 @@
 <h2>Add a comment:</h2>
 <% if user_signed_in? %>
   <%= render "spot_comments/form" %>
+  <% else %>
   <p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
 <% end %>

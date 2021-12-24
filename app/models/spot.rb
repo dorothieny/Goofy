@@ -2,6 +2,7 @@ class Spot < ApplicationRecord
     validates :name, :presence => true
     
     has_many :spot_comments, :dependent => :destroy
+    has_many :saveds, dependent: :destroy
     mount_uploader :image, ImageUploader
     belongs_to :user
     belongs_to :type

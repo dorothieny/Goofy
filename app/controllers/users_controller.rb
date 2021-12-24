@@ -7,14 +7,19 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         if @user
           @posts = @user.favorited_posts
+          @spots = @user.saveds_spots
           render actions: :show
           @favorites = @user.favorites.all
+          @saveds = @user.saveds.all
         else
             render file: 'public/404', status: 404, formats: [:html]
         end
       end
     
-      
+      def saved?(spot)
+        saveds.find_by(spot_id: spot.id).present?
+      end  
+
     def favorited?(post)
         favorites.find_by(post_id: post.id).present?
       end
