@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Types</h1>
+<h1>Типы спотов</h1>
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <%= link_to 'New Type', new_type_path %>
+  <% end %>
 
 <table>
   <thead>
@@ -17,10 +18,12 @@
       <tr>
         <td><%= type.name %></td>
         <td><%= type.description %></td>
-        <td><%= type.display_in_navbar %></td>
         <td><%= link_to 'Show', type %></td>
+
+        <% if user_signed_in? && current_user.isadmin == true %>
         <td><%= link_to 'Edit', edit_type_path(type) %></td>
         <td><%= link_to 'Destroy', type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Type', new_type_path %>
+

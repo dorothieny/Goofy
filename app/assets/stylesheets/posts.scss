@@ -11,7 +11,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-end;
-        margin: 123px 0px 44px;
+        margin: 123px 0px 20px;
         .posts_title {
             font-family: $heading;
             @include font(48px, 48px);
@@ -29,7 +29,23 @@
           }
         }
     }
-
+    .flex-categories {
+      display: flex;
+      flex-direction: row;
+      font-family: $heading;
+      margin-bottom: 50px;
+      .category_item {
+        margin-right: 60px;
+        a {
+          color: $black;
+          opacity: .7;
+          font-size: 20px;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
     .posts_container_grid{
         display: grid;
         grid-template-columns: 1fr;
@@ -41,10 +57,13 @@
         justify-content: space-between;
         border: 4px solid #222222;
         width: 100%;
+        min-height: 190px;
         border-radius: 20px;
         background-color: $black;
         padding: 36px 14px 35px 41px;
         box-sizing: border-box;
+        position: relative;
+
         h2{
             @include font(18px, 18px);
             color: $white;
@@ -57,47 +76,24 @@
         }
         p {
             font-family: $text;
-            @include font(18px, 25px);
+            font-size: 18px;
             color: $white;
         }
-        .легко {
-            @include button(4px, solid, transparent, 340px, auto, $green);
-            @include font(18px, 18px);
-            font-family: $heading;
-            padding: 0 10px;
-            transition: all .3s ease-in-out;
-            color: $white;
-            width: 200px;
-        }
-
-        .средне {
-            @include button(4px, solid, transparent, 340px, auto, $yellow);
-            @include font(18px, 18px);
-            font-family: $heading;
-            padding: 0 10px;
-            transition: all .3s ease-in-out;
-            color: $white;
-            width: 200px;
-        }
-        .сложно {
-            @include button(4px, solid, transparent, 340px, auto, $red);
-            @include font(18px, 18px);
-            font-family: $heading;
-            padding: 0 10px;
-            transition: all .3s ease-in-out;
-            color: $white;
-            width: 200px;
-        }
+      
         .flex-align {
-            margin-top: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
             .show_btn {
                 display: block;
                 font-family: $heading;
-                padding: 0 15px;
+                margin: 0;
+                padding: 0;
                 transition: all .3s ease-in-out;
                 color: $white;
                 border:none;
                 background: transparent;
+                text-align:left;
                 a{
                     @include font(18px, 18px);
                     text-decoration: none;
@@ -106,9 +102,8 @@
                 }
             }
             .button_actions {
-                margin-top: 30px;
-                font-family: $text;
-                @include font(20px, 26px);
+                font-family: $heading;
+                @include font(18px, 18px);
                 a:first-of-type {
                     color: $white;
                     text-decoration: none;
@@ -128,6 +123,17 @@
                 }
             }
 
+        }
+        .info_btn {
+          position: absolute;
+          bottom: 10px;
+          left: 34px;
+          button {
+            border: 1px solid $white;
+            border-radius: 50px;
+            background: transparent;
+            color: $white;
+          }
         }
     }
 }

@@ -1,42 +1,55 @@
-<h2>All Types</h2>
+<div class="posts_page">
+
+<div class="flex-title_button">
+<h1 class="posts_title">
+  Споты
+</h1>
+<button class="add_smth">
+<%= link_to '+', new_spot_path %>
+</button>
+</div>
+
+<div class="flex-categories">
 <% Type.all.each do |type| %>
-	<%= link_to type.name, spots_path(type: type.name) %> <br>
+  <div class="category_item">
+	<%= link_to type.name, spots_path(type: type.name) %>
+  </div>
 <% end %>
+</div>
 
-<%= link_to '++', new_spot_path %>
 
-<h1>Cпоты</h1>
+<div class="posts_container_grid">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Image</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @spots.each do |spot| %>
-      <tr>
-        <td><%= spot.name %></td>
-        <td><%= spot.description %></td>
-        <td><%= spot.type.name %></td>
-        <td><%= spot.location %></td>
-        <td>
+      <div class="post_card">
+        <h2><%= spot.name %></h2>
+        <h3><%= spot.description %></h3>
+        <h3><%= spot.type.name %></h3>
+        <h3><%= spot.location %></h3>
+        <div>
           <%= link_to(image_tag(spot.image.thumb.url, alt: 'Image'), spot.image.url, target: '_blank') if spot.image? %>
-        </td>
-        <td><%= link_to 'Show', spot %></td>
-          <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_spot_path(spot) %></td>
-          <td><%= link_to 'Destroy', spot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+
+        <div class="flex-align">
+        <button class="show_btn">
+          <%= link_to 'Открыть', spot %>
+        </button>  
+        
+          <% if user_signed_in? && current_user.id == spot.user_id %>
+          <div class="button_actions">
+            <%= link_to 'Изменить', edit_spot_path(spot) %>
         <% end %>
-      </tr>
+        <% if (user_signed_in? && current_user.isadmin == true) || (user_signed_in? && current_user.id == spot.user_id) %>
+          <%= link_to 'Удалить', spot, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+        </div>
+
+      </div>
     <% end %>
-  </tbody>
-</table>
+
+</div>
 
 <br>
 
+</div>

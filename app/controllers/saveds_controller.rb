@@ -10,6 +10,7 @@ class SavedsController < ApplicationController
           end
           redirect_to spot_path(@spot)
         end
+
         def destroy
           if !(already_saved?)
             flash[:notice] = "Cannot unsave"
@@ -18,7 +19,9 @@ class SavedsController < ApplicationController
           end
           redirect_to spot_path(@spot)
         end
+
         private
+
         def already_saved?
           Saved.where(user_id: current_user.id, spot_id:
           params[:spot_id]).exists?
@@ -26,7 +29,7 @@ class SavedsController < ApplicationController
         def find_spot
           @spot = Spot.find(params[:spot_id])
         end
-        def find_saved
-           @saved = @spot.saveds.find(params[:id])
+         def find_saved
+        @saved = @spot.saveds.find(params[:id])
         end
 end

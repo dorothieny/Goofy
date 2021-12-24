@@ -5,12 +5,12 @@
     <% end %>
 <p>Username <%= @user.username %></p>
 
-In favorites <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'Post' : 'Posts'%>
+Выученных <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'Трюк' : 'Трюков'%>
 <% @posts.each do |post| %>
   <br><%= link_to post.title, post %>
 <% end %>
 
-Saved <%= @user.saveds.count %> <%= (@user.saveds.count) == 1 ? 'Spot' : 'Spots'%>
+Saved <%= @user.saveds.count %> <%= (@user.saveds.count) == 1 ? 'Спот' : 'Спотов'%>
 <% @spots.each do |spot| %>
   <br><%= link_to spot.name, spot %>
 <% end %>

@@ -1,45 +1,51 @@
 <div class="posts_page">
 
-<h2>All Categories</h2>
-<% Category.all.each do |cat| %>
-	<%= link_to cat.name, posts_path(category: cat.name) %> <br>
-<% end %>
 
 <div class="flex-title_button">
   <h1 class="posts_title">
-    Посты
+    Трюки
   </h1>
     <button class="add_smth">
         <%= link_to '+', new_post_path %>
     </button>
 </div>
 
+<div class="flex-categories">
+
+<% Category.all.each do |cat| %>
+  <div class="category_item">
+	  <%= link_to cat.name, posts_path(category: cat.name) %>
+  </div>
+<% end %>
+
+</div>
  <div class="posts_container_grid">
 
  <% @posts.each do |post| %>
    <div class="post_card">
       <h2><%= post.title %></h2>
-      <h3><%= post.time%></h3>
+      <h3>Времени на изучение <%= post.time%></h3>
       <h3><%= post.category.name%></h3>
-      <p><%= post.level %></p>
      <p><%= post.description %></p>
      <div class="flex-align">
         <button class="show_btn">
             <%= link_to 'Открыть', post %>
         </button>
-        <button>
-	          <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
-        </button>
-        <button>
-        <%= post.comments.count %> <%= (post.comments.count) == 1 ? 'Comment' : 'Commentes'%>
-        </button>
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.isadmin == true %>
         <div class="button_actions">
             <%= link_to 'Изменить', edit_post_path(post) %>
             <%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
         <% end %>
      </div>
+     <div class="info_btn">
+        <button>
+                <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+            </button>
+            <button>
+            <%= post.comments.count %> <%= (post.comments.count) == 1 ? 'Comment' : 'Commentes'%>
+            </button>
+      </div>
    </div>
     <% end %>
 

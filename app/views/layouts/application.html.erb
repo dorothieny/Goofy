@@ -43,13 +43,8 @@
       </div>
 
       <div class="menue_item">  
-        <%= link_to 'Подборки', categories_path %>
-      </div>
-        <% Category.all.each do |cat| %>
-          <div class="subcategory">
-            <%= link_to cat.name, posts_path(category: cat.name) %>
-          </div>
-        <% end %>
+        <%= link_to 'Уровни', categories_path %>
+      </div> 
 
       <% if user_signed_in? && current_user.isadmin == true %>
       <div class="menue_item">  
