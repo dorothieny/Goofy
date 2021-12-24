@@ -1,20 +1,19 @@
-<h1>Users</h1>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Email</th>
-      <th>Username</th>
-    </tr>
-  </thead>
+<div class="posts_page">
 
-  <tbody>
+<div class="flex-title_button">
+<h1 class="posts_title">
+    Пользователи
+</h1>
+</div>
+
+<div class="types_container_drid">
+<div class="types_container_drid">
+
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= link_to user.email, user %></td>
-        <td><%= user.username %></td>
-      </tr>
+        <div class="type_card">
+        <h2><%= user.username %></h2>
+        <h3>ID пользователя: <%= user.id %></h3>
+        <h3><%= link_to user.email, user %></h3>
     <% end %>
-  </tbody>
-</table>
+</div>
+</div>

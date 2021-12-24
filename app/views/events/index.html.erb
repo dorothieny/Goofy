@@ -21,10 +21,10 @@
 
     <% @events.each do |event| %>
       <div class="post_card">
-        <h2><%= event.name %></h2>
-        <h3>Место <%= event.location %></h3>
-        <h3>Дата события <%= event.date %></h3>
-        <h3><%= event.category.name %></h3>
+        <h2 class="post_postik"><%= event.name %></h2>
+        <h3 class="post_postik">Место <%= event.location %></h3>
+        <h3 class="post_postik">Дата события <%= event.date %></h3>
+        <h3 class="post_postik"><%= event.category.name %></h3>
       
         <div class="flex-align">
         <button class="show_btn">
@@ -46,7 +46,7 @@
             <%= event.goes.count %> <%= (event.goes.count) == 1 ? 'Пойдет' : 'Пойдут'%>
           </button>
         </div>
-
+      </div>
     <% end %>
   
   </div>

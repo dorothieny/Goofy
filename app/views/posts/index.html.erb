@@ -5,9 +5,11 @@
   <h1 class="posts_title">
     Трюки
   </h1>
-    <button class="add_smth">
-        <%= link_to '+', new_post_path %>
-    </button>
+  <% if user_signed_in? && current_user.isadmin == true %>
+  <button class="add_smth">
+    <%= link_to '+', new_post_path %>
+  </button>
+  <% end %>
 </div>
 
 <div class="flex-categories">
@@ -23,10 +25,10 @@
 
  <% @posts.each do |post| %>
    <div class="post_card">
-      <h2><%= post.title %></h2>
-      <h3>Времени на изучение <%= post.time%></h3>
-      <h3><%= post.category.name%></h3>
-     <p><%= post.description %></p>
+      <h2 class="post_postik"><%= post.title %></h2>
+      <h3 class="post_postik">Времени на изучение <%= post.time%></h3>
+      <h3 class="post_postik"><%= post.category.name%></h3>
+     <p class="post_postik"><%= post.description %></p>
      <div class="flex-align">
         <button class="show_btn">
             <%= link_to 'Открыть', post %>

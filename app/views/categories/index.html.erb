@@ -1,36 +1,40 @@
-<h1>Подборки по уровню</h1>
+<div class="posts_page">
+
+<div class="flex-title_button">
+<h1 class="posts_title">
+  Подборки по уровню
+</h1>
    
 <% if user_signed_in? && current_user.isadmin == true %>
+<button class="add_smth">
 <%= link_to '+', new_category_path %>
+</button>
 <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Название</th>
-      <th>Описание</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody> 
+<div class="types_container_drid">
     <% @categories.each do |category| %>
-      <tr>
-        <td>
+      <div class="type_card">
+        <h2>
         Для трюков
         <%= link_to category.name, posts_path(category: category.name)%>
+        </h2>
+        <h2>
         Для ивентов
         <%= link_to category.name, events_path(category: category.name)%>
-        </td>
-        <td><%= category.description %></td>
-        <% if user_signed_in? && current_user.isadmin == true %>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </h2>
+        <h3><%= category.description %></h3>
 
-<br>
+        <button class="show_btn">
+        <%= link_to 'Открыть', category %>
+        </button>
+
+        <% if user_signed_in? && current_user.isadmin == true %>
+        <button><%= link_to 'Изменить', edit_category_path(category) %></button>
+        <button><%= link_to 'Удалить', category, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

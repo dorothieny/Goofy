@@ -63,11 +63,14 @@
         padding: 36px 14px 35px 41px;
         box-sizing: border-box;
         position: relative;
-
+        .post_postik {
+          margin-right: 10px;
+        }
         h2{
             @include font(18px, 18px);
             color: $white;
             font-family: $title;
+            min-width: 160px;
         }
         h3 {
             color: $white;
@@ -78,6 +81,7 @@
             font-family: $text;
             font-size: 18px;
             color: $white;
+            width: 40%;
         }
       
         .flex-align {
