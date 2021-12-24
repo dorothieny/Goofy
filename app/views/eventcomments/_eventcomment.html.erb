@@ -1,0 +1,16 @@
+<div class="comment_container">
+	<p>
+	<b>Commenter:</b>
+	<%= eventcomment.commenter %>
+	</p>
+	<p>
+	<b>Comment:</b>
+	<%= eventcomment.body %>
+	</p>
+	<p>
+	<%= link_to 'Destroy Comment', [eventcomment.event, eventcomment],
+								:confirm => 'Are you sure?',
+								:method => :delete %>
+	</p>
+</div>
+

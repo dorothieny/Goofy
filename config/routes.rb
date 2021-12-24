@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
+  resources :events
+  resources :spots
   resources :categories
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
   resources :subscribers
+
+  resources :spots do
+    resources :spot_comments
+  end
+
+  resources :events do 
+    resources :eventcomments
+  end
+  
   resources :posts do
     resources :comments
     resources :likes

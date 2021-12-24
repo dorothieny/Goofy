@@ -26,18 +26,31 @@
     </div>
 
   <div class="left_menue">
-      <% Category.where(display_in_navbar: true).each do |cat| %>
-          <%= link_to cat.name, posts_path(category: cat.name) %>
-      <% end %>
+      <div class="menue_item">  
+        <%= link_to 'Споты', spots_path %>
+      </div>
 
+      <div class="menue_item">  
+        <%= link_to 'Ивенты', events_path %>
+      </div>
+
+      <div class="menue_item">  
+        <%= link_to 'Трюки', posts_path %>
+      </div>
+
+      <div class="menue_item">  
         <%= link_to 'Подборки', categories_path %>
+      </div>
         <% Category.all.each do |cat| %>
-          <%= link_to cat.name, posts_path(category: cat.name) %>
+          <div class="subcategory">
+            <%= link_to cat.name, posts_path(category: cat.name) %>
+          </div>
         <% end %>
 
       <% if user_signed_in? && current_user.isadmin == true %>
+      <div class="menue_item">  
         <%= link_to 'Пользователи', users_path %>
-      <%= link_to 'Добавить категорию', new_category_path %>
+      </div>
       <% end %>
   </div>
   <div class="bottom_log">

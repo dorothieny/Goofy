@@ -1,29 +1,33 @@
-<h1>Categories</h1>
+<h1>Подборки</h1>
+   
+<% if user_signed_in? && current_user.isadmin == true %>
+<%= link_to '+', new_category_path %>
+<% end %>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Display in navbar</th>
-      <th colspan="3"></th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
+        <td>
+        <%= link_to category.name, posts_path(category: category.name)%>
+        </td>
         <td><%= category.description %></td>
-        <td><%= category.display_in_navbar %></td>
+        <% if user_signed_in? && current_user.isadmin == true %>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Category', new_category_path %>

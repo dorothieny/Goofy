@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_142421) do
+ActiveRecord::Schema.define(version: 2021_12_24_005955) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 2021_12_23_142421) do
     t.integer "user_id", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "eventcomments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_eventcomments_on_event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.text "date"
+    t.string "level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -81,6 +99,24 @@ ActiveRecord::Schema.define(version: 2021_12_23_142421) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "spot_comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "spot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spot_id"], name: "index_spot_comments_on_spot_id"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "location"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "subscribers", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
@@ -103,10 +139,12 @@ ActiveRecord::Schema.define(version: 2021_12_23_142421) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "eventcomments", "events"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "spot_comments", "spots"
 end

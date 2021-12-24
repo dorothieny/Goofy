@@ -1,0 +1,17 @@
+<div class="comment_container">
+	<p>
+	<b>Commenter:</b>
+	<%= spot_comment.commenter %>
+	</p>
+	<p>
+	<b>Comment:</b>
+	<%= spot_comment.body %>
+	</p>
+
+	<p>
+	<%= link_to 'Destroy Comment', [spot_comment.spot, spot_comment],
+								:confirm => 'Are you sure?',
+								:method => :delete %>
+	</p>
+</div>
+

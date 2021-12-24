@@ -1,0 +1,13 @@
+<%= form_for([@event, @event.eventcomments.build]) do |f| %>
+	<div class="field">
+	 <%= f.label :commenter %><br />
+	 <%= f.text_field :commenter %>
+	</div>
+	<div class="field">
+	 <%= f.label :Текст %><br />
+	 <%= f.text_area :body %>
+	</div>
+	<div class="actions">
+	 <%= f.submit "Комментировать" %>
+	</div>
+   <% end %>
