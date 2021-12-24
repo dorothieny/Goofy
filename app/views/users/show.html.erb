@@ -1,20 +1,42 @@
-<p>ID <%= @user.id %></p>
-<p>Email <%= @user.email %></p>
-    <% if user_signed_in? && current_user.isadmin == true %>
-     <p>Admin <%= @user.isadmin %></p>
-    <% end %>
-<p>Username <%= @user.username %></p>
+<div class="posts_page">
+<div class="flex-title_button">
+<h1 class="posts_title">
+<%= @user.username %>
+</h1>
+<% if user_signed_in? && current_user.isadmin == true %>
+<p>admin</p>
+<% end %>
+</div>
 
-Выученных <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'Трюк' : 'Трюков'%>
+<div class="users_data">
+<h2>ID <%= @user.id %></h2>
+<h2>Email <%= @user.email %></h2>
+</div>
+
+
+<div class="user_grid">
+<div class="user_items">
+<h2>
+Выученных <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'трюк' : 'трюков'%>
+</h2>
 <% @posts.each do |post| %>
-  <br><%= link_to post.title, post %>
-<% end %>
 
-Saved <%= @user.saveds.count %> <%= (@user.saveds.count) == 1 ? 'Спот' : 'Спотов'%>
-<% @spots.each do |spot| %>
-  <br><%= link_to spot.name, spot %>
+    <%= link_to post.title, post %>
 <% end %>
+</div>
+
+<div class="user_items">
+<h2>
+Сохраненных <%= @user.saveds.count %> <%= (@user.saveds.count) == 1 ? 'Спот' : 'Спотов'%>
+</h2>
+<% @spots.each do |spot| %>
+  <%= link_to spot.name, spot %>
+<% end %>
+</div>
+
+</div>
 
 <% if user_signed_in? && @user.id == current_user.id %>
 	<p><%= link_to 'Edit profile', edit_user_registration_path %></p>
 <% end %>
+</div>

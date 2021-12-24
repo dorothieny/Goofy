@@ -1,69 +1,51 @@
-<div class="post_info">
-<span class="post_edit">
+<div class="posts_page">
+<div class="new_post_title">
 <%= link_to 'Назад к постам', posts_path %>
-</span>
-  <div class="edit">
+<h1>
+<strong></strong>
+<%= @post.title %>
+</h1>
+</div>
 
-  <% if user_signed_in? && current_user.isadmin == true  %>
-      <div class="post_edit">
-        <%= link_to 'Изменить', edit_post_path(@post) %> 
-      </div>
-    <% end %>
-    <%  if user_signed_in? && current_user.isadmin == true %>
-    <div class="post_delete">
-      <%= link_to 'Удалить', posts_path %>
-    </div>
-    <% end %>
-  </div>
-
-  <p class="post_title">
-    <strong></strong>
-    <%= @post.title %>
-  </p>
-
-<div class="post_scales">
-  <p class="post_time">
-    <strong>Время</strong>
-  </p>
-  <div class="post_mini">
+<div class="new_post_page">
+<div class="block_post">
+    <h3>Время</h3>
+    <p>
     <%= @post.time %>
+    </p>
   </div>
 
-  <p class="post_level">
-    <strong>Сложность</strong>
-  </p>
-  <div class="post_mini">
-    <%= @post.level %>
-  </div>
 
-  <p class="post_level">
-    <strong>Категория</strong>
-  </p>
-  <div class="post_mini">
+  <div class="block_post">
+  <h3>
+    Категория
+  </h3>
+  <p>
     <%= @post.category.name %>
-  </div>
-
-  <p class="post_description">
-    <strong>Описание</strong>
   </p>
-  <div class="post_mini">
+</div>
+
+  <div class="block_post">
+    <h3>
+    Описание
+    </h3>
+  <p>
     <%= @post.description %>
+  </p>
   </div>
 
-</div>
-</div>
-
-<div class="post_pic">
-
+<div class="block_post">
   <%= image_tag(@post.image.url, alt: 'Image') if @post.image? %>
+</div>
 
-  <p class="post_content">
-    <strong></strong>
+  <div class="block_post">
+  <p>
     <%= @post.content.html_safe %>
   </p>
-
-</div>
-<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+  </div>
+<button>
+<%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%>
+</button>
 
 <% if user_signed_in? %>
 
@@ -76,28 +58,38 @@
 
   <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
     <% if pre_favorite %>
-        <%= button_to 'Remove from Favorite', post_favorite_path(@post, pre_favorite), method: :delete %>
+        <%= button_to 'Убрать из выученных', post_favorite_path(@post, pre_favorite), method: :delete %>
     <% else %>
-        <%= button_to 'Add to Favorite', post_favorites_path(@post), method: :post %>
+        <%= button_to 'Добавить в выученные', post_favorites_path(@post), method: :post %>
   <% end %>
 
 
 <% end %>
-
-
-<div class="comment_section">
-
-  <h2 class="comment_title">Комментарии</h2>
-  <div class="comments_grid">
-    <%= render @post.comments %>
+<div class="edit">
+<% if user_signed_in? && current_user.isadmin == true  %>
+    <div class="post_edit">
+      <%= link_to 'Изменить', edit_post_path(@post) %> 
+    </div>
+  <% end %>
+  <%  if user_signed_in? && current_user.isadmin == true %>
+  <div class="post_delete">
+    <%= link_to 'Удалить', posts_path %>
   </div>
+  <% end %>
+</div>
 
-  <h2 class="add_comment">Тут будут комментарии</h2>
+</div>
+
+<div class="comment_post_block">
+
+  <h2>Комментарии</h2>
+    <%= render @post.comments %>
   
-
   <% if user_signed_in? %>
+  <h2>Добавить коммент:</h2>
     <%= render "comments/form" %>
   <% else %>
     <p> Please <link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
   <% end %>
+</div>
 </div>

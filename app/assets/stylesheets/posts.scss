@@ -28,6 +28,12 @@
             color: $black;
           }
         }
+        p {
+          color: $black;
+          font-family: $heading;
+          font-size: 20px;
+          opacity: .7;
+        }
     }
     .flex-categories {
       display: flex;
@@ -373,7 +379,7 @@
     position: relative;
     max-width: 433px;
     span{
-        @include button(4px, solid, transparent, 340px, auto, $blue);
+        @include button(4px, solid, transparent, 340px, auto, $black);
         width: fit-content;
         padding: 8px 10px;
         @include font(20px, 25px);

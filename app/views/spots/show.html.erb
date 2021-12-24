@@ -43,14 +43,16 @@
 
 <% pre_saved = @spot.saveds.find { |saved| saved.user_id == current_user.id} %>
   <% if pre_saved %>
-    <%= button_to 'Remove from Saved', spot_saved_path(@spot, pre_saved), method: :delete %>
+    <%= button_to 'Убрать из сохраненных', spot_saved_path(@spot, pre_saved), method: :delete %>
   <% else %>
-    <%= button_to 'Add to Saved', spot_saveds_path(@spot), method: :post %>
+    <%= button_to 'Добавить в сохраненные', spot_saveds_path(@spot), method: :post %>
 <% end %>
 <% end %>
 
-<% if user_signed_in? %>
-  <%= link_to 'Edit', edit_spot_path(@spot) %> |
+<% if user_signed_in? && current_user.id == @spot.user_id %>
+<div class="post_edit">
+  <%= link_to 'Изменить', edit_spot_path(@spot) %>
+  </div>
 <% end %>
 </div>
 

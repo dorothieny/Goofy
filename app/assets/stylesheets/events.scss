@@ -23,6 +23,13 @@
 
     * {
         color: $white;
+        background: transparent;
+    }
+    a{
+        font-family: $text;
+    }
+    form {
+        font-size: 18px;
     }
     background: $black;
     border-radius: 30px;
@@ -37,6 +44,9 @@
         font-size: 18px;
         width: 100px;
         border-radius: 50px;
+        a{
+            color: $white;
+        }
     }
     .block_post {
         margin-bottom: 30px;
@@ -51,6 +61,12 @@
             font-family: $text;
             font-size: 18px;
         }
+    }
+    .post_edit{
+        a{
+            color: $white;
+        }
+        
     }
 }
 .comment_post_block {
@@ -68,7 +84,7 @@
     }
     .comment_container {
         border: 4px solid $black;
-        border: 30px;
+        border-radius: 30px;
         * {
             font-family: $text;
         }
