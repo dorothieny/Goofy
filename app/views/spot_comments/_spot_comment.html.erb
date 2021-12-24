@@ -1,17 +1,19 @@
 <div class="comment_container">
 	<p>
 	<b>Commenter:</b>
-	<%= spot_comment.commenter %>
+	<%= User.find(spot_comment.user_id).username %>
 	</p>
 	<p>
 	<b>Comment:</b>
 	<%= spot_comment.body %>
 	</p>
 
+	<% if user_signed_in? && current_user.id == spot_comment.user_id  %>
 	<p>
 	<%= link_to 'Destroy Comment', [spot_comment.spot, spot_comment],
 								:confirm => 'Are you sure?',
 								:method => :delete %>
 	</p>
+	<% end %>
 </div>
 

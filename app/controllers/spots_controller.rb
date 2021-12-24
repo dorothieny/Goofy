@@ -1,4 +1,5 @@
 class SpotsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_spot, only: %i[ show edit update destroy ]
 
   # GET /spots or /spots.json
@@ -21,8 +22,7 @@ class SpotsController < ApplicationController
 
   # POST /spots or /spots.json
   def create
-    @spot = Spot.new(spot_params)
-
+    @spot = Spot.new(spot_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @spot.save
         format.html { redirect_to @spot, notice: "Spot was successfully created." }

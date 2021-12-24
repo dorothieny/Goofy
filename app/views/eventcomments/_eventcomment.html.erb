@@ -1,16 +1,19 @@
 <div class="comment_container">
 	<p>
 	<b>Commenter:</b>
-	<%= eventcomment.commenter %>
+	<%= User.find(eventcomment.user_id).username %>
 	</p>
 	<p>
 	<b>Comment:</b>
 	<%= eventcomment.body %>
 	</p>
+
+	<% if user_signed_in? && current_user.id == eventcomment.user_id  %>
 	<p>
 	<%= link_to 'Destroy Comment', [eventcomment.event, eventcomment],
 								:confirm => 'Are you sure?',
 								:method => :delete %>
 	</p>
+	<% end %>
 </div>
 

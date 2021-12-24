@@ -15,18 +15,20 @@
   <%= @spot.location %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @spot.image %>
-</p>
 
 <%= image_tag(@spot.image.url, alt: 'Image') if @spot.image? %>
 
-<%= link_to 'Edit', edit_spot_path(@spot) %> |
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_spot_path(@spot) %> |
+<% end %>
+
 <%= link_to 'Back', spots_path %>
 
 <h2>Comments</h2>
 <%= render @spot.spot_comments %>
 
 <h2>Add a comment:</h2>
-<%= render "spot_comments/form" %>
+<% if user_signed_in? %>
+  <%= render "spot_comments/form" %>
+  <p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
+<% end %>
