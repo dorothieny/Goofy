@@ -3,6 +3,19 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import 'values';
 .posts_page{
+    .edit_user{
+        border: none;
+        background: transparent;
+        a{
+            color: $black;
+            font-size:18px;
+            font-family: $text;
+            opacity: .7;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
     .users_data {
         color: $black;
         font-family: $text;
