@@ -20,6 +20,8 @@
   <%= @spot.image %>
 </p>
 
+<%= image_tag(@spot.image.url, alt: 'Image') if @spot.image? %>
+
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %>
 
