@@ -3,7 +3,7 @@
 <h1 class="posts_title">
 <%= @user.username %>
 </h1>
-<% if user_signed_in? && current_user.isadmin == true %>
+<% if user_signed_in? && current_user.isadmin == true && @user.id == current_user.id %>
 <p>admin</p>
 <% end %>
 </div>
