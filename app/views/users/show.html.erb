@@ -17,7 +17,7 @@
 <div class="user_grid">
 <div class="user_items">
 <h2>
-Выученных <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'трюк' : 'трюков'%>
+Выучено <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'трюк' : 'трюков'%>
 </h2>
 <% @posts.each do |post| %>
 
@@ -27,10 +27,19 @@
 
 <div class="user_items">
 <h2>
-Сохраненных <%= @user.saveds.count %> <%= (@user.saveds.count) == 1 ? 'Спот' : 'Спотов'%>
+Сохранено <%= @user.saveds.count %> <%= (@user.saveds.count) == 1 ? 'спот' : 'спотов'%>
 </h2>
 <% @spots.each do |spot| %>
   <%= link_to spot.name, spot %>
+<% end %>
+</div>
+
+<div class="user_items">
+<h2>
+Иду на <%= @user.goes.count %> <%= (@user.goes.count) == 1 ? 'ивент' : 'ивентов'%>
+</h2>
+<% @events.each do |event| %>
+  <%= link_to event.name, event %>
 <% end %>
 </div>
 

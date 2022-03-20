@@ -8,7 +8,9 @@ class UsersController < ApplicationController
         if @user
           @posts = @user.favorited_posts
           @spots = @user.saveds_spots
+          @events = @user.goed_events
           render actions: :show
+          @goes = @user.goes.all
           @favorites = @user.favorites.all
           @saveds = @user.saveds.all
         else
@@ -22,6 +24,10 @@ class UsersController < ApplicationController
 
     def favorited?(post)
         favorites.find_by(post_id: post.id).present?
+      end
+
+      def goed?(events)
+        goes.find_by(event_id: event.id).present?
       end
   
     def destroy

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :types
   resources :events
   resources :spots
@@ -23,15 +24,17 @@ Rails.application.routes.draw do
     resources :favorites
   end
 
+  
   get 'users', to: 'users#index'
   get 'users/:id' => 'users#show', :as => :user
   delete 'users/:id', to: 'users#destroy'
 
+  get 'main', to: 'main#index'
   get 'splash', to: 'splash#index'
   get 'promo', to: 'promo#index'
   get 'about', to: 'about#index'
   get 'posts', to: 'posts#index'
   # get 'comments', to: 'comments#index'
 
-  root 'posts#index'
+  root 'main#index'
 end
