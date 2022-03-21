@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
-    def index
-      @users = User.all
+  def index
+    @users = User.all
+    render component: 'Users', props: { users: @users }
+    respond_to do |format|
+      format.html  # index.html.erb
+      format.json  { render :json => @users }
     end
-  
+
+  end
+
     def show
         @user = User.find(params[:id])
         if @user
