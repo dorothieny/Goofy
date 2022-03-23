@@ -17,19 +17,25 @@
   </div>
 
   <div class="field">
-	<%= form.label :Время %>
-	<%= form.text_field :time %>
+      <%= form.label :Категория %>
+      <%= form.select :category_id, Category.pluck(:name, :id) %>
+  </div>
+
+
+  <div class="field">
+	<%= form.label :Видео %>
+	<%= form.text_field :videos %>
+  </div>
+
+  <div class="field">
+	<%= form.label :Снаряжение %>
+	<%= form.text_field :equipment %>
   </div>
 
   <div class="field">
 	<%= form.label :Описание %>
 	<%= form.text_field :description %>
 </div>
-
-  <div class="field">
-      <%= form.label :Категория %>
-      <%= form.select :category_id, Category.pluck(:name, :id) %>
-  </div>
 
   <div>
 	<%= form.label :Изображение %>

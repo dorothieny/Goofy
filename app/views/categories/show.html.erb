@@ -1,23 +1,4 @@
 <div class="one_type_page">
 
-<div class="type_title">
-<%= link_to 'Назад к категориям', categories_path %>
-<h1>
-  <%= @category.name %> уровень
-</h1>
-</div>
-<h2>
-  Что это значит
-</h2>
-
-<p>
-  <%= @category.description %>
-</p>
-
-<% if user_signed_in? && current_user.isadmin == true %>
-<button>
-  <%= link_to 'Изменить', edit_category_path(@category) %> 
-</button>
-<% end %>
-
+<%= react_component 'M_catview', { category: @category } %>
 </div>

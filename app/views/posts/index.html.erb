@@ -1,5 +1,11 @@
 <div class="posts_page">
 
+<%= form_tag posts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :starts_with, params[:starts_with] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <div class="flex-title_button">
   <h1 class="posts_title">
@@ -14,11 +20,11 @@
 
 <div class="flex-categories">
 
-<% Category.all.each do |cat| %>
+<% Category.where(display_in_navbar: true).each do |cat| %>
   <div class="category_item">
-	  <%= link_to cat.name, posts_path(category: cat.name) %>
+  <%= link_to cat.name, posts_path(category: cat.id) %>
   </div>
-<% end %>
+  <% end %>
 
 </div>
  <div class="posts_container_grid">
@@ -26,7 +32,6 @@
  <% @posts.each do |post| %>
    <div class="post_card">
       <h2 class="post_postik"><%= post.title %></h2>
-      <h3 class="post_postik">Времени на изучение <%= post.time%></h3>
       <h3 class="post_postik"><%= post.category.name%></h3>
      <p class="post_postik"><%= post.description %></p>
      <div class="flex-align">
@@ -41,12 +46,9 @@
         <% end %>
      </div>
      <div class="info_btn">
-        <button>
-                <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
-            </button>
             <button>
-            <%= post.comments.count %> <%= (post.comments.count) == 1 ? 'Comment' : 'Commentes'%>
-            </button>
+            <%= post.favorites.count %> <%= (post.favorites.count) == 1 ? 'Скейтер умеет' : 'Скейтеров умеют'%>
+        </button>
       </div>
    </div>
     <% end %>
