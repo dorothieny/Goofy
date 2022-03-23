@@ -10,11 +10,12 @@
 </div>
 
 <div class="flex-categories">
-<% Type.all.each do |type| %>
-  <div class="category_item">
-	<%= link_to type.name, spots_path(type: type.name) %>
+<div class="category_item">
+<%= link_to "Все", spots_path %>
+<% Type.where(display_in_navbar: true).each do |typ| %>
+  <%= link_to typ.name, spots_path(type: typ.id) %>
+  <% end %>
   </div>
-<% end %>
 </div>
 
 

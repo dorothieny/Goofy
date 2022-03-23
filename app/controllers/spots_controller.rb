@@ -4,11 +4,9 @@ class SpotsController < ApplicationController
 
   # GET /spots or /spots.json
   def index
-    if params.has_key?(:type)
-      @type = Type.find_by_name(params[:type])
-      @spots = Spot.where(type: @type)
-    else
-      @spots = Spot.all
+		@spots = Spot.where(nil)
+    filtering_params(params).each do |key, value|
+      @spots = @spots.public_send("filter_by_#{key}", value) if value.present?
     end
   end
 
@@ -70,5 +68,9 @@ class SpotsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def spot_params
       params.require(:spot).permit(:name, :metro, :works, :price, :location, :image, :type_id)
+    end
+
+    def filtering_params(params)
+      params.slice(:type)
     end
 end

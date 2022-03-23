@@ -4,11 +4,9 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    if params.has_key?(:category)
-      @category = Category.find_by_name(params[:category])
-      @events = Event.where(category: @category)
-    else
-      @events = Event.all
+    @events = Event.where(nil)
+    filtering_params(params).each do |key, value|
+      @events = @events.public_send("filter_by_#{key}", value) if value.present?
     end
   end
 
@@ -71,5 +69,9 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:name, :location, :metro, :description, :link, :time, :category_id)
+    end
+
+    def filtering_params(params)
+      params.slice(:category)
     end
 end

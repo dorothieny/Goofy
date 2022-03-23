@@ -20,9 +20,15 @@
 
 <div class="flex-categories">
 
+
+
 <% Category.where(display_in_navbar: true).each do |cat| %>
   <div class="category_item">
+  <% if cat.name === "Все" %>
+    <%= link_to "Все", posts_path %> 
+    <% else %>
   <%= link_to cat.name, posts_path(category: cat.id) %>
+  <% end %>
   </div>
   <% end %>
 
@@ -33,7 +39,6 @@
    <div class="post_card">
       <h2 class="post_postik"><%= post.title %></h2>
       <h3 class="post_postik"><%= post.category.name%></h3>
-     <p class="post_postik"><%= post.description %></p>
      <div class="flex-align">
         <button class="show_btn">
             <%= link_to 'Открыть', post %>

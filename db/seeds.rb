@@ -10,7 +10,7 @@ puts "Destroyed everything you touch"
 posts = [
 {
 	title: "Олли",
-    description: "Первый серьезный трюк",
+    description: "Базовый трюк , основанный на прыжке и отталкивании доски. Освоив его, вы сможете легко перейти к следующим трюкам. Это база.",
 	content: "",
     videos: "3 видео",
     equipment: "не требуется",
@@ -20,7 +20,7 @@ posts = [
 },
 {
     title: "Кикфлип",
-    description: "Первый серьезный трюк",
+    description: "Тут главное хорошенько пнуть доску",
 	content: "",
     videos: "4 видео",
     equipment: "не требуется",
