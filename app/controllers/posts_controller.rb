@@ -4,8 +4,10 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.where(nil) 
-    @posts = @posts.filter_by_category(params[:category]) if params[:category].present?
+    @posts = Post.where(nil)
+    filtering_params(params).each do |key, value|
+      @posts = @posts.public_send("filter_by_#{key}", value) if value.present?
+    end
   end
 
   # GET /posts/1 or /posts/1.json
