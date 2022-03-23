@@ -23,9 +23,8 @@
     <% @spots.each do |spot| %>
       <div class="post_card">
         <h2 class="post_postik"><%= spot.name %></h2>
-        <p class="post_postik"><%= spot.description %></p>
+        <p class="post_postik"><%= spot.metro %></p>
         <h3 class="post_postik"><%= spot.type.name %></h3>
-        <h3 class="post_postik"><%= spot.location %></h3>
         <div>
           <%= link_to(image_tag(spot.image.thumb.url, alt: 'Image'), spot.image.url, target: '_blank') if spot.image? %>
         </div>

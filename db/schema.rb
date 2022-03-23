@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_23_071338) do
+ActiveRecord::Schema.define(version: 2022_03_23_214417) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -55,12 +55,14 @@ ActiveRecord::Schema.define(version: 2022_03_23_071338) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.text "date"
-    t.string "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.integer "category_id", null: false
+    t.string "time"
+    t.string "description"
+    t.string "link"
+    t.string "metro"
     t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -136,13 +138,15 @@ ActiveRecord::Schema.define(version: 2022_03_23_071338) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.string "description"
     t.string "location"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.integer "type_id", null: false
+    t.string "metro"
+    t.string "works"
+    t.string "price"
     t.index ["type_id"], name: "index_spots_on_type_id"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end

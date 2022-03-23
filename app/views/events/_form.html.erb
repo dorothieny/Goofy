@@ -17,18 +17,35 @@
   </div>
 
   <div class="field">
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+</div>
+
+
+<div class="field">
+<%= form.label :category_id %>
+<%= form.select :category_id, Category.pluck(:name, :id) %>
+</div>
+
+  <div class="field">
+  <%= form.label :metro %>
+  <%= form.text_area :metro %>
+  </div>
+
+  <div class="field">
     <%= form.label :location %>
     <%= form.text_field :location %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.text_area :date %>
+    <%= form.label :time %>
+    <%= form.text_area :time %>
   </div>
 
+
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.select :category_id, Category.pluck(:name, :id) %>
+    <%= form.label :link %>
+    <%= form.text_area :link %>
 </div>
 
   <div class="actions">

@@ -17,22 +17,34 @@
   </div>
 
   <div class="field">
-    <%= form.label :Описание %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
     <%= form.label :type_id %>
     <%= form.select :type_id, Type.pluck(:name, :id) %>
   </div>
 
+
   <div class="field">
-    <%= form.label :Место %>
+    <%= form.label :Адрес %>
     <%= form.text_field :location %>
   </div>
 
+  <div class="field">
+    <%= form.label :Метро %>
+    <%= form.text_field :metro %>
+  </div>
+
+
+  <div class="field">
+  <%= form.label :Время_работы %>
+  <%= form.text_field :works %>
+  </div>
+
+  <div class="field">
+  <%= form.label :Цена %>
+  <%= form.text_field :price %>
+  </div>
+
   <div>
-    <%= form.label :Изображение %>
+    <%= form.label :Фотки %>
     <%= form.file_field :image %>
   </div>
 

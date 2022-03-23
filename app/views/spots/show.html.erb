@@ -8,14 +8,6 @@
 </div>
 
 <div class="new_post_page">
-<div class="block_post">
-<h3>
-  Место
-</h3>
-<p>
-  <%= @spot.location %>
-</p>
-</div>
 
 <div class="block_post">
 <h3>
@@ -28,10 +20,29 @@
 
 <div class="block_post">
 <h3>
-  Описание
+  Метро
 </h3>
 <p>
-  <%= @spot.description %> 
+  <%= @spot.metro %>
+</p>
+</div>
+
+<div class="block_post">
+<h3>
+  Время работы
+</h3>
+<p>
+  <%= @spot.works %>
+</p>
+</div>
+
+
+<div class="block_post">
+<h3>
+  Стоимость
+</h3>
+<p>
+  <%= @spot.price %> 
 </p>
 </div>
 
