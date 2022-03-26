@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    render component: 'Users', props: { users: @users }
+    render component: 'Users', props: { users: @users, current_user: current_user.id }
     respond_to do |format|
       format.html  # index.html.erb
       format.json  { render :json => @users }
