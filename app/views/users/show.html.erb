@@ -48,4 +48,8 @@
 <% if user_signed_in? && @user.id == current_user.id %>
 	<button class="edit_user"><%= link_to 'Редактировать профиль', edit_user_registration_path %></button>
 <% end %>
+
+<% if user_signed_in? && current_user.isadmin == true %>
+<% end %>
 </div>
+

@@ -19,13 +19,17 @@
       <p class="alert"><%= alert %></p>
     <% end %>
 
-  <div class="left_widget">
-    
-    <div class="logo_goofy">
-        <%= link_to 'GOOFY', main_path %>
-    </div>
+  <div class="top_widget">
+ 
 
-  <div class="left_menue">
+  <div class="top_menue">
+     
+  <div class="logo_goofy">
+
+  <%= link_to main_path do%>
+    <%= image_tag 'A_logo.svg' %>
+    <% end %>
+</div>
       <div class="menue_item">  
         <%= link_to 'Споты', spots_path %>
       </div>
@@ -54,10 +58,11 @@
   </div>
   <div class="bottom_log">
   <% if user_signed_in? %>
-      <%= link_to 'Мой профиль', current_user %> 
-      <div class="exit">
+      <%= link_to current_user do%>
+        <%= image_tag 'profile.svg' %>
+        <% end %> 
         <%= link_to 'Выход', destroy_user_session_path, method: :delete %> 
-      </div>
+
     <% else %>
       <%= link_to 'Войти', new_user_session_path %> 
       <%= link_to 'Регистрация', new_user_registration_path %>

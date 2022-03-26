@@ -8,6 +8,16 @@ class EventsController < ApplicationController
     filtering_params(params).each do |key, value|
       @events = @events.public_send("filter_by_#{key}", value) if value.present?
     end
+    render component: 'Events_Table', props: { 
+      events: @events, 
+      gos: Go.all, 
+      categories: Category.where(display_in_navbar: true),
+      base: 'events'
+    }
+    respond_to do |format|
+      format.html  # index.html.erb
+      format.json  { render :json => @events }
+    end
   end
 
   # GET /events/1 or /events/1.json

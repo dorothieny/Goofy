@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
+    render component: 'Categories_Table', props: { categories: @categories }
   end
 
   # GET /categories/1 or /categories/1.json

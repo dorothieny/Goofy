@@ -1,0 +1,54 @@
+@import 'values';
+th {
+    vertical-align: center !important;
+}
+.table_admin {
+    width: 100%;
+    table-layout: auto;
+    padding: 100px 20px;
+    font-family: 'PragmaticaLight';
+    font-size: 16px;
+    // border: none;
+    border-collapse: separate;
+    border-spacing: 0px 20px;
+    th {
+        font-weight: 900;
+        font-family: 'PragmaticaExtendedBold';
+    }
+    th {
+        vertical-align: center !important;
+    }
+
+     
+}
+.table-admin-row {
+    border: 1px solid $black;
+    border-radius: 20px;
+    background: transparent;
+    padding: 40px 18px;
+    height: 100px;
+    box-sizing: border-box;
+    vertical-align: center !important;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0px;   
+        bottom: 0px;    
+        left: -20px;
+        width: 102%;
+        border: 3px solid $black;
+        border-radius: 20px;
+        z-index: -9;
+    }
+}
+.cell-center {
+    text-align: center;
+}
+.cell-left {
+    text-align: left;
+}
+.cell-title {
+    font-weight: 900;
+    font-family: 'PragmaticaExtendedBold';
+}
