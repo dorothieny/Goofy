@@ -9,6 +9,7 @@ class O_SpotCard extends React.Component {
     }
   } 
   render () {
+    console.log(this.props.saved)
     return (
       <React.Fragment>
         <div style= {{ borderRadius: '12px', overflow: 'hidden', cursor:'pointer' }}
@@ -17,6 +18,7 @@ class O_SpotCard extends React.Component {
           <div style= {{ backgroundColor: '#222222', color: '#F8F5F1', height: '150px' }}>
           <span>{this.props.spot.name}</span><button>{this.props.type}</button>
           <h1>{this.props.spot.metro}</h1>
+         {this.props.saved[0] ? <button>Сохранено</button> : ''}
           </div>
           </div>
       </React.Fragment>

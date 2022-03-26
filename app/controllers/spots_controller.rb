@@ -12,7 +12,8 @@ class SpotsController < ApplicationController
       spots: @spots,
       types: Type.where(display_in_navbar: true),
       base: 'spots',
-      current_user: current_user
+      current_user: current_user,
+      saveds: Saved.all
      }
     respond_to do |format|
       format.html  # index.html.erb

@@ -2,21 +2,29 @@ import React from "react"
 import PropTypes from "prop-types"
 class M_Filter extends React.Component {
   render () {
+    console.log(this.props.category[0])
     return (
       <div className="flex-categories">
-        <p
-          onClick={() =>  location.href = `http://127.0.0.1:3000/${this.props.base}`}> Все </p>
+        <button
+          className={`category-item ${this.props.activeFilter === 'Все' ? 'active' : ''}`}
+          onClick={() =>  {
+              this.props.onChange('Все', '');
+             
+             }}> Все </button>
         {this.props.category.map((cat) => {
+          if (cat.name === 'Все') return;
           return (
-          <p
+          <button
+          className={`category-item ${this.props.activeFilter === cat.name ? 'active' : ''}`}
             onClick={() => {
+              this.props.onChange(cat.name, cat.id);
               if (this.props.base=== 'spots') {
-                location.href = `http://127.0.0.1:3000/${this.props.base}/?type=${cat.id}`
+               
               } else {
-                location.href = `http://127.0.0.1:3000/${this.props.base}/?category=${cat.id}`
+                
               }
                 }}>
-            {cat.name}</p>
+            {cat.name}</button>
         )})
       }
       </div>

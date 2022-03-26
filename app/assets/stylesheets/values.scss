@@ -1,35 +1,26 @@
-@font-face {
-    font-family: 'Irrationalist';
-    src: url('/assets/Irrationalist.ttf');
- }
 @font-face{
-    font-family: 'FormularMedium';
-    src: url('/assets/FormularMedium.ttf');
+    font-family: 'PragmaticaRegular';
+    src: url('/assets/Pragmatica-Regular.otf');
+}
+
+
+@font-face{
+    font-family: 'PragmaticaMedium';
+    src: url('/assets/Pragmatica-Medium.ttf');
+}
+@font-face{
+    font-family: 'PragmaticaBold';
+    src: url('/assets/Pragmatica-Bold.ttf');
 }
 
 @font-face{
-    font-family: 'FormularLight';
-    src: url('/assets/FormularLight.ttf');
+    font-family: 'PragmaticaExtendedBook';
+    src: url('/assets/PragmaticaExtended-Book.ttf');
 }
 
 @font-face{
-    font-family: 'CSMT';
-    src: url('/assets/typoghraphy.ttf');
-}
-
-@font-face{
-    font-family: 'PragmaticaLight';
-    src: url('/assets/Pragmatica-Light.ttf');
-}
-
-@font-face{
-    font-family: 'PragmaticaExtendedLightOblique';
-    src: url('/assets/PragmaticaExtended-LightOblique.ttf');
-}
-
-@font-face{
-    font-family: 'PragmaticaExtendedBoldOblique';
-    src: url('/assets/PragmaticaExtended-BoldOblique.ttf');
+    font-family: 'PragmaticaExtendedMedium';
+    src: url('/assets/PragmaticaExtended-Medium.ttf');
 }
 
 @font-face{
@@ -37,19 +28,24 @@
     src: url('/assets/PragmaticaExtended-Bold.ttf');
 }
 
- $text: 'PragmaticaLight';
- $title: 'PragmaticaExtendedBold';
- $heading: 'PragmaticaExtendedBold';
- $dots: 'CSMT';
 
- $red: #FF0028;
- $yellow: #FFCB00;
- $blue: #005AFF;
- $black: #222222;
- $purple: #D78CED;
- $white: #FFFFFF;
- $green: #3CB54B;
- $grey: #C4C4C4;
+ $text: 'PragmaticaRegular';
+ $categories: 'PragmaticaMedium';
+ $types: 'PragmaticaRegular';
+ $buttons: 'PragmaticaBold';
+ $title: 'PragmaticaExtendedMedium';
+ $titleOfCards: 'PragmaticaExtendedBook';
+ $heading: 'PragmaticaBold';
+
+
+ $red: #B35B58;
+ $yellow: #F7C96E;
+ $blue: #3A4C7B;
+ $black: #151921;
+ $purple: #644165;
+ $white: #F8F5F1;
+ $green: #416552;
+ $grey: #898989;
 
  @mixin button($b: 3px, $s: solid,$bc: $yellow, $r: 340px, $w: 220px, $c: transparent){
      border-width: $b;

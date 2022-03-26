@@ -15,7 +15,7 @@
  */
  @import 'values';
  body{
-   background: #F8F5F1;
+   background: $white;
    a {
      text-decoration: none;
    }
@@ -39,7 +39,7 @@
     z-index:3;
     width: 100%;
     top: 0;
-    font-family: 'PragmaticaLight';
+    font-family: $text;
     padding: 15px 50px;
     box-sizing: border-box;
     background: rgba(248, 245, 241, 0.7);
@@ -57,12 +57,11 @@
       padding: 13px;
       font-size: 18px;
       text-decoration: none;
-      line-height:24px;
-      color: #222222;
+      color: $black;
       font-weight: 500;
       transition: all .6 ease-in-out;
       &:hover {
-        font-weight: 900;
+        opacity: .5;
         transition: all .6 ease-in-out;
       }
     }
@@ -75,11 +74,15 @@
 
   a {
     margin-left:10px;
-    color: $red;
+    
     opacity: 1;
     text-decoration: none;
+    color: $black;
     &:hover {
       opacity: .5;
+    }
+    &:nth-child(2) {
+      color: $red;
     }
   }
 
@@ -89,4 +92,18 @@
     }
   .content_box {
     margin: 90px 50px 0;
+  }
+  .styled-navbar {
+    -webkit-text-stroke: 1px $black;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 147px;
+    color: transparent;
+    font-family: $heading;
+    cursor: pointer;
+    transition: all .3 ease-in-out;
+    &:hover{
+      color:$black !important;
+      transition: all .3 ease-in-out;
+    }
   }

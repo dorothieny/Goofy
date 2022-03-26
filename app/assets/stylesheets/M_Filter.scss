@@ -1,3 +1,31 @@
+@import 'values';
 .flex-categories {
     display: flex;
+        flex-direction: row;
+        // width: 394px;
+        justify-content: space-around;
+        text-align: center;
+        border: 2px solid $blue;
+        box-sizing: border-box;
+        border-radius: 52px;
+        height:100%;
+        margin-right: 30px;
+        .category-item {
+          font-family: $heading;
+            color: $black;
+            font-size: 16px;
+            height: 100%;
+            border: none;
+            background: transparent;
+            padding: 13px 35px;
+            border-radius: 50px;
+            &:hover {
+              opacity: 1;
+            }
+        }
+        .active {
+            background-color: $blue;
+            color: $white;
+        }
+
 }

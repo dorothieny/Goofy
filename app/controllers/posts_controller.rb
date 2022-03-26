@@ -12,7 +12,8 @@ class PostsController < ApplicationController
       posts: @posts, 
       categories: Category.where(display_in_navbar: true),
       base: 'posts',
-      current_user: current_user }
+      current_user: current_user,
+      favorited: Favorite.all }
     respond_to do |format|
       format.html  # index.html.erb
       format.json  { render :json => @posts }

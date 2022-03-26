@@ -7,7 +7,6 @@ class Posts_Table extends React.Component {
     this.state = []
   }   
   render () {
-    console.log(this.props.rights)
     return (
       <React.Fragment>
         <table className="table_admin">
