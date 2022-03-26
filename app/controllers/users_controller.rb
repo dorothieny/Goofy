@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    render component: 'Users', props: { users: @users, current_user: current_user.id }
+    render component: 'Users', props: { 
+      users: @users,
+      current_user: current_user.id }
     respond_to do |format|
       format.html  # index.html.erb
       format.json  { render :json => @users }
@@ -15,10 +17,16 @@ class UsersController < ApplicationController
           @posts = @user.favorited_posts
           @spots = @user.saveds_spots
           @events = @user.goed_events
-          render actions: :show
           @goes = @user.goes.all
           @favorites = @user.favorites.all
           @saveds = @user.saveds.all
+          render component:  'One_User', props: { 
+          user: @user, 
+          current_user: current_user.id,
+          events:  @events,
+          spots: @spots,
+          posts: @posts,
+          }
         else
             render file: 'public/404', status: 404, formats: [:html]
         end

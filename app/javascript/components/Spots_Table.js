@@ -5,16 +5,7 @@ class Spots_Table extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 0' }}>
-        <M_Filter category={this.props.types}
-                    base={this.props.base}/>
-          <button className="add_smth"
-          onClick={() => location.href = `http://127.0.0.1:3000/spots/new`} >
-          +
-          </button>
-
-        </div>  
-         <table className="table_admin">
+       <table className="table_admin">
         <thead>
             <tr>
               <th className="cell-left">ID</th>

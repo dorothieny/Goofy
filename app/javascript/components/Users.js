@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 class Users extends React.Component {
   
   render() {
-    console.log(this.props.current_user)
     return (
       <table className="table_admin">
         <thead>

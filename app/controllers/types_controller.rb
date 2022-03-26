@@ -9,6 +9,7 @@ class TypesController < ApplicationController
 
   # GET /types/1 or /types/1.json
   def show
+    render component: 'M_Typeview', props: { type: @type }
   end
 
   # GET /types/new

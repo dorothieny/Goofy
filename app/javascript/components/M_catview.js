@@ -5,12 +5,12 @@ class M_catview extends React.Component {
     return (
       <div>
         <h1>{this.props.category.name}</h1>
-            <p><strong>ID:</strong> {this.props.category.id}</p>
-            <p><strong>Name:</strong> {this.props.category.name}</p>
-            <p><strong>Description:</strong> {this.props.category.description}</p>
-            <p><strong>Display in Navbar:</strong> {`${this.props.category.display_in_navbar}`}</p>
-            <a href={`/categories/${this.props.category.id}/edit`}>Edit</a><span> | </span>
-            <a href={`./`}>Back</a>
+            <p><strong>ID</strong> {this.props.category.id}</p>
+            <p><strong>Название</strong> {this.props.category.name}</p>
+            <p><strong>Описание</strong> {this.props.category.description}</p>
+            <p><strong>Отображается в свитчере</strong> {`${this.props.category.display_in_navbar}`}</p>
+            <a href={`/categories/${this.props.category.id}/edit`}>Изменить</a><span> | </span>
+            <a href={`./`}>Назад</a>
       </div>
     );
   }

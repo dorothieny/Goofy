@@ -8,10 +8,11 @@ class PostsController < ApplicationController
     filtering_params(params).each do |key, value|
       @posts = @posts.public_send("filter_by_#{key}", value) if value.present?
     end
-    render component: 'Admin_Table', props: { 
+    render component: 'Posts_Page', props: { 
       posts: @posts, 
       categories: Category.where(display_in_navbar: true),
-      base: 'posts' }
+      base: 'posts',
+      current_user: current_user }
     respond_to do |format|
       format.html  # index.html.erb
       format.json  { render :json => @posts }

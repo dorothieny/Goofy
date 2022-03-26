@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import M_Filter from "./M_Filter";
-class Admin_Table extends React.Component {
+class Posts_Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = []
@@ -10,15 +10,6 @@ class Admin_Table extends React.Component {
     console.log(this.props.rights)
     return (
       <React.Fragment>
-        <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 0' }}>
-        <M_Filter category={this.props.categories}
-                    base={this.props.base}/>
-          <button className="add_smth"
-          onClick={() => location.href = `http://127.0.0.1:3000/posts/new`} >
-          +
-          </button>
-         
-        </div>  
         <table className="table_admin">
         <thead>
             <tr>
@@ -65,4 +56,4 @@ class Admin_Table extends React.Component {
   }
 }
 
-export default Admin_Table;
+export default Posts_Table;

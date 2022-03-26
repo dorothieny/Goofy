@@ -42,13 +42,17 @@
         <%= link_to 'Трюки', posts_path %>
       </div>
 
+      <% if user_signed_in? && current_user.isadmin == true %>
       <div class="menue_item">  
-        <%= link_to 'Типы спотов', types_path %>
+      <%= link_to 'Типы спотов', types_path %>
       </div>
+      <% end %>
 
+      <% if user_signed_in? && current_user.isadmin == true %>
       <div class="menue_item">  
-        <%= link_to 'Уровни', categories_path %>
-      </div> 
+      <%= link_to 'Уровни', categories_path %>
+      </div>
+      <% end %>
 
       <% if user_signed_in? && current_user.isadmin == true %>
       <div class="menue_item">  

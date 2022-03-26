@@ -1,19 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import M_Filter from "./M_Filter";
 class Events_Table extends React.Component {
   render () {
-
     return (
       <React.Fragment>
-        <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 0' }}>
-        <M_Filter category={this.props.categories}
-                    base={this.props.base}/>
-          <button className="add_smth"
-          onClick={() => location.href = `http://127.0.0.1:3000/events/new`} >
-          +
-          </button>
-        </div>  
         <table className="table_admin">
         <thead>
             <tr>
@@ -29,7 +19,7 @@ class Events_Table extends React.Component {
           </thead>
           <tbody>
             {this.props.events.map(event => {
-                  console.log(this.props.gos.filter(item => item.event_id === event.id).length)
+                  // console.log(this.props.gos.filter(item => item.event_id === event.id).length)
             return (
              <tr key={event.title} 
                   className="table-admin-row">

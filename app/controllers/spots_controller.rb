@@ -8,10 +8,11 @@ class SpotsController < ApplicationController
     filtering_params(params).each do |key, value|
       @spots = @spots.public_send("filter_by_#{key}", value) if value.present?
     end
-    render component: 'Spots_Table', props: { 
+    render component: 'Spots_Page', props: { 
       spots: @spots,
       types: Type.where(display_in_navbar: true),
-      base: 'spots'
+      base: 'spots',
+      current_user: current_user
      }
     respond_to do |format|
       format.html  # index.html.erb

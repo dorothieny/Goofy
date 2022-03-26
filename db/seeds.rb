@@ -69,12 +69,6 @@ spots = [
 categories = [
 {
     id: 1,
-    name: 'Все',
-    description: 'Контент, подходящий для всех уровней владения скейтом',
-    display_in_navbar: 'true'
-},
-{
-    id: 2,
     name: 'PRO',
     description: 'Контент, для тех, кто уже очень хорошо владеет навыком',
     display_in_navbar: 'true'
