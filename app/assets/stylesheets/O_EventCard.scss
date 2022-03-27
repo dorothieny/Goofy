@@ -21,6 +21,10 @@
         font-size: 18px;
         color: $grey;
       }
+      &:hover {
+        transition: all .6 ease;
+        filter: drop-shadow(10px 8px 5px rgba(43, 48, 59, 0.3));
+    }
 
 }
 .event-card-bottom {
@@ -43,4 +47,5 @@
         font-size: 24px;
         color: $grey;
     }
+    
 }

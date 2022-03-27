@@ -1,7 +1,6 @@
 @import 'values';
 .post-card-styled {
     border-radius: 12px 12px 0 0;
-    overflow: hidden;
     box-sizing: content-box;
     cursor: pointer;
     background-color: transparent;
@@ -14,7 +13,12 @@
         border-radius: 12px;
         margin-bottom: 12px;
         filter: saturate(0%) invert(100%) contrast(120%) brightness(60%);
+        &:hover {
+            transition: all .6 ease;
+            filter: drop-shadow(10px 8px 5px rgba(43, 48, 59, 0.3));
+        }
     }
+
 }
 .post-card-bottom {
     display: flex;

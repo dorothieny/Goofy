@@ -9,7 +9,6 @@ class O_SpotCard extends React.Component {
     }
   } 
   render () {
-    console.log(this.props.saved)
     return (
       <React.Fragment>
         <div 

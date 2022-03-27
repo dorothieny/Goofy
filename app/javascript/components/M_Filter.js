@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 class M_Filter extends React.Component {
   render () {
-    console.log(this.props.category[0])
     return (
       <div className="flex-categories">
         <button

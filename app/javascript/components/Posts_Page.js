@@ -8,9 +8,11 @@ import A_Input from "./A_Input";
 class PostsPage extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
       activeFilter: 'Все',
       activeFilterID: '',
+      filter: ''
     }
   }
 
@@ -18,10 +20,23 @@ class PostsPage extends React.Component {
     this.setState({ activeFilter: value, activeFilterID: id });
   }
 
+  onFilterSearch = (array, filter, activeId ) => {
+    if( filter === '' && activeId === '') return array;
+    if ( activeId ) {
+    return array.filter(item => item.category_id === activeId && item.title.toLowerCase().indexOf(filter.toLowerCase()) > -1)
+    }
+    return array.filter(item => item.title.toLowerCase().indexOf(filter.toLowerCase()) > -1)
+  }
+
+  onFiltering = (value) => {
+    this.setState({ filter: value })
+  }
+
   render () {
+    console.log(this.state.activeFilterID)
     return (
       <React.Fragment>
-       {this.props.current_user.isadmin ? null : <O_Navbar current={'posts'}/> }
+       {this.props.current_user?.isadmin ? null : <O_Navbar current={'posts'}/> }
          <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 30px' }}>
          <div style= {{ display: 'flex', flexDirection: 'row'}}>
           <M_Filter category={this.props.categories}
@@ -29,26 +44,19 @@ class PostsPage extends React.Component {
                       activeFilter={this.state.activeFilter}
                       onChange={(value,id)=>this.handleChange(value ,id)}/>
 
-         <A_Input text="Ищите себя в шалашофках гуфи"/>
+         <A_Input 
+         text="Ищите себя в шалашофках гуфи"
+         onFiltering={(value) => this.onFiltering(value)}/>
         </div>
          
         </div>  
-       { this.props.current_user. isadmin ? <Posts_Table categories={this.props.categories} posts={this.props.posts}/> : 
+       { this.props.current_user?.isadmin ? <Posts_Table categories={this.props.categories} posts={this.props.posts}/> : 
        <div className="posts-grid">
-        {this.state.activeFilterID ? this.props.posts.filter(item => item.category_id === this.state.activeFilterID).map(post => {
+        {this.onFilterSearch(this.props.posts, this.state.filter, this.state.activeFilterID).map(post => {
           return (
             <O_PostCard 
             post={post} 
-            learned={this.props.favorited.filter(item => item.user_id === this.props.current_user.id)}
-            favorited={this.props.favorited.filter(item => post.id === item.post_id).length}
-            category={this.props.categories.filter(category => post.category_id === category.id)[0].name} />
-          )
-        }) :
-        this.props.posts.map(post => {
-          return (
-            <O_PostCard 
-            post={post} 
-            learned={this.props.favorited.filter(item => item.user_id === this.props.current_user.id)}
+            learned={this.props.favorited.filter(item => item.user_id === this.props.current_user?.id)}
             favorited={this.props.favorited.filter(item => post.id === item.post_id).length}
             category={this.props.categories.filter(category => post.category_id === category.id)[0].name} />
           )

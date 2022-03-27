@@ -18,6 +18,10 @@
         background-repeat: no-repeat; 
         filter: saturate(0%) brightness(40%);
     }
+    &:hover {
+        transition: all .6 ease;
+        filter: drop-shadow(10px 8px 5px rgba(43, 48, 59, 0.3));
+    }
 }
 .spot-card-bottom {
    background-color: $black;

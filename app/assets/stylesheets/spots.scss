@@ -14,6 +14,13 @@
     color: $white;
     padding: 140px 15px 0px 30px;
     box-sizing: border-box;
+    cursor: pointer;
+    transition: all .6 ease;
+    filter: none;
+    &:hover {
+        transition: all .6 ease;
+        filter: drop-shadow(10px 8px 5px rgba(43, 48, 59, 0.3));
+    }
     h1 {
         font-family: $titleOfCards;
         font-size: 54px;
@@ -23,5 +30,6 @@
      p {
         font-family: $titleOfCards;
         font-size: 26px;
+        opacity: .6;
      }
 }

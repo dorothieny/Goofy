@@ -10,6 +10,7 @@
         border-radius: 52px;
         height:100%;
         margin-right: 30px;
+        overflow: hidden;
         .category-item {
           font-family: $heading;
             color: $blue;
@@ -18,14 +19,19 @@
             border: none;
             background: transparent;
             padding: 13px 35px;
-            border-radius: 50px;
+            margin: 0;
+            border-radius: 40px;
+            cursor: pointer;
             &:hover {
-              opacity: 1;
+              opacity: .6;
             }
         }
         .active {
             background-color: $blue;
             color: $white;
+            &:hover {
+                opacity: 1;
+              }
         }
 
 }

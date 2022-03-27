@@ -10,6 +10,9 @@
     font-size: 14px;
     width: 409px;
     height: 100%;
+    &:focus-visible {
+        outline: none;
+    }
 }
    
 }

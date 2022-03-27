@@ -15,6 +15,7 @@ class Spots_Page extends React.Component {
     this.state = {
       activeFilter: 'Все',
       activeFilterID: '',
+      filter: ''
     }
   }
 
@@ -22,15 +23,40 @@ class Spots_Page extends React.Component {
     this.setState({ activeFilter: value, activeFilterID: id });
   }
 
+  onFilterSearch = (array, filter, activeId ) => {
+    if( filter === '' && activeId === '') return array;
+    if ( activeId ) {
+    return array.filter(item => item.type_id === activeId && item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1);
+    }
+    return array.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1);
+  }
+
+  onFiltering = (value) => {
+    this.setState({ filter: value })
+  }
+
+
   render () {
+    console.log(this.state.filter + this.state.activeFilterID)
     return (
       <React.Fragment>
-       {this.props.current_user.isadmin ? null : 
+       {this.props.current_user?.isadmin ? null : 
        <div>
          <O_Navbar current={'spots'}/>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gridGap: '21px'}}>
-        <Banner_Fav color='#3A4C7B' text='Топ открытых спотов' image={img1}/>
-        <Banner_Fav color='#B35B58' text='Твои сохраненные' image={img2}/>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gridGap: '21px', marginTop: '30px'}}>
+        <Banner_Fav 
+          color='#3A4C7B' 
+          text='Топ открытых спотов' 
+          places={15}
+          image={img1} 
+          linkTo={this.props.current_user ? `http://127.0.0.1:3000/users/${this.props.current_user.id}` : 'http://127.0.0.1:3000/users/sign_up'}/>
+
+        <Banner_Fav 
+          color='#B35B58' 
+          text='Твои сохраненные' 
+          places={this.props.current_user ? this.props.current_user?.saveds_spots.length : 'Нет'}
+          image={img2} linkTo={this.props.current_user ? `http://127.0.0.1:3000/users/${this.props.current_user.id}` : 'http://127.0.0.1:3000/users/sign_up'}/>
+
         </div>
         </div>}
 
@@ -41,26 +67,24 @@ class Spots_Page extends React.Component {
                     base={this.props.base}
                     activeFilter={this.state.activeFilter}
                     onChange={(value, id)=>this.handleChange(value, id)}/>
-                    <A_Input text="Ищите себя в шалашофках гуфи"/>
+                    
+        <A_Input 
+          text="Ищите себя в шалашофках гуфи"
+          onFiltering={(value) => this.onFiltering(value)}/>
        </div>
-         <A_Button text="Создать спот +" base="spots"/>
 
+         <A_Button text="Создать спот +" base="spots"/>
         </div>  
-        { this.props.current_user. isadmin ? <Spots_Table types={this.props.types} spots={this.props.spots}/> : 
+
+        { this.props.current_user?.isadmin ? <Spots_Table types={this.props.types} spots={this.props.spots}/> : 
         <div className="spots-grid">
-        {this.state.activeFilterID ? this.props.spots.filter(item => item.type_id === this.state.activeFilterID).map(spot => {
+        {this.onFilterSearch(this.props.spots, this.state.filter, this.state.activeFilterID).map(spot => {
+          console.log(spot);
           return (
             <O_SpotCard 
             spot={spot} 
             type={this.props.types.filter(type => spot.type_id === type.id)[0].name} 
-            saved={this.props.saveds.filter(item => item.spot_id === spot.id && item.user_id === this.props.current_user.id)}/>
-          )
-        }): this.props.spots.map(spot => {
-          return (
-            <O_SpotCard 
-            spot={spot} 
-            type={this.props.types.filter(type => spot.type_id === type.id)[0].name} 
-            saved={this.props.saveds.filter(item => item.spot_id === spot.id && item.user_id === this.props.current_user.id)}/>
+            saved={this.props.saveds.filter(item => item.spot_id === spot.id && item.user_id === this.props.current_user?.id)}/>
           )
         })}
         </div>

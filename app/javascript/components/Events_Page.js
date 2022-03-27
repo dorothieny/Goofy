@@ -6,12 +6,14 @@ import O_EventCard from './O_EventCard'
 import O_Navbar from "./O_Navbar";
 import A_Input from "./A_Input";
 import A_Button from "./A_Button";
+import O_Footer from "./O_Footer";
 class Events_Page extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       activeFilter: 'Все',
       activeFilterID: '',
+      filter: '',
     }
   }
 
@@ -19,11 +21,22 @@ class Events_Page extends React.Component {
     this.setState({ activeFilter: value, activeFilterID: id });
   }
 
+  onFilterSearch = (array, filter, activeId ) => {
+    if( filter === '' && activeId === '') return array;
+    if ( activeId ) {
+    return array.filter(item => item.category_id === activeId && item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1)
+    }
+    return array.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1)
+  }
+
+  onFiltering = (value) => {
+    this.setState({ filter: value })
+  }
+
   render () {
-    console.log(this.props)
     return (
       <React.Fragment>
-       {this.props.current_user.isadmin ? null : <O_Navbar current={'events'} /> }
+       {this.props.current_user?.isadmin ? null : <O_Navbar current={'events'} /> }
          <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between',  margin: '90px 0 31px' }}>
        
          <div style= {{ display: 'flex', flexDirection: 'row'}}>
@@ -31,20 +44,17 @@ class Events_Page extends React.Component {
                   base={this.props.base}
                   activeFilter={this.state.activeFilter}
                   onChange={(value, id)=>this.handleChange(value, id)}/>
-                 <A_Input text="Ищите себя в шалашофках гуфи" />
+                
+        <A_Input 
+          text="Ищите себя в шалашофках гуфи"
+          onFiltering={(value) => this.onFiltering(value)} />
+
         </div>
         <A_Button text="Создать ивент +" base="events"/>
         </div>  
-        { this.props.current_user. isadmin ? <Events_Table categories={this.props.categories} events={this.props.events}/> : 
+        { this.props.current_user?. isadmin ? <Events_Table categories={this.props.categories} events={this.props.events}/> : 
         <div className="events-grid">
-        {this.state.activeFilterID ? this.props.events.filter(item => item.category_id === this.state.activeFilterID).map(event => {
-          return (
-            <O_EventCard 
-            event={event} 
-            category={this.props.categories.filter(category => event.category_id === category.id)[0].name} 
-            gos={this.props.gos.filter(item => event.id === item.event_id).length}/>
-          )
-        }) : this.props.events.map(event => {
+        {this.onFilterSearch(this.props.events, this.state.filter, this.state.activeFilterID).map(event => {
           return (
             <O_EventCard 
             event={event} 
