@@ -12,13 +12,21 @@ class O_SpotCard extends React.Component {
     console.log(this.props.saved)
     return (
       <React.Fragment>
-        <div style= {{ borderRadius: '12px', overflow: 'hidden', cursor:'pointer' }}
+        <div 
+        className="spot-card-styled"
         onClick={() => location.href = `http://127.0.0.1:3000/spots/${this.props.spot.id}`}>
-        <div style={{ backgroundImage: `url(${this.state.image})`, backgroundPosition: 'top center', backgroundSize: 'cover', height: '194px', backgroundRepeat: 'no-repeat' }} />
-          <div style= {{ backgroundColor: '#222222', color: '#F8F5F1', height: '150px' }}>
-          <span>{this.props.spot.name}</span><button>{this.props.type}</button>
+          {this.props.saved[0] ? <button className="button-saved">Сохранено</button> : ''}
+        <div 
+        className="spot-image"
+        style={{backgroundImage: `url(${this.state.image})`}} />
+        
+          <div className="spot-card-bottom">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' ,marginBottom: '10px'}}>
+          <p>{this.props.spot.name}</p>
+          <button>{this.props.type}</button>
+          </div>
           <h1>{this.props.spot.metro}</h1>
-         {this.props.saved[0] ? <button>Сохранено</button> : ''}
+          <a> 2 минуты пешком</a>
           </div>
           </div>
       </React.Fragment>

@@ -4,6 +4,7 @@ import M_Filter from "./M_Filter";
 import Posts_Table from "./Posts_Table";
 import O_PostCard from './O_PostCard'
 import O_Navbar from "./O_Navbar";
+import A_Input from "./A_Input";
 class PostsPage extends React.Component {
   constructor(props){
     super(props);
@@ -21,19 +22,15 @@ class PostsPage extends React.Component {
     return (
       <React.Fragment>
        {this.props.current_user.isadmin ? null : <O_Navbar current={'posts'}/> }
-         <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 0' }}>
+         <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 30px' }}>
          <div style= {{ display: 'flex', flexDirection: 'row'}}>
           <M_Filter category={this.props.categories}
                       base={this.props.base}
                       activeFilter={this.state.activeFilter}
                       onChange={(value,id)=>this.handleChange(value ,id)}/>
 
-          <input placeholder="Ищите себя, это важнее всего"/>
+         <A_Input text="Ищите себя в шалашофках гуфи"/>
         </div>
-          <button className="add_smth"
-          onClick={() => location.href = `http://127.0.0.1:3000/posts/new`} >
-          +
-          </button>
          
         </div>  
        { this.props.current_user. isadmin ? <Posts_Table categories={this.props.categories} posts={this.props.posts}/> : 

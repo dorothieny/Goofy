@@ -7,6 +7,8 @@ import Banner_Fav from "./Banner_Fav";
 import O_Navbar from "./O_Navbar";
 import img1 from '../../assets/images/MBanner.png'
 import img2 from '../../assets/images/SBanner.png'
+import A_Button from "./A_Button";
+import A_Input from "./A_Input";
 class Spots_Page extends React.Component {
   constructor(props){
     super(props);
@@ -33,18 +35,15 @@ class Spots_Page extends React.Component {
         </div>}
 
 
-        <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 0' }}>
+        <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 31px' }}>
        <div style= {{ display: 'flex', flexDirection: 'row'}}>
        <M_Filter category={this.props.types}
                     base={this.props.base}
                     activeFilter={this.state.activeFilter}
                     onChange={(value, id)=>this.handleChange(value, id)}/>
-                    <input placeholder="Ищите себя, это важнее всего"/>
+                    <A_Input text="Ищите себя в шалашофках гуфи"/>
        </div>
-          <button className="add_smth"
-          onClick={() => location.href = `http://127.0.0.1:3000/spots/new`} >
-          +
-          </button>
+         <A_Button text="Создать спот +" base="spots"/>
 
         </div>  
         { this.props.current_user. isadmin ? <Spots_Table types={this.props.types} spots={this.props.spots}/> : 

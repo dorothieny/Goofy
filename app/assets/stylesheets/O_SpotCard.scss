@@ -1,0 +1,53 @@
+@import 'values';
+
+.spot-card-styled {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer; 
+    position: relative;
+    .button-saved {
+        position: absolute;
+        top: 15px;
+        right: 17px;
+        z-index: 10;;
+    }
+    .spot-image {
+        background-position: top center; 
+        background-size: cover;
+         height: 194px; 
+        background-repeat: no-repeat; 
+        filter: saturate(0%) brightness(40%);
+    }
+}
+.spot-card-bottom {
+   background-color: $black;
+   color: $white;
+   height: 150px;
+   padding: 18px 22px;
+   box-sizing: border-box;
+   p{
+       font-family: $text;
+       font-size: 24px;
+       opacity: 0.6;
+   }
+   h1{
+     font-family: $titleOfCards;  
+     font-size: 26px;
+     margin-bottom: 10px;
+   }
+   a {
+    font-family: $text;
+    font-size: 18px;
+    opacity: 0.6;
+   }
+   button { 
+    padding: 9px 16px;
+    font-family: $text;
+    font-size: 18px;
+    background: transparent;
+    border: 1px solid $white;
+    border-radius: 40px;
+    color: $white;
+   }
+
+}

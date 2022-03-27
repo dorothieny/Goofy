@@ -1,0 +1,35 @@
+@import 'values';
+.post-card-styled {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-sizing: content-box;
+    cursor: pointer;
+    background-color: transparent;
+    color: $black;
+    .post-image {
+        background-position: top center;
+        background-size: cover;
+        height: 305px;
+        background-repeat: no-repeat;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        filter: saturate(0%) invert(100%) contrast(120%) brightness(60%);
+    }
+}
+.post-card-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    h1 {
+        font-family: $titleOfCards;
+        font-size: 32px;
+        margin-bottom: 13px;
+    }
+    p{
+        font-family: $text;
+        font-size: 18px;
+        color: $grey;
+    }
+
+}

@@ -1,0 +1,13 @@
+@import 'values';
+.button-styled {
+    padding: 12px 64px;
+    background: $blue;
+    color: $white;
+    font-family: $buttons;
+    border: none;
+    font-size: 18px;
+    border: 1px solid $white;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 0px $blue;
+    border-radius: 6px;
+}

@@ -1,0 +1,15 @@
+@import 'values';
+.input-styled {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $black;
+    input{ 
+    border: none;
+    background: transparent;
+    font-family: $text;
+    font-size: 14px;
+    width: 409px;
+    height: 100%;
+}
+   
+}

@@ -4,6 +4,8 @@ import M_Filter from "./M_Filter";
 import Events_Table from "./Events_Table";
 import O_EventCard from './O_EventCard'
 import O_Navbar from "./O_Navbar";
+import A_Input from "./A_Input";
+import A_Button from "./A_Button";
 class Events_Page extends React.Component {
   constructor(props){
     super(props);
@@ -22,19 +24,16 @@ class Events_Page extends React.Component {
     return (
       <React.Fragment>
        {this.props.current_user.isadmin ? null : <O_Navbar current={'events'} /> }
-         <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 0' }}>
+         <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between',  margin: '90px 0 31px' }}>
        
          <div style= {{ display: 'flex', flexDirection: 'row'}}>
         <M_Filter category={this.props.categories}
                   base={this.props.base}
                   activeFilter={this.state.activeFilter}
                   onChange={(value, id)=>this.handleChange(value, id)}/>
-                  <input placeholder="Ищите себя, это важнее всего"/>
+                 <A_Input text="Ищите себя в шалашофках гуфи" />
         </div>
-          <button className="add_smth"
-          onClick={() => location.href = `http://127.0.0.1:3000/events/new`} >
-          +
-          </button>
+        <A_Button text="Создать ивент +" base="events"/>
         </div>  
         { this.props.current_user. isadmin ? <Events_Table categories={this.props.categories} events={this.props.events}/> : 
         <div className="events-grid">
