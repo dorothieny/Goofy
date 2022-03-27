@@ -1,17 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
-
+import A_Button from "./A_Button";
 class Categories_Table extends React.Component {
   render () {
     return (
       <React.Fragment>
         <div className="" style= {{ margin: '90px 0' }}>
-        <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}><p>Двух типов спотов было достаточно  на момент создания 
+        <div 
+         className="attention-notice"
+        style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+          <p>Двух типов спотов было достаточно  на момент создания 
             <br/>Редактируйте по мере необходимости</p>
-        <button className="add_smth"
-         onClick={() => location.href = `http://127.0.0.1:3000/categories/new`} >
-         +
-          </button>
+            <A_Button text="Добавить уровень +" base="categories"/>
           </div>  
         <table className="table_admin">
         <thead>

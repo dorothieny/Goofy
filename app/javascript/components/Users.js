@@ -26,7 +26,7 @@ class Users extends React.Component {
               <td className="cell-left cell-title"
               onClick={() => location.href = `http://127.0.0.1:3000/users/${user.id}`}>{user.username}</td>
               <td className="cell-left" >{user.email}</td>
-              <td className="cell-center">{user.isadmin ? 'Админ' : ''}</td>
+              <td className="cell-center">{user.isadmin ? '✅' : ''}</td>
               <td className="cell-center"></td>
               <td className="cell-center"></td>
               <td className="cell-center"></td>

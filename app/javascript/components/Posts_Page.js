@@ -5,6 +5,8 @@ import Posts_Table from "./Posts_Table";
 import O_PostCard from './O_PostCard'
 import O_Navbar from "./O_Navbar";
 import A_Input from "./A_Input";
+import A_Button from "./A_Button";
+
 class PostsPage extends React.Component {
   constructor(props){
     super(props);
@@ -47,10 +49,11 @@ class PostsPage extends React.Component {
          <A_Input 
          text="Ищите себя в шалашофках гуфи"
          onFiltering={(value) => this.onFiltering(value)}/>
+        
         </div>
-         
+          {this.props.current_user?.isadmin ? <A_Button text="Создать трюк +" base="posts"/> : null}
         </div>  
-       { this.props.current_user?.isadmin ? <Posts_Table categories={this.props.categories} posts={this.props.posts}/> : 
+       { this.props.current_user?.isadmin ? <Posts_Table categories={this.props.categories} posts={this.onFilterSearch(this.props.posts, this.state.filter, this.state.activeFilterID)}/> : 
        <div className="posts-grid">
         {this.onFilterSearch(this.props.posts, this.state.filter, this.state.activeFilterID).map(post => {
           return (

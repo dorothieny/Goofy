@@ -19,7 +19,6 @@ class Events_Table extends React.Component {
           </thead>
           <tbody>
             {this.props.events.map(event => {
-                  // console.log(this.props.gos.filter(item => item.event_id === event.id).length)
             return (
              <tr key={event.title} 
                   className="table-admin-row">
@@ -30,10 +29,10 @@ class Events_Table extends React.Component {
               <td className="cell-left">{event.metro}</td>
               <td className="cell-left">{event.location}</td>
               <td className="cell-center">{event.time}</td>
-              <td className="cell-center">да</td>
+              <td className="cell-center">✅</td>
               <td className="cell-center">
                 <button style={{ marginRight: '10px' }}
-                onClick={() => location.href = `http://127.0.0.1:3000/events/${event.id}/edit`}>Edit</button>
+                onClick={() => location.href = `http://127.0.0.1:3000/events/${event.id}/edit`}>Изменить</button>
                <a 
                   data-confirm="Are you sure?" 
                   style={{ marginRight: '10px' }} 

@@ -52,7 +52,7 @@ class Events_Page extends React.Component {
         </div>
         <A_Button text="Создать ивент +" base="events"/>
         </div>  
-        { this.props.current_user?. isadmin ? <Events_Table categories={this.props.categories} events={this.props.events}/> : 
+        { this.props.current_user?. isadmin ? <Events_Table categories={this.props.categories} events={this.onFilterSearch(this.props.events, this.state.filter, this.state.activeFilterID)}/> : 
         <div className="events-grid">
         {this.onFilterSearch(this.props.events, this.state.filter, this.state.activeFilterID).map(event => {
           return (

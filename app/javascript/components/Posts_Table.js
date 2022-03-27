@@ -30,13 +30,13 @@ class Posts_Table extends React.Component {
               <td className="cell-left cell-title"
               onClick={() => location.href = `http://127.0.0.1:3000/posts/${post.id}`}>{post.title}</td>
               <td className="cell-center" >{this.props.categories.filter(category => post.category_id === category.id)[0].name}</td>
-              <td className="cell-left">{post.description}</td>
-              <td className="cell-center">{post.video? 'есть' : 'нет'}</td>
+              <td className="cell-left" style={{ width: '500px'}}>{post.description}</td>
+              <td className="cell-center">{post.video? '✅' : '❌'}</td>
               <td className="cell-center">{post.equipment}</td>
-              <td className="cell-center">{post.image? 'есть' : 'нет'}</td>
+              <td className="cell-center">{post.image? '✅' : '❌'}</td>
               <td className="cell-center">
                 <button style={{ marginRight: '10px' }}
-                onClick={() => location.href = `http://127.0.0.1:3000/posts/${post.id}/edit`}>Edit</button>
+                onClick={() => location.href = `http://127.0.0.1:3000/posts/${post.id}/edit`}>Изменить</button>
                <a 
                   data-confirm="Are you sure?" 
                   style={{ marginRight: '10px' }} 

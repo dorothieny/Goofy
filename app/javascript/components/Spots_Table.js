@@ -29,11 +29,11 @@ class Spots_Table extends React.Component {
               <td className="cell-center" >{this.props.types.filter(type => spot.type_id === type.id)[0].name}</td>
               <td className="cell-left">{spot.metro}</td>
               <td className="cell-left">{spot.location}</td>
-              <td className="cell-center">{spot.price && spot.works ? 'есть' : 'нет'}</td>
-              <td className="cell-center"><img src={spot.image} /></td>
+              <td className="cell-center">{spot.price && spot.works ? '✅' : '❌'}</td>
+              <td className="cell-center">{spot.image ? '✅' : '❌'}</td>
               <td className="cell-center">
                 <button style={{ marginRight: '10px' }}
-                onClick={() => location.href = `http://127.0.0.1:3000/spots/${spot.id}/edit`}>Edit</button>
+                onClick={() => location.href = `http://127.0.0.1:3000/spots/${spot.id}/edit`}>Изменить</button>
                  <a 
                   data-confirm="Are you sure?" 
                   style={{ marginRight: '10px' }} 

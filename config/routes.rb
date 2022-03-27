@@ -30,9 +30,7 @@ Rails.application.routes.draw do
   delete 'users/:id', to: 'users#destroy'
 
   get 'main', to: 'main#index'
-  get 'splash', to: 'splash#index'
   get 'promo', to: 'promo#index'
-  get 'about', to: 'about#index'
   get 'posts', to: 'posts#index'
   # get 'comments', to: 'comments#index'
 

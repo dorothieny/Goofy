@@ -37,7 +37,7 @@ class Spots_Page extends React.Component {
 
 
   render () {
-    console.log(this.state.filter + this.state.activeFilterID)
+    console.log(this.props.saveds)
     return (
       <React.Fragment>
        {this.props.current_user?.isadmin ? null : 
@@ -54,7 +54,7 @@ class Spots_Page extends React.Component {
         <Banner_Fav 
           color='#B35B58' 
           text='Твои сохраненные' 
-          places={this.props.current_user ? this.props.current_user?.saveds_spots.length : 'Нет'}
+          places={this.props.current_user ? this.props.saveds.filter(item => this.props.current_user.id === item.user_id).length : 'Нет'}
           image={img2} linkTo={this.props.current_user ? `http://127.0.0.1:3000/users/${this.props.current_user.id}` : 'http://127.0.0.1:3000/users/sign_up'}/>
 
         </div>
@@ -76,10 +76,9 @@ class Spots_Page extends React.Component {
          <A_Button text="Создать спот +" base="spots"/>
         </div>  
 
-        { this.props.current_user?.isadmin ? <Spots_Table types={this.props.types} spots={this.props.spots}/> : 
+        { this.props.current_user?.isadmin ? <Spots_Table types={this.props.types} spots={this.onFilterSearch(this.props.spots, this.state.filter, this.state.activeFilterID)}/> : 
         <div className="spots-grid">
         {this.onFilterSearch(this.props.spots, this.state.filter, this.state.activeFilterID).map(spot => {
-          console.log(spot);
           return (
             <O_SpotCard 
             spot={spot} 
