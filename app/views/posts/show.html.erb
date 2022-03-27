@@ -2,12 +2,6 @@
 <div class="new_post_title">
 <%= link_to 'Назад к постам', posts_path %>
 <h1>
-<%= form_tag posts_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :starts_with, params[:starts_with] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
 <strong></strong>
 <%= @post.title %>
 </h1>
