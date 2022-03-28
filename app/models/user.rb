@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :likes, dependent: :destroy
@@ -12,6 +14,8 @@ class User < ApplicationRecord
 
   has_many :goes, dependent: :destroy
   has_many :goed_events, :through => :goes, :source => :event
+
+
 
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
   has_many :followees, through: :followed_users

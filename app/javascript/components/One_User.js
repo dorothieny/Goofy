@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 class One_User extends React.Component {
   render () {
+    console.log(this.props.user)
     return (
       <React.Fragment>
       <div className="posts_page">
