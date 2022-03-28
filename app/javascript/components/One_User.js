@@ -8,11 +8,16 @@ class One_User extends React.Component {
       <React.Fragment>
       <div className="posts_page">
       <div className="flex-title_button">
+      <div 
+      className="user-avatar"
+      style={{ backgroundImage:`url(${this.props.user.avatar.url})`}} />
       <h1 className="posts_title">
       {this.props.user.username}
       </h1>
       {this.props.user.isadmin ? <p>admin {this.props.user.id}</p>: null}
       </div>
+
+
 
       <div className="users_data">
       
