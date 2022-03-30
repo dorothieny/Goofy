@@ -4,9 +4,6 @@ import A_Tag from "./A_Tag";
 class O_PostCard extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      image: props.post.image.url ? this.props.post.image.url : 'https://xsaramps.com/files/uploads/conflict.png',
-    }
   } 
   render () {
     return (
@@ -17,7 +14,7 @@ class O_PostCard extends React.Component {
           <div style= {{ }}>
           <div 
           className="post-image"
-          style={{ backgroundImage: `url(${this.state.image})`}} />
+          style={{ backgroundImage: `url(${this.props.post.image?.url ? this.props.post?.image.url : 'https://xsaramps.com/files/uploads/conflict.png'})`}} />
 
           <div className="post-card-bottom">
             <div

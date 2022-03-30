@@ -17,11 +17,6 @@ class M_Filter extends React.Component {
           className={`category-item ${this.props.activeFilter === cat.name ? 'active' : ''}`}
             onClick={() => {
               this.props.onChange(cat.name, cat.id);
-              if (this.props.base=== 'spots') {
-               
-              } else {
-                
-              }
                 }}>
             {cat.name}</button>
         )})

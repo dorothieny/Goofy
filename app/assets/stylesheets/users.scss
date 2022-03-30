@@ -16,12 +16,6 @@
             }
         }
     }
-    .users_data {
-        color: $black;
-        font-family: $text;
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
     .user_grid{
         display: flex;
         flex-direction: row;
@@ -53,3 +47,46 @@
         }
     }
 }
+.flex-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 150px 0px 20px;
+    position: relative;
+
+    .add_smth {
+      border: none;
+      background: transparent;
+      a{
+        font-size: 36px;
+        color: $black;
+      }
+    }
+    p {
+      color: $black;
+      font-family: $heading;
+      font-size: 20px;
+      opacity: .7;
+    }
+}
+.user-name {
+    margin: 75px 32px 0;
+    h1 {
+   font-family: $categories;
+   @include font(32px, 48px);
+   color: $black;
+   position: relative;
+   width: 400px !important;
+   z-index: 1;
+  
+   }
+    h2 {
+   font-family: $text;
+   font-size: 18px;
+   color: $grey;
+   }
+}
+.users_data {
+    width: 630px !important;
+ }

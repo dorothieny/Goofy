@@ -6,35 +6,7 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0 50px;
-    .flex-title_button {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin: 58px 0px 20px;
-        .posts_title {
-            font-family: $heading;
-            @include font(48px, 48px);
-            color: $black;
-            position: relative;
-            width: 400px !important;
-            z-index: 1;
-        }
-        .add_smth {
-          border: none;
-          background: transparent;
-          a{
-            font-size: 36px;
-            color: $black;
-          }
-        }
-        p {
-          color: $black;
-          font-family: $heading;
-          font-size: 20px;
-          opacity: .7;
-        }
-    }
+
     .posts_container_grid{
         display: grid;
         grid-template-columns: 1fr;

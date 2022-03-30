@@ -37,7 +37,6 @@ class Spots_Page extends React.Component {
 
 
   render () {
-    console.log(this.props.saveds)
     return (
       <React.Fragment>
        {this.props.current_user?.isadmin ? null : 
@@ -64,7 +63,6 @@ class Spots_Page extends React.Component {
         <div style= {{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', margin: '90px 0 31px' }}>
        <div style= {{ display: 'flex', flexDirection: 'row'}}>
        <M_Filter category={this.props.types}
-                    base={this.props.base}
                     activeFilter={this.state.activeFilter}
                     onChange={(value, id)=>this.handleChange(value, id)}/>
                     
