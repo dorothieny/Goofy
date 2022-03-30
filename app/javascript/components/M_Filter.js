@@ -4,12 +4,13 @@ class M_Filter extends React.Component {
   render () {
     return (
       <div className="flex-categories">
+        {this.props.userFilter ? null : 
         <button
           className={`category-item ${this.props.activeFilter === 'Все' ? 'active' : ''}`}
           onClick={() =>  {
               this.props.onChange('Все', '');
              
-             }}> Все </button>
+             }}> Все </button>}
         {this.props.category.map((cat) => {
           if (cat.name === 'Все') return;
           return (

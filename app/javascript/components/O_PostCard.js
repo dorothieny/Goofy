@@ -27,7 +27,7 @@ class O_PostCard extends React.Component {
             {this.props.category === 'Все' ? null : <A_Tag text={this.props.category} color='#151921'
                                                                                       backgroundColor="transparent"
                                                                                       borderColor='#151921'/>}
-            {this.props.learned.filter(item => item.post_id === this.props.post.id)[0] ?  <A_Tag text='Выучен' color='#F8F5F1'
+            {this.props.learned?.filter(item => item.post_id === this.props.post.id)[0] ?  <A_Tag text='Выучен' color='#F8F5F1'
                                                                                       backgroundColor="#416552"
                                                                                       borderColor='transparent'/> : ''}
           </div>

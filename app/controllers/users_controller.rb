@@ -23,9 +23,13 @@ class UsersController < ApplicationController
           render component:  'One_User', props: { 
           user: @user, 
           current_user: current_user.id,
+          types: Type.where(display_in_navbar: true),
           events:  @events,
           spots: @spots,
           posts: @posts,
+          gos: Go.all, 
+          favorited: Favorite.all,
+          categories: Category.where(display_in_navbar: true),
           }
         else
             render file: 'public/404', status: 404, formats: [:html]
