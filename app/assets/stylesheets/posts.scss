@@ -141,19 +141,7 @@
   width: 547px;
   padding: 40px 20px 70px;
 }
-.post_edit {
-    margin-top: 30px;
-    a {
-        text-decoration: none;
-        color: $black;
-        opacity: .5;
-        font-family: $text;
-        @include font(20px, 21px);
-        &:hover {
-            opacity: 1;
-          }
-      }
-  }
+
 .comment_section {
   margin: 100px 0 50px 50px;
   p {

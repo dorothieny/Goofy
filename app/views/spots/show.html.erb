@@ -1,81 +1,83 @@
-<div class="posts_page">
+<div class="spot-page-flex">
+  <div class="left-foto-spot">
+    <%= react_component 'A_Spot_Image', { 
+    image: @spot.image.url } %>
+  </div>
 
-<div class="new_post_title">
-<%= link_to 'Назад к спотам', spots_path %>
-<h1>
+<div class="right-details-spot">
+
+
+<button class="type-btn">
+  <%= @spot.type.name %>
+</button>
+
+
+
+<h1 class="spot-page-title">
   <%= @spot.name %>
 </h1>
+
+<div class="spot-item">
+<div class="spot-label">
+ м <%= @spot.metro %>
+</div>
 </div>
 
-<div class="new_post_page">
 
-<div class="block_post">
-<h3>
-  Тип спота
-</h3>
-<p>
-  <%= @spot.type.name %>
-</p>
-</div>
-
-<div class="block_post">
-<h3>
-  Метро
-</h3>
-<p>
-  <%= @spot.metro %>
-</p>
-</div>
-
-<div class="block_post">
-<h3>
+<div class="spot-item">
+<div class="spot-label">
   Время работы
-</h3>
-<p>
+</div>
+<p class="spot-text">
   <%= @spot.works %>
 </p>
 </div>
 
 
-<div class="block_post">
-<h3>
+<div class="spot-item">
+<div class="spot-label">
   Стоимость
-</h3>
-<p>
+</div>
+<p class="spot-text">
   <%= @spot.price %> 
 </p>
 </div>
 
-<div class="block_post">
-<%= image_tag(@spot.image.url, alt: 'Image') if @spot.image? %>
-</div>
 
 <% if user_signed_in? %>
 
 <% pre_saved = @spot.saveds.find { |saved| saved.user_id == current_user.id} %>
   <% if pre_saved %>
-    <%= button_to 'Убрать из сохраненных', spot_saved_path(@spot, pre_saved), method: :delete %>
+    <%= button_to 'Убрать из сохраненных', spot_saved_path(@spot, pre_saved), method: :delete, class: 'button-styled'  %>
   <% else %>
-    <%= button_to 'Добавить в сохраненные', spot_saveds_path(@spot), method: :post %>
+    <%= button_to 'Добавить в сохраненные', spot_saveds_path(@spot), method: :post, class: 'button-styled' %>
 <% end %>
 <% end %>
 
 <% if user_signed_in? && current_user.id == @spot.user_id %>
 <div class="post_edit">
-  <%= link_to 'Изменить', edit_spot_path(@spot) %>
+  <%= link_to 'Редактировать', edit_spot_path(@spot) %>
+  <%= link_to 'Удалить', spot_path(@spot), data: { confirm: "Are you sure?" }, method: :delete %>
   </div>
 <% end %>
-</div>
 
-<div class="comment_post_block">
-<h2>Комментарии</h2>
+<div >
+<h2 class="comment-title">Комментарии</h2>
 <%= render @spot.spot_comments %>
 
 <% if user_signed_in? %>
-<h2>Добавить коммент:</h2>
   <%= render "spot_comments/form" %>
   <% else %>
-  <p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
+  <p class="login-action"> <%= link_to 'Залогинься', new_user_session_path %> или <%= link_to 'зарегистрируйся', new_user_registration_path %> чтобы комментить</p>
 <% end %>
 </div>
+
+
+
+</div>
+</div>
+
+<div class="same-spots">
+<h1 class="spot-page-title">Похожие споты</h1>
+<%= react_component 'M_Spot_Horisontal_Grid', { spots: Spot.all, types: Type.all, saveds: Saved.all, current_user: current_user } %>
 </div>

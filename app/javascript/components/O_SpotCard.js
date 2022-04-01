@@ -10,6 +10,7 @@ class O_SpotCard extends React.Component {
     return (
       <React.Fragment>
         <div 
+        key={this.props.spot.id}
         className="spot-card-styled"
         onClick={() => location.href = `http://127.0.0.1:3000/spots/${this.props.spot.id}`}>
           {this.props.saved[0] ? <A_Saved_Btn fillColor={'#151921'}/> : <A_Saved_Btn fillColor={'#F8F5F1'}/>}

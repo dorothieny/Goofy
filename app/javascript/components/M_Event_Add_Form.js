@@ -100,6 +100,7 @@ class M_Event_Add_Form extends React.Component {
           className="input-event"
             value={this.state.metro}
             type="text"
+            placeholder="Укажи ближайшее метро"
             name="event[metro]"
             onChange={this.handleMetro}
           />
@@ -109,14 +110,16 @@ class M_Event_Add_Form extends React.Component {
             value={this.state.location}
             type="text"
             name="event[location]"
+            placeholder="Укажи самый точный адрес улицу, дом"
             onChange={this.handleLocation}
           />
           <label>Дата</label>
           <input
           className="input-event"
             value={this.state.date}
-            type="text"
             name="event[date]"
+            type="text"
+            placeholder="дд/мм"
             onChange={this.handleDate}
           />
            <label>Время</label>
@@ -125,6 +128,7 @@ class M_Event_Add_Form extends React.Component {
             value={this.state.time}
             type="text"
             name="event[time]"
+            placeholder="Например: 22:30"
             onChange={this.handleTime}
           />
 

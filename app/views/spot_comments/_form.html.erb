@@ -1,8 +1,12 @@
 <%= form_for([@spot, @spot.spot_comments.build]) do |f| %>
-	<div class="field">
-		<%= f.text_area :body %>
-	</div>
-	<div class="actions submit_btn_post">
-		<%= f.submit "Комментировать"%>
+	<div class="comment-form-flex">
+
+	<div class="spot-input">
+	<%= f.text_field :body, placeholder: "Добавь комментарий" %>
+		</div>
+		
+			<%= f.submit "Отправить", class: "post-comment" %>
+
+
 	</div>
 <% end %>

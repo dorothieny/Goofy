@@ -72,7 +72,7 @@
   <% end %>
   <%  if user_signed_in? && current_user.isadmin == true %>
   <div class="post_delete">
-    <%= link_to 'Удалить', posts_path %>
+    <%= link_to 'Удалить', posts_path(@post), data: { confirm: "Are you sure?" }, method: :delete %>
   </div>
   <% end %>
 </div>

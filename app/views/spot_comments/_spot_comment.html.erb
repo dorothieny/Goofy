@@ -1,17 +1,3 @@
-<div class="comment_container">
-	<span>
-	<%= User.find(spot_comment.user_id).username %>
-	</span>
-	<p>
-	<%= spot_comment.body %>
-	</p>
-
-	<% if user_signed_in? && current_user.id == spot_comment.user_id  %>
-	<p>
-	<%= link_to 'Удалить комментарий', [spot_comment.spot, spot_comment],
-								:confirm => 'Are you sure?',
-								:method => :delete %>
-	</p>
-	<% end %>
-</div>
-
+<%= react_component 'M_Spot_Comment', { 
+	spot_comment: spot_comment, 
+	commentator: User.find(spot_comment.user_id), user: current_user } %>

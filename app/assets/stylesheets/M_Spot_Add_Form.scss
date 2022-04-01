@@ -7,10 +7,13 @@
         font-family: $text;
         font-size: 18px;
         min-width: 440px;
+        &:focus-visible {
+            outline: none;
+        }
     }
 }
 .button-temporary {
-    width: 100%;
+    width: 440px;
     input {
     padding: 12px 64px;
     background: $blue;
@@ -22,7 +25,7 @@
     box-sizing: border-box;
     box-shadow: 4px 4px 0px $blue;
     border-radius: 6px;
-    // width:440px;
+    width:100%;
     cursor: pointer;
     &:hover {
         background: $black;

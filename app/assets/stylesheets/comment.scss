@@ -1,0 +1,55 @@
+@import 'values';
+.spot-comment {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; 
+    .timestamp {
+        color: $grey;
+        font-size: 18px;
+        font-family: $text;
+    }
+}
+.commenter-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 8px;
+   
+    h1 {
+        font-family: $heading;
+        margin-right: 4px;
+        
+    }
+    * {
+        font-size: 22px;
+        display: inline-block;
+        font-family: $text;
+        
+    }
+
+    img {
+        border-radius: 50%;
+        margin-right: 4px;
+        width: 26px;
+        height: 26px;
+    }
+}
+.comment-form-flex {
+    display: flex;
+    .post-comment {
+        border: none;
+        background-color: transparent;
+        font-family: $title;
+        font-size: 18px;
+        color: $blue;
+        position: relative;
+        right: 120px;
+    }
+}
+.comment-title {
+    font-size: 32px;
+    font-family: $categories;
+    color: $black;
+    margin-bottom: 50px;
+    margin-top: 75px;
+}

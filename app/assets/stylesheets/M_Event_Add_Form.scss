@@ -13,6 +13,12 @@
         font-family: $text;
         font-size: 18px;
         min-width: 440px;
+        &:focus-visible {
+            outline: none;
+        }
+    }
+    .button-styled {
+        width: 440px;
     }
 }
 .event-form-title {
