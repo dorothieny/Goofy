@@ -5,12 +5,13 @@ import O_EventCard from "./O_EventCard";
 import O_PostCard from "./O_PostCard";
 import Banner_Fav from "./Banner_Fav";
 import img2 from '../../assets/images/SBanner.png'
+import image from '../../assets/images/A_BannerMask.png'
 class Main_Page extends React.Component {
   render () {
     console.log(this.props.current_user)
     return (
       <React.Fragment>
-        <div className="banner-main">
+        <div className="banner-main" style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover'}}>
          <div>
           <p>О нас</p>
           <h1>GOOFY –  скейтинг с любым уровнем навыков</h1>

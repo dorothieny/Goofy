@@ -71,8 +71,9 @@ class One_User extends React.Component {
       {this.state.activeFilterID === 3 ? this.props.posts.map (post => {
         return (
           <O_PostCard 
+          key={post.id}
           post={post} 
-          learned={[{}]}
+          learned={this.props.favorited.filter(item => item.user_id === this.props.current_user?.id)}
           favorited={this.props.favorited.filter(item => post.id === item.post_id).length}
           category={this.props.categories.filter(category => post.category_id === category.id)[0].name} />
         );
@@ -86,6 +87,7 @@ class One_User extends React.Component {
       { this.state.activeFilterID === 1 ? this.props.spots.map (spot => {
         return (
           <O_SpotCard 
+          key={spot.id}
           spot={spot} 
           type={this.props.types.filter(type => spot.type_id === type.id)[0].name} 
           saved={[{ }]} />
@@ -99,6 +101,7 @@ class One_User extends React.Component {
       { this.state.activeFilterID === 2 ? this.props.events.map (event => {
         return (
           <O_EventCard  
+          key={event.id}
           event={event} 
           category={this.props.categories.filter(category => event.category_id === category.id)[0].name} 
           gos={this.props.gos.filter(item => event.id === item.event_id).length}/>

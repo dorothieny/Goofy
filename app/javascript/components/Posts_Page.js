@@ -47,7 +47,7 @@ class PostsPage extends React.Component {
                       onChange={(value,id)=>this.handleChange(value ,id)}/>
 
          <A_Input 
-         text="Ищите себя в шалашофках гуфи"
+         text="Ищи трюк по названию"
          onFiltering={(value) => this.onFiltering(value)}/>
         
         </div>

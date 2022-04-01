@@ -24,9 +24,9 @@ class Events_Page extends React.Component {
   onFilterSearch = (array, filter, activeId ) => {
     if( filter === '' && activeId === '') return array;
     if ( activeId ) {
-    return array.filter(item => item.category_id === activeId && item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1)
+    return array.filter(item => item.category_id === activeId && item.metro.toLowerCase().indexOf(filter.toLowerCase()) > -1)
     }
-    return array.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) > -1)
+    return array.filter(item => item.metro.toLowerCase().indexOf(filter.toLowerCase()) > -1)
   }
 
   onFiltering = (value) => {
@@ -46,7 +46,7 @@ class Events_Page extends React.Component {
                   onChange={(value, id)=>this.handleChange(value, id)}/>
                 
         <A_Input 
-          text="Ищите себя в шалашофках гуфи"
+          text="Ищи ивенты по метро рядом"
           onFiltering={(value) => this.onFiltering(value)} />
 
         </div>
