@@ -62,8 +62,9 @@
             <%= button_to 'Добавить в выученные', post_favorites_path(@post), method: :post, class: 'button-styled-post' %>
       <% end %>
     <% else %>
-    <button_to 'Добавить в выученные', new_user_session_path, class: 'button-styled-post' %>
+    <%= button_to 'Добавить в выученные', new_user_session_path, class: 'button-styled-post' %>
     <% end %>
+
     <% if user_signed_in? && current_user.id == @post.user_id %>
       <div class="post_edit">
         <%= link_to 'Редактировать', edit_post_path(@post) %>
