@@ -43,7 +43,9 @@
 </p>
 </div>
 
-
+ <p class="post_edit">
+ Умеют <%= Saved.where(spot_id: @spot.id).length %> скейтеров
+ </p>
 <% if user_signed_in? %>
 
 <% pre_saved = @spot.saveds.find { |saved| saved.user_id == current_user.id} %>
@@ -52,6 +54,8 @@
   <% else %>
     <%= button_to 'Добавить в сохраненные', spot_saveds_path(@spot), method: :post, class: 'button-styled' %>
 <% end %>
+<% else %>
+<%= button_to 'Добавить в сохраненные', new_user_session_path, class: 'button-styled' %>
 <% end %>
 
 <% if user_signed_in? && current_user.id == @spot.user_id %>
