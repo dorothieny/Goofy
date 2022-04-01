@@ -2,7 +2,6 @@
   <% if spot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(spot.errors.count, "error") %> prohibited this spot from being saved:</h2>
-
       <ul>
         <% spot.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,45 +9,57 @@
       </ul>
     </div>
   <% end %>
+<div class="event-form">
+  <div class="contaier-colums"> 
+  <div style="margin-right: 20%">
+        <div class="spot-input">
+          <%= form.label :Название %>
+          <%= form.text_field :name, placeholder: "Назови спот"  %>
+        </div>
 
-  <div class="field">
-    <%= form.label :Название %>
-    <%= form.text_field :name %>
+        <div class="spot-input">
+          <%= form.label :type_id %>
+          <%= form.select :type_id, Type.pluck(:name, :id) %>
+        </div>
+
+
+        <div class="spot-input">
+          <%= form.label :Адрес %>
+          <%= form.text_field :location, placeholder: "Укажи самый точный адрес" %>
+        </div>
+
+        <div class="spot-input">
+          <%= form.label :Метро %>
+          <%= form.text_field :metro, placeholder: "Укажи ближайшую станцию" %>
+        </div>
+
+
+        <div class="spot-input">
+        <%= form.label :Время_работы %>
+        <%= form.text_field :works, placeholder: "Время работы спота"  %>
+        </div>
+
+        <div class="spot-input">
+        <%= form.label :Стоимость %>
+        <%= form.text_field :price, placeholder: "Например: 200 Р" %>
+        </div>
+        </div>
+
+        <div>
+        <div>
+          <%= form.label :Фотки %>
+          <%= form.file_field :image %>
+        </div>
+        </div>
+        <div class="cool-bg">
+        <%= image_tag 'cool-bg.svg' %>
+        </div>
   </div>
 
-  <div class="field">
-    <%= form.label :type_id %>
-    <%= form.select :type_id, Type.pluck(:name, :id) %>
+ 
+
+  <div class="button-temporary">
+    <%= form.submit :Готово%>
   </div>
-
-
-  <div class="field">
-    <%= form.label :Адрес %>
-    <%= form.text_field :location %>
   </div>
-
-  <div class="field">
-    <%= form.label :Метро %>
-    <%= form.text_field :metro %>
-  </div>
-
-
-  <div class="field">
-  <%= form.label :Время_работы %>
-  <%= form.text_field :works %>
-  </div>
-
-  <div class="field">
-  <%= form.label :Цена %>
-  <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :Фотки %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<% end %> 

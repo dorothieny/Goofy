@@ -32,7 +32,8 @@ class Types_Table extends React.Component {
                   className="table-admin-row">
               <td className="cell-left">#{type.id}</td>
               <td className="cell-center cell-title"
-              onClick={() => location.href = `http://127.0.0.1:3000/types/${type.id}`}>{type.name}</td>
+              // onClick={() => location.href = `http://127.0.0.1:3000/types/${type.id}`}
+              >{type.name}</td>
               <td className="cell-left">{type.description}</td>
               <td className="cell-center" ></td>
               <td className="cell-center"></td>

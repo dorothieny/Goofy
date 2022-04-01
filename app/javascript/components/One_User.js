@@ -67,9 +67,6 @@ class One_User extends React.Component {
 
       <div className="user_grid">
       <div className="user_items">
-      {/* <h2>
-        Выучено {this.props.posts.length}
-      </h2> */}
        <div className="posts-grid">
       {this.state.activeFilterID === 3 ? this.props.posts.map (post => {
         return (
@@ -85,9 +82,6 @@ class One_User extends React.Component {
       </div>
 
       <div className="user_items">
-      {/* <h2>
-      Сохранено {this.props.spots.length}
-      </h2> */}
       <div className="spots-grid">
       { this.state.activeFilterID === 1 ? this.props.spots.map (spot => {
         return (
@@ -101,9 +95,6 @@ class One_User extends React.Component {
       </div>
 
       <div className="user_items">
-      {/* <h2>
-      Иду на {this.props.events.length}
-      </h2> */}
        <div className="events-grid">
       { this.state.activeFilterID === 2 ? this.props.events.map (event => {
         return (

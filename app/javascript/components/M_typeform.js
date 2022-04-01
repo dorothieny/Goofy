@@ -1,13 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class M_catform extends React.Component {
+class M_typeform extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        name: props.category.name ? props.category.name : '',
-        description: props.category.description ? props.category.description : '',
-        display_in_navbar: props.category.display_in_navbar ? props.category.display_in_navbar : false
+        name: props.type.name ? props.type.name : '',
+        description: props.type.description ? props.type.description : '',
+        display_in_navbar: props.type.display_in_navbar ? props.type.display_in_navbar : false
       };
       this.handleNameChange = this.handleNameChange.bind(this);
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -28,12 +28,12 @@ class M_catform extends React.Component {
 
     render() {
       return (
-        <div className="category-form">
-          <label>Уровень навыка</label>
+        <div className="type-form">
+          <label>Тип спота</label>
           <input
-           className="input-custom"
+          className="input-custom"
             type="text"
-            name="category[name]"
+            name="type[name]"
             value={this.state.name}
             placeholder="Дайте название"
             onChange={this.handleNameChange}
@@ -43,17 +43,17 @@ class M_catform extends React.Component {
           <textarea
            className="input-custom"
             type="text"
-            name="category[description]"
+            name="type[description]"
             value={this.state.description}
             placeholder="Добавьте описание"
             onChange={this.handleDescriptionChange}
           />
           <div style={{display: 'flex', alignItems: 'flex-end', marginBottom: '20px'}}>
-          <label>Виден в свичере</label>
+          <label>Отображается в свичере</label>
           <input
             defaultChecked={this.state.display_in_navbar}
             type="checkbox"
-            name="category[display_in_navbar]"
+            name="type[display_in_navbar]"
             onChange={this.handleDisplayInNavbarChange}
           />
           </div>
@@ -63,4 +63,4 @@ class M_catform extends React.Component {
     }
   }
 
-export default M_catform
+export default M_typeform

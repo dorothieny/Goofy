@@ -107,3 +107,49 @@
       transition: all .3 ease-in-out;
     }
   }
+  .type-form, .category-form {
+    font-family: $text;
+    font-size: 18px;
+    label {
+      display: block;
+      margin-top: 20px
+    }
+    h1 {
+      font-family: $categories;
+      font-size: 24px;
+      margin-top: 20px;
+      margin: 50px 0 20px;
+    }
+    p {
+      font-family: $text;
+      font-size: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid $black;
+      width: 440px;
+    }
+    .input-custom {
+        margin: 10px 0;
+        padding: 5px;
+        font-family: $text;
+        font-size: 18px;
+        width: 600px;
+        border: none;
+        color: $grey;
+        background: transparent;
+        border-bottom: 1px solid $black;
+
+    }
+  }
+  .form-title {
+    font-family: $titleOfCards;
+    font-size: 54px;
+    margin-bottom: 40px;
+  }
+  .navigate-btns {
+    margin-top: 20px;
+  }
+.cool-bg {
+  position: absolute;
+  right: 0;
+  bottom: -240px;
+}

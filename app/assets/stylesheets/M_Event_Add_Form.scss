@@ -1,0 +1,46 @@
+@import 'values';
+.event-form {
+    label {
+        display: block;
+        font-family: $categories;
+        font-size: 24px;
+        margin: 59px 0 21px;
+    }
+    .input-event {
+        border: none;
+        border-bottom: 1px solid $black;
+        background: transparent;
+        font-family: $text;
+        font-size: 18px;
+        min-width: 440px;
+    }
+}
+.event-form-title {
+    font-family: $titleOfCards;
+    font-size: 54px;
+    // margin-bottom: 50px;
+}
+.input-event-desc {
+    border: 1px solid $black;
+    border-radius: 12px;
+    background: transparent;
+    font-family: $text;
+    font-size: 18px;
+    min-height: 133px;
+    min-width: 440px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+}
+.contaier-colums {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+.select-switch {
+    font-family: $heading;
+    font-size: 18px;
+    padding: 13px;
+    border: 20px;
+    background: transparent;
+}

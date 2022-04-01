@@ -10,45 +10,53 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="event-form">
+<div class="contaier-colums"> 
+<div style="margin-right: 20%">
+  <div class="spot-input">
     <%= form.label :Название %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: "Назови трюк"%>
   </div>
 
-  <div class="field">
+  <div class="spot-input">
       <%= form.label :Категория %>
       <%= form.select :category_id, Category.pluck(:name, :id) %>
   </div>
 
 
-  <div class="field">
+  <div class="spot-input">
 	<%= form.label :Видео %>
-	<%= form.text_field :videos %>
+	<%= form.text_field :videos, placeholder: "Сколько добавлено видео" %>
   </div>
 
-  <div class="field">
+  <div class="spot-input">
 	<%= form.label :Снаряжение %>
-	<%= form.text_field :equipment %>
+	<%= form.text_field :equipment, placeholder: "Специальные штуки, нужные для трюка" %>
   </div>
 
-  <div class="field">
+  <div class="spot-input">
 	<%= form.label :Описание %>
 	<%= form.text_field :description %>
 </div>
+</div>
 
+<div>
   <div>
 	<%= form.label :Изображение %>
 	<%= form.file_field :image %>
   </div>
 
-  <div class="field">
+  <div class="spot-input">
     <%= form.label :Контент %>
     <%= form.cktext_area :content %>
   </div>
+  </div>
+  
+  </div>
 
 
-  <div class="actions submit_btn_post">
+  <div class="button-temporary">
     <%= form.submit "Создать" %>
+  </div>
   </div>
 <% end %>

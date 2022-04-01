@@ -1,0 +1,32 @@
+@import 'values';
+.spot-input {
+    input {
+        border: none;
+        border-bottom: 1px solid $black;
+        background: transparent;
+        font-family: $text;
+        font-size: 18px;
+        min-width: 440px;
+    }
+}
+.button-temporary {
+    width: 100%;
+    input {
+    padding: 12px 64px;
+    background: $blue;
+    color: $white;
+    font-family: $buttons;
+    border: none;
+    font-size: 18px;
+    border: 1px solid $white;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 0px $blue;
+    border-radius: 6px;
+    // width:440px;
+    cursor: pointer;
+    &:hover {
+        background: $black;
+        box-shadow: 4px 4px 0px $black;
+    }
+    }
+}

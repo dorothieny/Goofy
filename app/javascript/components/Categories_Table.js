@@ -32,7 +32,8 @@ class Categories_Table extends React.Component {
                   className="table-admin-row">
               <td className="cell-left">#{category.id}</td>
               <td className="cell-center cell-title"
-              onClick={() => location.href = `http://127.0.0.1:3000/categories/${category.id}`}>{category.name}</td>
+              // onClick={() => location.href = `http://127.0.0.1:3000/categories/${category.id}`}
+              >{category.name}</td>
               <td className="cell-left">{category.description}</td>
               <td className="cell-center" ></td>
               <td className="cell-center"></td>

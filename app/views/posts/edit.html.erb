@@ -1,16 +1,5 @@
-<div class="editable">
 
-  <div class="edit">
-    <div class="post_edit">
-      <%= link_to 'Назад', posts_path %>
-    </div>
-    <div class="post_delete">
-      <%= link_to 'Удалить', posts_path %>
-    </div>
-  </div>
-
-  <h1>Редактирование</h1>
+  <h1 class="event-form-title">Редактирование</h1>
 
   <%= render 'form', post: @post %>
 
-</div>
