@@ -193,8 +193,16 @@
 
 .field label {
   color: $black;
-  font-family:  $text;
+  font-family:  $titleOfCards;
   @include font(24px, 27px);
+}
+.shared {
+  margin-top: 32px;
+  a {
+    font-family: $text;
+    line-height: 24px;
+    font-size: 18px;
+  }
 }
 #comment_commenter {
   width: 433px;
