@@ -139,6 +139,16 @@ class M_Event_Add_Form extends React.Component {
            </div>
          
           <input className="button-styled" type="submit" value="Готово" />
+          <div className="post_edit_delete">
+          <a 
+                  data-confirm="Are you sure?" 
+                  style={{ marginRight: '10px' }} 
+                  rel="nofollow" 
+                  data-method="delete" 
+                  href={`http://127.0.0.1:3000/events/${this.props.event.id}`}>
+                Удалить
+                </a>  
+          </div>
         </div>
       );
     }

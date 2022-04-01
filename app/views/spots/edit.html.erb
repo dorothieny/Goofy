@@ -2,3 +2,6 @@
 
 <%= render 'form', spot: @spot %>
 
+<div class="post_edit_delete">
+<%= link_to 'Удалить', spot_path(@spot), data: { confirm: "Are you sure?" }, method: :delete %>
+</div>

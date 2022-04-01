@@ -67,7 +67,7 @@
 <div class="edit">
 <% if user_signed_in? && current_user.isadmin == true  %>
     <div class="post_edit">
-      <%= link_to 'Изменить', edit_post_path(@post) %> 
+      <%= link_to 'Редактировать', edit_post_path(@post) %> 
     </div>
   <% end %>
   <%  if user_signed_in? && current_user.isadmin == true %>

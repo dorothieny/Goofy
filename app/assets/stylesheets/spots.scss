@@ -100,20 +100,36 @@
     font-family: $text;
     margin-bottom: 12px;
     color: $grey;
+    font-size: 18px;
     a {
         margin-top: 30px;
         text-decoration: none;
         color: $blue;
         opacity: .5;
-        font-family: $text;
+        font-family: $categories;
         display: block;
-        @include font(20px, 21px);
+        @include font(18px, 21px);
         &:hover {
             opacity: 1;
           }
       }
       a:nth-child(2) {
           color: $red;
+      }
+  }
+  .post_edit_delete {
+      a {width: 440px;
+      margin-top: 30px;
+      text-decoration: none;
+      color: $red;
+      opacity: .5;
+      font-family: $categories;
+      display: block;
+      text-align: center;
+      @include font(18px, 21px);
+      }
+      &:hover {
+        opacity: 1;
       }
   }
 .wrapper-sticky {
@@ -140,5 +156,12 @@
     }
     a:nth-child(2) {
         color: $purple;
+    }
+}
+.flex-buttons {
+    display: flex;
+    align-items: flex-end;
+    form {
+        margin-right: 20px;
     }
 }

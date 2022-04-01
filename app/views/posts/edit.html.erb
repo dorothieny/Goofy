@@ -3,3 +3,6 @@
 
   <%= render 'form', post: @post %>
 
+<div class="post_edit_delete">
+<%= link_to 'Удалить', posts_path(@post), data: { confirm: "Are you sure?" }, method: :delete %>
+</div>

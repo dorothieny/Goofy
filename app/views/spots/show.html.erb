@@ -21,7 +21,19 @@
 <div class="spot-label">
  м <%= @spot.metro %>
 </div>
+<p class="spot-text">
+  <%= @spot.location%>
+</p>
+
+
+<div class="flex-buttons">
+<%= button_to 'Показать маршрут', spot_saveds_path(@spot), method: :post, class: 'button-styled' %>
+<div class="post_edit">
+  <%= link_to 'Поделиться', edit_spot_path(@spot) %>
+  </div>
 </div>
+</div>
+
 
 
 <div class="spot-item">
@@ -61,7 +73,6 @@
 <% if user_signed_in? && current_user.id == @spot.user_id %>
 <div class="post_edit">
   <%= link_to 'Редактировать', edit_spot_path(@spot) %>
-  <%= link_to 'Удалить', spot_path(@spot), data: { confirm: "Are you sure?" }, method: :delete %>
   </div>
 <% end %>
 
