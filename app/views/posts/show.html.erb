@@ -1,93 +1,95 @@
 <div class="">
-<div class="">
-<h1>
-<strong></strong>
-<%= @post.title %>
-</h1>
+<div class="post-page-flex">
+<div class="post-image-page">
+  <%= image_tag(@post.image.url, alt: 'Image') if @post.image? %>
 </div>
 
-<div class="">
-<div class="block_post">
-    <h3> <%= @post.videos %></h3>
-    <p>
+  <div class="right-post-block">
+    <div>
+
+  <div class="post-titile-flex"> 
+    <h1>
+    <%= @post.title %>
+    </h1>
+    <% if @post.category.name != 'Все' %>  
+    <button class="tag-button-post">
+      <%= @post.category.name %>
+    </button>
+    <% end %>
+    <% if user_signed_in? %>
+
+    <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
+      <% if pre_favorite %>
+    <button class="tag-button-post-learned">
+      Выучен
+
+    </button>
+    <% end %>
+    <% end %>
+    </div>
+
+    <div class="spot-item">
+    <div class="spot-label"> <%= @post.videos %></div>
+    <p class="spot-text">
     видео-уроки от рекомендованных райдеров
     </p>
   </div>
 
-  <div class="block_post">
-    <h3>Снаряжение</h3>
-    <p>
+  <div class="spot-item">
+    <div class="spot-label">Снаряжение</div>
+    <p class="spot-text">
     <%= @post.equipment %>
     </p>
   </div>
 
-  <div class="block_post">
-  <h3>
-    Категория
-  </h3>
-  <p>
-    <%= @post.category.name %>
-  </p>
-</div>
-
-  <div class="block_post">
-    <h3>
-    Описание
-    </h3>
-  <p>
+  <p class="post-description">
     <%= @post.description %>
   </p>
-  </div>
-
-<div class="block_post">
-  <%= image_tag(@post.image.url, alt: 'Image') if @post.image? %>
-</div>
-
-  <div class="block_post">
-  <p>
-    <%= @post.content.html_safe %>
-  </p>
-  </div>
-<button>
-<%= @post.favorites.count %> <%= (@post.favorites.count) == 1 ? 'Скейтер умеет' : 'Скейтеров умеют'%>
-</button>
-
-<% if user_signed_in? %>
-
-  <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
-    <% if pre_favorite %>
-        <%= button_to 'Убрать из выученных', post_favorite_path(@post, pre_favorite), method: :delete %>
-    <% else %>
-        <%= button_to 'Добавить в выученные', post_favorites_path(@post), method: :post %>
-  <% end %>
-
-
-<% end %>
-<div class="edit">
-<% if user_signed_in? && current_user.isadmin == true  %>
-    <div class="post_edit">
-      <%= link_to 'Редактировать', edit_post_path(@post) %> 
     </div>
-  <% end %>
-  <%  if user_signed_in? && current_user.isadmin == true %>
-  <div class="post_delete">
-    <%= link_to 'Удалить', posts_path(@post), data: { confirm: "Are you sure?" }, method: :delete %>
-  </div>
-  <% end %>
-</div>
+
+ <div>
+
+ <p class="post_edit">
+    <%= @post.favorites.count %> <%= (@post.favorites.count) == 1 ? 'Скейтер умеет' : 'Скейтеров умеют'%>
+    </p>
+
+    <% if user_signed_in? %>
+
+      <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
+        <% if pre_favorite %>
+            <%= button_to 'Убрать из выученных', post_favorite_path(@post, pre_favorite), method: :delete, class: 'button-styled-post' %>
+        <% else %>
+            <%= button_to 'Добавить в выученные', post_favorites_path(@post), method: :post, class: 'button-styled-post' %>
+      <% end %>
+    <% else %>
+    <button_to 'Добавить в выученные', new_user_session_path, class: 'button-styled-post' %>
+    <% end %>
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <div class="post_edit">
+        <%= link_to 'Редактировать', edit_post_path(@post) %>
+        </div>
+      <% end %>
+
+ </div>
+    </div>
 
 </div>
 
-<div class="comment_post_block">
+<% if @post.content? %>
+<div class="block_post">
+  <%= @post.content.html_safe %>
+</div>
+<% end %>
 
-  <h2>Комментарии</h2>
+<div class="">
+  <h2 class="comment-title">Комментарии</h2>
     <%= render @post.comments %>
   
   <% if user_signed_in? %>
-  <h2>Добавить коммент:</h2>
     <%= render "comments/form" %>
   <% else %>
-    <p> Please <link_to 'login', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to comment.</p>
+  <p class="login-action"> <%= link_to 'Залогинься', new_user_session_path %> или <%= link_to 'зарегистрируйся', new_user_registration_path %> чтобы комментить</p>
   <% end %>
 </div>
+
 </div>

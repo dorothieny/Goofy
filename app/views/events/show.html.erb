@@ -1,7 +1,4 @@
 <div class="event-page-flex">
-
-
-
 <div class="left-card">
   <div>
     <h1>
@@ -34,9 +31,11 @@
  <%= @event.location %>
  </p>
 </div>
+<% if @event.category.name != 'Все' %> 
 <button class="tag-button-event">
 <%= @event.category.name %>
 </button>
+<% end %>
 </div>
 
 <div class="bottom-flex">
