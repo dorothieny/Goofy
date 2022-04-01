@@ -18,8 +18,8 @@ class O_EventCard extends React.Component {
       <React.Fragment>
         <div className="event-card-styled"
           onClick={() => location.href = `http://127.0.0.1:3000/events/${this.props.event.id}`}>
-          <div style= {{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
-          <div style= {{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
+          <div className="event-card-top">
+          <div className="event-card-top-items">
             <h2>{this.props.event.metro}</h2> 
             <p>{this.props.gos != 0 ? `${this.props.gos} участников` : 'Нет участников'}</p>
           </div>

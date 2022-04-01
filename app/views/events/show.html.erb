@@ -1,59 +1,64 @@
-<div class="posts_page">
-<div class="new_post_title">
-<%= link_to 'Назад к ивентам', events_path %>
-<h1>
-  <%= @event.name %>
-</h1>
-</div>
+<div class="event-page-flex">
 
-<div class="new_post_page">
-<div class="block_post">
-  <h3>
-    Метро
-  </h3>
-  <p>
-    <%= @event.metro %>
-  </p>
-</div>
 
-<div class="block_post">
-<h3>
-  Время
-</h3>
-<p>
-  <%= @event.time %>
-</p>
+
+<div class="left-card">
+  <div>
+    <h1>
+      <%= @event.name %>
+    </h1>
+    <p><%= @event.description %></p>
+  </div>
   
-</div>
+<div>
+<p class="chat"> Вступай в <%= link_to 'чат ивента', @event.link %> </p>
 
-<div class="block_post">
-<h3>
-  Уровень
-</h3>
-<p>
-  <%= @event.category.name %>
-</p>
-</div>
-
-<button>
-  <%= @event.goes.count %> <%= (@event.goes.count) == 1 ? 'Пойдет' : 'Пойдут'%>
-</button>
-
-<% if user_signed_in? %>
-<% pre_go = @event.goes.find { |go| go.user_id == current_user.id} %>
-<% if pre_go %>
-  <%= button_to 'Не пойду', event_go_path(@event, pre_go), method: :delete %>
-<% else %>
-  <%= button_to 'Пойду', event_goes_path(@event), method: :post %>
-<% end %>
-<% end %>
-
-
+<div class="flex-buttons-event">
+<button class="button-styled-event"> Поделиться </button>
 <% if user_signed_in? && current_user.id == @event.user_id %>
 <div class="post_edit">
-  <%= link_to 'Изменить', edit_event_path(@event) %> 
+  <%= link_to 'Редактировать', edit_event_path(@event) %> 
   </div>
 <% end %>
 </div>
+</div>
+</div>
 
+<div class='right-card'>
+<div class="event-card-top">
+<div class="event-card-top-items">
+  <h2>
+    <%= @event.metro %>
+  </h2>
+ <p> 
+ <%= @event.location %>
+ </p>
+</div>
+<button class="tag-button-event">
+<%= @event.category.name %>
+</button>
+</div>
+
+<div class="bottom-flex">
+
+<div>
+  <p>
+    <%= @event.goes.count %> <%= (@event.goes.count) == 1 ? 'участник' : 'участников'%>
+  </p>
+
+  <% if user_signed_in? %>
+  <% pre_go = @event.goes.find { |go| go.user_id == current_user.id} %>
+  <% if pre_go %>
+    <%= button_to 'Не пойду', event_go_path(@event, pre_go), method: :delete, class: 'button-styled-event' %>
+  <% else %>
+    <%= button_to 'Пойду на ивент', event_goes_path(@event), method: :post, class: 'button-styled-event-go' %>
+  <% end %>
+  <% end %>
+</div>
+<h1 class="time">
+  <%= @event.time %>
+</h1>
+</div>
+
+</div>
 </div>

@@ -50,3 +50,13 @@
     }
     
 }
+.event-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.event-card-top-items {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
