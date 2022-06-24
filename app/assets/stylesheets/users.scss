@@ -119,8 +119,8 @@
      }
  }
  .cool-bg {
-     position: absolute;
-     top: 0;
-     right: 0;
+     position: relative;
+     top: -50px;
+     left: -50px;
      z-index: -1;
  }

@@ -1,3 +1,7 @@
+<div style="idth: 100%; display: flex; align-items: center">
+<div class="cool-bg">
+        <%= image_tag 'A_Registration_Screen.png' %>
+        </div>
 <div class="container-form">
 <h2 class="login">Регистрация</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -29,6 +33,4 @@
 <%= render "devise/shared/links" %>
 </div>
 </div>
-<div class="cool-bg">
-        <%= image_tag 'A_Registration_Screen.png' %>
-        </div>
+</div>

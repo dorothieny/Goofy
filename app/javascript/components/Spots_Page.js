@@ -5,8 +5,8 @@ import Spots_Table from "./Spots_Table";
 import O_SpotCard from "./O_SpotCard";
 import Banner_Fav from "./Banner_Fav";
 import O_Navbar from "./O_Navbar";
-import img1 from '../../assets/images/MBanner.png'
-import img2 from '../../assets/images/SBanner.png'
+import img1 from '../../assets/images/M_Banner_Wide.png'
+import img2 from '../../assets/images/M_Banner.png'
 import A_Button from "./A_Button";
 import A_Input from "./A_Input";
 class Spots_Page extends React.Component {

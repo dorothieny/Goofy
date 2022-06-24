@@ -4,7 +4,7 @@ import O_SpotCard from "./O_SpotCard";
 import O_EventCard from "./O_EventCard";
 import O_PostCard from "./O_PostCard";
 import Banner_Fav from "./Banner_Fav";
-import img2 from '../../assets/images/SBanner.png'
+import img2 from '../../assets/images/M_Banner.png'
 import image from '../../assets/images/A_BannerMask.png'
 class Main_Page extends React.Component {
   render () {

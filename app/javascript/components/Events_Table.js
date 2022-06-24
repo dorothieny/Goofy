@@ -1,5 +1,7 @@
 import React from "react"
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import A_Delete_Button from "./A_Delete_Button";
+import A_Edit_Button from "./A_Edit_Button";
 class Events_Table extends React.Component {
   render () {
     return (
@@ -31,15 +33,15 @@ class Events_Table extends React.Component {
               <td className="cell-center">{event.time}</td>
               <td className="cell-center">✅</td>
               <td className="cell-center">
-                <button style={{ marginRight: '10px' }}
-                onClick={() => location.href = `http://127.0.0.1:3000/events/${event.id}/edit`}>Изменить</button>
+                <A_Edit_Button
+                onClick={() => location.href = `http://127.0.0.1:3000/events/${event.id}/edit`}/>
                <a 
                   data-confirm="Are you sure?" 
-                  style={{ marginRight: '10px' }} 
+                  style={{ marginLeft: '10px' }} 
                   rel="nofollow" 
                   data-method="delete" 
                   href={`http://127.0.0.1:3000/events/${event.id}`}>
-                Удалить
+                <A_Delete_Button />
                 </a>  
               </td>
             </tr>

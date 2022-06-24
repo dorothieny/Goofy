@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import M_Filter from "./M_Filter";
+import A_Delete_Button from "./A_Delete_Button";
+import A_Edit_Button from "./A_Edit_Button";
 class Posts_Table extends React.Component {
   constructor(props) {
     super(props);
@@ -35,15 +37,15 @@ class Posts_Table extends React.Component {
               <td className="cell-center">{post.equipment}</td>
               <td className="cell-center">{post.image? '✅' : '❌'}</td>
               <td className="cell-center">
-                <button style={{ marginRight: '10px' }}
-                onClick={() => location.href = `http://127.0.0.1:3000/posts/${post.id}/edit`}>Изменить</button>
+                <A_Edit_Button
+                onClick={() => location.href = `http://127.0.0.1:3000/posts/${post.id}/edit`}/>
                <a 
                   data-confirm="Are you sure?" 
-                  style={{ marginRight: '10px' }} 
+                  style={{ marginLeft: '10px' }} 
                   rel="nofollow" 
                   data-method="delete" 
                   href={`http://127.0.0.1:3000/posts/${post.id}`}>
-                Удалить
+                <A_Delete_Button />
                 </a>
               </td>
             </tr>
