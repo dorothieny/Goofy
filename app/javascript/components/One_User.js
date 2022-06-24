@@ -6,6 +6,7 @@ import M_Filter from "./M_Filter";
 import O_SpotCard from "./O_SpotCard";
 import O_EventCard from "./O_EventCard";
 import O_PostCard from "./O_PostCard";
+import A_Edit_Button from "./A_Edit_Button";
 class One_User extends React.Component {
   constructor(props){
     super(props);
@@ -45,9 +46,9 @@ class One_User extends React.Component {
           className="user-avatar"
           style={{ backgroundImage:`url(${this.state.avatar})`}} />
         <div className="user-name">
-          <h1>
-            {this.props.user.username}
-            </h1>
+          <div style={{display: 'flex'}}>
+            <h1>{this.props.user.username}</h1> <A_Edit_Button onClick={() => location.href = `http://127.0.0.1:3000/users/edit`}/>
+          </div>
             <h2>{this.props.user.email}</h2>
         </div>
         </div>

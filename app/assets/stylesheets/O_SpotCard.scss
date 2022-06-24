@@ -3,35 +3,67 @@
 .spot-card-styled {
     border-radius: 12px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+    justify-content: space-between;
     cursor: pointer; 
     position: relative;
+    border: 1px solid $black;
     .button-saved {
         position: absolute;
         top: 15px;
         right: 17px;
         z-index: 1;;
     }
+    .container-image-filter {
+        height: 100%; 
+        position: relative;
+        button { 
+            padding: 5px 16px;
+            font-family: $text;
+            font-size: 18px;
+            background: transparent;
+            border: 1.2px solid $white;
+            border-radius: 40px;
+            color: $white;
+            position: absolute;
+            top: 18px;
+            left: 22px;
+            z-index: 1;
+            text-transform: lowercase;
+           }
+    }
+    .filter {
+        background-color: #3A4C7B;
+        opacity: .2;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     .spot-image {
         background-position: top center; 
         background-size: cover;
-        height: 194px; 
+        height: 100%; 
+        position: relative;
         background-repeat: no-repeat; 
-        filter: saturate(0%) brightness(40%);
     }
     &:hover {
         transition: all .6 ease;
-        filter: drop-shadow(10px 8px 5px rgba(43, 48, 59, 0.3));
+        filter: drop-shadow(8px 8px 0px rgba(43, 48, 59, 1));
     }
 }
 .spot-card-bottom {
-   background-color: $black;
-   color: $white;
-   height: 100%;
+   background-color: $white;
+   color: $black;
    padding: 18px 22px;
+   position: relative;
    box-sizing: border-box;
    p{
        font-family: $text;
-       font-size: 24px;
+       font-size: 22px;
        opacity: 0.6;
    }
    h1{
@@ -43,15 +75,6 @@
     font-family: $text;
     font-size: 18px;
     opacity: 0.6;
-   }
-   button { 
-    padding: 9px 16px;
-    font-family: $text;
-    font-size: 18px;
-    background: transparent;
-    border: 1px solid $white;
-    border-radius: 40px;
-    color: $white;
    }
 
 }

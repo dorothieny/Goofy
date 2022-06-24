@@ -26,9 +26,10 @@ class Main_Page extends React.Component {
             Споты</h1>
           <p>Лучшие локации, где можно покататься</p>
           </div>
-          <div className="spots-grid">
+          <div className="container-horizontal">
+          <div className="horizontal">
             <Banner_Fav  color='#B35B58' 
-            text='Твои сохраненные' 
+            text='Твои любимые' 
             places={this.props.current_user ? this.props.saveds.filter(item => this.props.current_user.id === item.user_id).length : 'Нет'}
             image={img2} linkTo={this.props.current_user ? `http://127.0.0.1:3000/users/${this.props.current_user.id}` : 'http://127.0.0.1:3000/users/sign_up'}/>
           {this.props.spots.map(spot => {
@@ -40,6 +41,7 @@ class Main_Page extends React.Component {
             )
           })}
           </div>
+          </div>
         </div>
         <div className="main-podborka">
           <div 
@@ -50,7 +52,8 @@ class Main_Page extends React.Component {
             Ивенты</h1>
           <p>Встречи скейтеров по всему городу сегодня </p>
           </div>
-          <div className="events-grid">
+          <div className="container-horizontal">
+          <div className="horizontal">
           {this.props.events.map(event => {
             return (
               <O_EventCard
@@ -61,6 +64,7 @@ class Main_Page extends React.Component {
           })}
           </div>
         </div>
+        </div>
         <div className="main-podborka">
           <div 
           className="title-podborka" 
@@ -70,7 +74,8 @@ class Main_Page extends React.Component {
             Трюки</h1>
           <p>Трюки для скейтеров всех уровней катания</p>
           </div>
-          <div className="posts-grid">
+          <div className="container-horizontal">
+          <div className="horizontal">
           {this.props.posts.map(post => {
             return (
               <O_PostCard 
@@ -80,6 +85,7 @@ class Main_Page extends React.Component {
               category={this.props.categories.filter(category => post.category_id === category.id)[0].name} />
             )
           })}
+        </div>
         </div>
         </div>
         

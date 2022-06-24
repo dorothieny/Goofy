@@ -1,37 +1,25 @@
+<div class="container-form">
 <h2 class="login">Регистрация</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autocomplete: "username" %>
+  <div class="field spot-input">
+    <%= f.text_field :username, autocomplete: "username", placeholder: "Твое имя" %>
 </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field spot-input">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Твоя почта" %>
   </div>
 
-
-  <div class="field">
-  <%= f.label :Загрузить_аватар %>
-  <%= f.file_field :avatar %>
-
-</div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  
+  <div class="field spot-input">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Твой пароль (6 символов минимум)" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field spot-input">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Твой пароль еще раз"  %>
   </div>
+  
 
   <div class="">
     <%= f.submit "Зарегистрироваться", class: 'button-styled' %>
@@ -40,4 +28,7 @@
 <div class="shared"> 
 <%= render "devise/shared/links" %>
 </div>
-
+</div>
+<div class="cool-bg">
+        <%= image_tag 'A_Registration_Screen.png' %>
+        </div>

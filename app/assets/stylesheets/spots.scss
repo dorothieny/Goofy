@@ -7,19 +7,52 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 21px;
 }
+.container-horizontal {
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    &::-webkit-scrollbar {
+        display: none;
+      }
+}
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    .banner {
+        margin-right: 20px;
+    }
+    .spot-card-styled {
+        margin-right: 20px;
+        min-width: 458px;
+    }
+    .event-card-styled {
+        margin-right: 20px;
+    }
+    .post-card-styled {
+        margin-right: 20px;
+        min-width: 666px;
+    }
+}
 .banner {
-    height: 350px;
+    height: 330px;
     overflow: hidden; 
     border-radius: 12px; 
     color: $white;
-    padding: 140px 15px 0px 30px;
+    padding: 0px 15px 30px 30px;
+    display: flex;
+    min-width: 458px;
+    flex-direction: column;
+    justify-content: flex-end;
     box-sizing: border-box;
     cursor: pointer;
     transition: all .6 ease;
     filter: none;
     &:hover {
         transition: all .6 ease;
-        filter: drop-shadow(10px 8px 5px rgba(43, 48, 59, 0.3));
+        filter: drop-shadow(8px 8px 0px rgba(43, 48, 59, 1));
     }
     h1 {
         font-family: $titleOfCards;
@@ -118,7 +151,13 @@
       }
   }
   .post_edit_delete {
-      a {width: 440px;
+    font-family: $categories;
+    border: none;
+    color: $red;
+    background: transparent;
+    text-align: center;
+      a {
+        width: 440px;
       margin-top: 30px;
       text-decoration: none;
       color: $red;
@@ -142,9 +181,6 @@
 }
 .same-spots {
     margin-top: 66px;
-    h1 {
-        margin-bottom: 44px;
-    }
 }
 .login {
     font-family:$title;

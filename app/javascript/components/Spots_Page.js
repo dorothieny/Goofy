@@ -52,7 +52,7 @@ class Spots_Page extends React.Component {
 
         <Banner_Fav 
           color='#B35B58' 
-          text='Твои сохраненные' 
+          text='Твои любимые' 
           places={this.props.current_user ? this.props.saveds.filter(item => this.props.current_user.id === item.user_id).length : 'Нет'}
           image={img2} linkTo={this.props.current_user ? `http://127.0.0.1:3000/users/${this.props.current_user.id}` : 'http://127.0.0.1:3000/users/sign_up'}/>
 

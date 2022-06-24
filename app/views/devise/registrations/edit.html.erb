@@ -1,20 +1,17 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="container-form">
+<h2 class="login">Редактирование</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :username %><br />
+  <div class="field spot-input">
     <%= f.text_field :username, autocomplete: "username" %>
   </div>
 
   <div class="field">
-  <p>Изменить аватар</p>
-  <%= f.file_field :avatar %>
+  <a>Aватар</a> <%= f.file_field :avatar %>
 </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="field spot-input">
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   
@@ -23,30 +20,23 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="field spot-input">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Новый пароль (6 символов)" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field spot-input">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Новый пароль еще раз" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="field spot-input">
+    <p style="margin-top: 56px">Чтобы внести изменения, введите текущий пароль</p><br />
+    <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "Текущий пароль" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Обновить" %>
+  <div class="">
+    <%= f.submit "Обновить", class: 'button-styled' %>
   </div>
 <% end %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= button_to "Удалить аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete, class: "post_edit_delete", style: "font-size: 18px; width: 440px; margin-top: 32px" %>
+</div>

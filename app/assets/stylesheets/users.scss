@@ -77,7 +77,7 @@
    @include font(32px, 48px);
    color: $black;
    position: relative;
-   width: 400px !important;
+    margin-right: 26px;
    z-index: 1;
   
    }
@@ -91,4 +91,36 @@
     width: 525px !important;
     margin-bottom: 59px;
     margin-top: 58px;
+ }
+ .container-form {
+     height: 100vh;
+     z-index: 2;
+     background: rgba(248, 245, 241, 0.3);
+     backdrop-filter: blur(10px);
+     h2 {
+         text-align: center;
+         width: calc(100% - 35px);
+     }
+     
+     width: 478px;
+     .button-styled {
+         width: calc(100% - 35px);
+     }
+    
+ }
+ .shared {
+     display: flex;
+     color: $black;
+     font-family: $text;
+     width: calc(100% - 35px);
+     justify-content: center;
+     a:first-of-type{
+         margin-right: 20px;
+     }
+ }
+ .cool-bg {
+     position: absolute;
+     top: 0;
+     right: 0;
+     z-index: -1;
  }

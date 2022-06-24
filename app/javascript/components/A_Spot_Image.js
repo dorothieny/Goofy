@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import img from '../../assets/images/A_SpotImage.png'
+import img from '../../assets/images/A_Spot_Mock.png'
 class A_Spot_Image extends React.Component {
   constructor (props) {
     super(props),

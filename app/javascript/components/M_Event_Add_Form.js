@@ -133,9 +133,6 @@ class M_Event_Add_Form extends React.Component {
           />
 
            </div>
-           <div className="cool-bg">
-              <img src={img} />
-           </div>
            </div>
          
           <input className="button-styled" type="submit" value="Готово" />

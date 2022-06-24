@@ -6,7 +6,8 @@ class M_Spot_Horisontal_Grid extends React.Component {
     console.log(this.props);
     return (
       <React.Fragment>
-        <div className="spots-grid">
+        <div className="container-horizontal">
+        <div className="horizontal">
           {this.props.spots.map(spot => {
             return (
               <O_SpotCard 
@@ -16,6 +17,7 @@ class M_Spot_Horisontal_Grid extends React.Component {
                 saved={this.props.saveds.filter(item => item.spot_id === spot.id && item.user_id === this.props.current_user?.id)}/>
             )
           })}
+        </div>
         </div>
       </React.Fragment>
     );

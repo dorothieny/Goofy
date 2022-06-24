@@ -191,10 +191,13 @@
   opacity: .5
 }
 
-.field label {
-  color: $black;
-  font-family:  $titleOfCards;
-  @include font(24px, 27px);
+.field {
+  margin-bottom: 32px;
+  font-family: $text;
+  font-size: 18px;
+#user_email, #user_password {
+  margin-top: 16px;
+}
 }
 .shared {
   margin-top: 32px;
@@ -207,9 +210,6 @@
 #comment_commenter {
   width: 433px;
   margin-top: 25px;
-}
-.field {
-  margin-bottom: 40px;
 }
 .actions input {
   @include button(4px, solid, $black, 340px, 318px, transparent);
