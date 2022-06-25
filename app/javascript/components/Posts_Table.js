@@ -33,7 +33,7 @@ class Posts_Table extends React.Component {
               onClick={() => location.href = `http://127.0.0.1:3000/posts/${post.id}`}>{post.title}</td>
               <td className="cell-center" >{this.props.categories.filter(category => post.category_id === category.id)[0].name}</td>
               <td className="cell-left" style={{ width: '500px'}}>{post.description}</td>
-              <td className="cell-center">{post.video? '✅' : '❌'}</td>
+              <td className="cell-center">{post.content !== "" ? '✅' : '❌'}</td>
               <td className="cell-center">{post.equipment}</td>
               <td className="cell-center">{post.image? '✅' : '❌'}</td>
               <td className="cell-center">

@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+import A_Delete_Button from "./A_Delete_Button";
+import A_Edit_Button from "./A_Edit_Button";
 
 class Users extends React.Component {
   
@@ -32,16 +34,16 @@ class Users extends React.Component {
               <td className="cell-center"></td>
               <td className="cell-right">
                 {this.props.current_user === user.id ?
-                <button style={{ marginRight: '10px' }}
-                onClick={() => location.href = `http://127.0.0.1:3000/users/edit`}>Edit</button>
+                <A_Edit_Button
+                onClick={() => location.href = `http://127.0.0.1:3000/users/edit`}/>
                 : <a></a>}
                <a 
                   data-confirm="Are you sure?" 
-                  style={{ marginRight: '10px' }} 
                   rel="nofollow" 
                   data-method="delete" 
+                  style={{ marginLeft: '10px'}}
                   href={`http://127.0.0.1:3000/users/${user.id}`}>
-                Удалить
+              <A_Delete_Button />
                 </a>
               </td>
             </tr>

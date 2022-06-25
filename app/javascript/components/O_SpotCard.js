@@ -21,12 +21,12 @@ class O_SpotCard extends React.Component {
        <div className="container-image-filter ">
        <div 
         className="spot-image"
-        style={{backgroundImage: `url(${this.state.image})`}} />
+        style={{backgroundImage: `url(${this.props.spot?.image.url ? this.props.spot.image.url : image})`}} />
          <button>{this.props.type}</button>
         <div className="filter"></div>
        </div>
           <div className="spot-card-bottom">
-          <h1>{this.props.spot.metro} | 2 мин</h1>
+          <h1>{this.props.spot.metro} | {Math.floor(Math.random() *4) + 1} мин</h1>
           <p>{this.props.spot.name}</p>
           </div>
           </div>

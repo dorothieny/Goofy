@@ -202,7 +202,13 @@
 .flex-buttons {
     display: flex;
     align-items: flex-end;
+    a {
+        text-align: center;
+    }
+    .button-styled {
+        margin-right: 32px;
+    }
     form {
-        margin-right: 20px;
+        // margin-right: 20px;
     }
 }
